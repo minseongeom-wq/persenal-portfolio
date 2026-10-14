@@ -21,7 +21,7 @@
 .d20{right:71px}
 .d21{top:200px}
 .d22{word-break:break-word}
-.d23{font-family:'Arial',sans-serif;font-weight:700}
+.d23{font-family:'Inter','Pretendard',sans-serif;font-weight:800}
 .d24{font-weight:800}
 .d25{justify-content:center}
 .d26{line-height:0}
@@ -31,19 +31,19 @@
 .d30{color:#000}
 .d31{letter-spacing:-8px}
 .d32{white-space:nowrap}
-.d33{font-family:'Arial',sans-serif;font-weight:700}
+.d33{font-family:'PP Neue Montreal','Pretendard',sans-serif;font-weight:700}
 .d34{letter-spacing:-0.64px}
 .d35{line-height:1}
 .d36{color:rgba(0,0,0,0)}
 .d37{left:0}
 .d38{right:86px}
-.d39{font-family:'Arial',sans-serif;font-weight:400}
+.d39{font-family:'PP Neue Montreal','Pretendard',sans-serif;font-weight:400}
 .d40{left:calc(41.67% + 22.83px)}
 .d41{font-size:20px}
 .d42{top:654px}
 .d43{letter-spacing:-0.6px}
 .d44{margin-bottom:0}
-.d45{font-family:'Courier New',monospace;font-weight:500}
+.d45{font-family:'PP Neue Montreal Mono','Pretendard',sans-serif;font-weight:500}
 .d46{color:#808080}
 .d47{font-size:16px}
 .d48{top:711px}
@@ -72,14 +72,14 @@
 .d71{left:79px}
 .d72{width:800px;height:800px}
 .d73{top:149px}
-.d74{font-family:'Malgun Gothic',sans-serif;font-weight:500}
+.d74{font-family:'Pretendard','Pretendard',sans-serif;font-weight:500}
 .d75{left:1047px}
 .d76{font-size:40px}
 .d77{top:488px}
 .d78{letter-spacing:-1.2px}
 .d79{line-height:1.5}
 .d80{top:965px}
-.d81{font-family:'Malgun Gothic',sans-serif;font-weight:300}
+.d81{font-family:'Pretendard','Pretendard',sans-serif;font-weight:300}
 .d82{top:590px}
 .d83{top:387px}
 .d84{--tx:-50%}
@@ -87,7 +87,7 @@
 .d86{left:calc(50% - 513.5px)}
 .d87{top:calc(50% - 396px)}
 .d88{left:calc(50% - 869px)}
-.d89{font-family:'Arial',sans-serif;font-weight:500}
+.d89{font-family:'PP Neue Montreal','Pretendard',sans-serif;font-weight:500}
 .d90{font-size:120px}
 .d91{letter-spacing:-4.8px}
 .d92{line-height:normal}
@@ -197,7 +197,7 @@
 .d196{width:1104px}
 .d197{right:-116px}
 .d198{top:205px}
-.d199{font-family:'Arial',sans-serif;font-weight:700}
+.d199{font-family:'Inter','Pretendard',sans-serif;font-weight:700}
 .d200{font-weight:700}
 .d201{letter-spacing:-6px}
 .d202{left:-15px}
@@ -257,10 +257,10 @@
 .d256{left:calc(50% + 13.5px)}
 .d257{top:779px}
 .d258{width:1789px}
-.d259{font-family:'Arial',sans-serif;font-weight:300}
+.d259{font-family:'Inter','Pretendard',sans-serif;font-weight:300}
 .d260{font-weight:300}
 .d261{top:639px}
-.d262{font-family:'Arial',sans-serif;font-weight:700}
+.d262{font-family:'Inter','Pretendard',sans-serif;font-weight:600}
 .d263{font-weight:600}
 .d264{height:304px}
 .d265{left:-90px}
@@ -286,4 +286,27 @@
 .d285{left:-34.86%}
 .d286{top:-111.39%}
 .d287{width:169.73%}
-
+.d288{height:2038px}
+.d289{height:1100px}
+.d290{height:301px}
+.d291{left:952px}
+.d292{top:426px}
+.d293{width:666px}
+.d294{height:427px}
+.d295{left:144px}
+.d296{top:365px}
+.d297{left:1403px}
+.d298{top:244px}
+.d299{left:1330px}
+.d300{top:320px}
+.d301{left:1223px}
+.d302{top:282px}
+.d303{left:1136px}
+.d304{top:355px}
+.d305{left:839.97px}
+.d306{width:82.031px;height:82.031px}
+.d307{top:550px}
+.d308{left:1499px}
+.d309{top:745px}
+.d310{left:754px}
+.d311{top:1017px}

@@ -1,14 +1,15 @@
 import React from 'react';
-import { setup as setupCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417, render as renderCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417, manifest as manifestCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417 } from "../lib/custom-effects/CodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417";
-import { setup as setupCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598, render as renderCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598, manifest as manifestCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598 } from "../lib/custom-effects/CodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598";
-import { setup as setupCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603, render as renderCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603, manifest as manifestCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603 } from "../lib/custom-effects/CodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603";
-import { setup as setupCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411, render as renderCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411, manifest as manifestCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411 } from "../lib/custom-effects/CodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411";
 function ShaderEffect({shaders,children,...props}){return <div {...props} data-shader-unavailable="true">{children}</div>}
 const assetPathPrefix = "./assets";
+const imgIconArrowDownRight = `${assetPathPrefix}/46f35.svg`;
+import { setup as setupCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417, render as renderCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417, manifest as manifestCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417 } from "../lib/custom-effects/CodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417";
+import { setup as setupCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598, render as renderCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598, manifest as manifestCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598 } from "../lib/custom-effects/CodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598";
+import { setup as setupCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411, render as renderCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411, manifest as manifestCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411 } from "../lib/custom-effects/CodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411";
 const imgPortfolioEomMinseong = `${assetPathPrefix}/6dbd7.png`;
-const imgProjectPreviewPrimary = `${assetPathPrefix}/4bc4d.png`;
+const imgProjectPreviewPrimary = `${assetPathPrefix}/4e748.png`;
 const imgContributionPreviewImage = `${assetPathPrefix}/e3ae6.png`;
 const imgContributionPreviewImage1 = `${assetPathPrefix}/f7356.png`;
+const imgRectangle7 = `${assetPathPrefix}/c7a92.png`;
 const imgNavigationImageAccent = `${assetPathPrefix}/e51b5.png`;
 const imgIconLinkArrow = `${assetPathPrefix}/eeb28.svg`;
 const imgIconProjectArrow = `${assetPathPrefix}/307af.svg`;
@@ -16,6 +17,14 @@ const imgIconProjectArrow1 = `${assetPathPrefix}/2d508.svg`;
 const imgDividerProjectsHeader = `${assetPathPrefix}/ca880.svg`;
 const imgIconLinkArrow1 = `${assetPathPrefix}/08a83.svg`;
 const imgDividerFooter = `${assetPathPrefix}/0f9d3.svg`;
+
+function IconArrowDownRight({ className }) {
+  return (
+    <div className={className || "d7 d58"} data-node-id="823:1640" data-name="Icon / Arrow Down Right">
+      <img alt="" className="d13 d62 d63 d64 d8" src={imgIconArrowDownRight} />
+    </div>
+  );
+}
 
 export default function PortfolioEomMinseong() {
   return (
@@ -196,11 +205,9 @@ export default function PortfolioEomMinseong() {
         <p className="d22 d13 d89 d92 d96 d27 d90 d30 d94 d91 d32" data-node-id="919:894">
           /05
         </p>
-        <ShaderEffect className="d84 d18 d13 d97 d98 d99 d100" data-node-id="919:895" shaders={[{ setup: setupCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603, render: renderCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603, params: { preserveInput: 11, threshold: -24, foregroundColor: { r: 0.10096153616905212, g: 0.2807711958885193, b: 1, a: 1 }, mode: 0, spread: 0, backgroundColor: { r: 0.9759615659713745, g: 0.9759615659713745, b: 0.9759615659713745, a: 1 }, invert: true, edgeSoftness: 1.399999976158142 }, manifest: manifestCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603 }]}>
-          <div className="d97 d7 d100" data-name="Project Preview / Primary">
-            <img alt="" className="d13 d63 d64 d101 d102 d8" src={imgProjectPreviewPrimary} />
-          </div>
-        </ShaderEffect>
+        <div className="d84 d18 d13 d97 d98 d99 d100" data-node-id="919:895" data-name="Project Preview / Primary">
+          <img alt="" className="d13 d63 d64 d101 d102 d8" src={imgProjectPreviewPrimary} />
+        </div>
         <div className="d84 d18 d13 d70 d97 d98 d103 d100" data-node-id="919:896" data-name="Project Preview / Secondary" />
         <div className="d84 d18 d13 d104 d105 d106 d107 d108" data-node-id="919:897" data-name="Project Link / 01 Nintendo - Team / Active">
           <div className="d13 d2 d3 d109 d5 d110 d111" data-node-id="I919:897;918:61" data-name="Project Link / Content">
@@ -283,7 +290,7 @@ export default function PortfolioEomMinseong() {
       </div>
       <div className="d3 d56 d25 d7 d11" data-node-id="924:2261">
         <div className="d126 d61 d127">
-          <div className="d128 d10 d7 d122" data-name="Section / My Contribution">
+          <div className="d288 d10 d7 d122" data-name="Section / My Contribution">
             <div className="d13 d2 d3 d4 d5 d129 d10 d130" data-node-id="924:2263" data-name="Contribution Card / 01 Restructuring">
               <div className="d131 d7 d11 d132" data-node-id="I924:2263;924:2000" data-name="Contribution / Container">
                 <div className="d13 d2 d3 d133 d56 d37 d59" data-node-id="I924:2263;924:2179" data-name="Contribution / Content Row">
@@ -480,139 +487,61 @@ export default function PortfolioEomMinseong() {
       </div>
       <div className="d3 d56 d25 d7 d11" data-node-id="946:2404">
         <div className="d126 d61 d127">
-          <div className="d158 d10 d7 d122" data-name="Section / My Contribution">
-            <div className="d13 d2 d3 d4 d5 d129 d10 d130" data-node-id="946:2405" data-name="Contribution Card / 01 Restructuring">
-              <div className="d131 d7 d11 d132" data-node-id="I946:2405;924:2000" data-name="Contribution / Container">
-                <div className="d13 d2 d3 d133 d56 d37 d59" data-node-id="I946:2405;924:2179" data-name="Contribution / Content Row">
-                  <div className="d2 d3 d4 d134 d135 d7 d11 d136" data-node-id="I946:2405;924:1967" data-name="Contribution / Text Block">
-                    <div className="d3 d56 d25 d137 d7 d11 d138" data-node-id="I946:2405;848:1506">
-                      <div className="d126 d61 d127 d12">
-                        <div className="d22 d3 d4 d45 d25 d26 d27 d7 d46 d47 d49 d12">
-                          <p className="d79">01 / RESTRUCTURING</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="d3 d56 d25 d7 d11" data-node-id="I946:2405;848:1505">
-                      <div className="d126 d61 d127">
-                        <div className="d22 d3 d4 d74 d25 d26 d27 d7 d76 d30 d78 d32">
-                          <p className="d35">탐색의 흐름을 다시 설계하다.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="d3 d56 d25 d7 d11" data-node-id="I946:2405;919:857">
-                      <div className="d126 d61 d127">
-                        <div className="d22 d3 d4 d74 d25 d26 d27 d7 d139 d30 d140 d141">
-                          <p className="d142 d44">게임과 캐릭터를 발견하는 경험에 주목해 기존 사이트의 탐색 구조를</p>
-                          <p className="d142">분석하고, 콘텐츠 간 연결을 고려한 정보구조와 사용자 흐름을 설계했습니다.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="d131 d7 d11 d143" data-node-id="I946:2405;848:1502" data-name="Contribution / Preview Image">
-                    <img alt="" className="d13 d63 d64 d101 d102 d8" src={imgContributionPreviewImage} />
-                  </div>
+          <div className="d289 d10 d7 d122" data-name="Section / FRONT-END DEVELOPMENT">
+            <div className="d13 d3 d290 d56 d25 d291 d292 d293" data-node-id="948:2442">
+              <div className="d126 d61 d127">
+                <div className="d290 d7 d293">
+                  <img alt="" className="d13 d63 d64 d101 d102 d8" src={imgRectangle7} />
                 </div>
               </div>
             </div>
-            <div className="d13 d2 d3 d4 d5 d129 d10 d144" data-node-id="946:2406" data-name="Contribution Card / 02 Systemizing">
-              <div className="d131 d7 d11 d132" data-node-id="I946:2406;924:2000" data-name="Contribution / Container">
-                <div className="d13 d2 d3 d133 d56 d37 d59" data-node-id="I946:2406;924:2179" data-name="Contribution / Content Row">
-                  <div className="d2 d3 d4 d134 d135 d7 d11 d136" data-node-id="I946:2406;924:1967" data-name="Contribution / Text Block">
-                    <div className="d3 d56 d25 d137 d7 d11 d138" data-node-id="I946:2406;848:1506">
-                      <div className="d126 d61 d127 d12">
-                        <div className="d22 d3 d4 d45 d25 d26 d27 d7 d46 d47 d49 d12">
-                          <p className="d79">02 / SYSTEMIZING</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="d3 d56 d25 d7 d11" data-node-id="I946:2406;848:1505">
-                      <div className="d126 d61 d127">
-                        <div className="d22 d3 d4 d74 d25 d26 d27 d7 d76 d30 d78 d32">
-                          <p className="d35 d44">서로 다른 작업을</p>
-                          <p className="d35">하나의 기준으로 연결하다.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="d3 d56 d25 d7 d11" data-node-id="I946:2406;919:857">
-                      <div className="d126 d61 d127">
-                        <div className="d22 d3 d4 d74 d25 d26 d27 d7 d139 d30 d140 d141">
-                          <p className="d142 d44">타이포그래피, 컬러, 공통 UI 요소를 정리한 디자인 시스템을 통해</p>
-                          <p className="d142">여러 페이지에서 일관된 시각적 경험을 구현할 수 있는 기준을 마련했습니다.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="d131 d7 d11 d143" data-node-id="I946:2406;848:1502" data-name="Contribution / Preview Image">
-                    <img alt="" className="d13 d63 d64 d101 d102 d8" src="./assets/924-2264-0.png" />
-                  </div>
+            <div className="d13 d3 d294 d56 d25 d295 d296 d293" data-node-id="948:2744">
+              <div className="d126 d61 d127">
+                <div className="d294 d7 d293">
+                  <img alt="" className="d13 d63 d64 d101 d102 d8" src="./assets/frontend-before.png" />
                 </div>
               </div>
             </div>
-            <div className="d13 d2 d3 d4 d5 d129 d10 d146" data-node-id="946:2407" data-name="Contribution Card / 03 Visual Experience">
-              <div className="d131 d7 d11 d132" data-node-id="I946:2407;924:2000" data-name="Contribution / Container">
-                <div className="d13 d2 d3 d133 d56 d37 d59 d147" data-node-id="I946:2407;924:2179" data-name="Contribution / Content Row">
-                  <div className="d2 d3 d4 d134 d135 d7 d11 d136" data-node-id="I946:2407;924:1967" data-name="Contribution / Text Block">
-                    <div className="d3 d56 d25 d137 d7 d11 d138" data-node-id="I946:2407;848:1506">
-                      <div className="d126 d61 d127 d12">
-                        <div className="d22 d3 d4 d45 d25 d26 d27 d7 d46 d47 d49 d12">
-                          <p className="d79">03 / VISUAL EXPERIENCE</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="d3 d56 d25 d7 d11" data-node-id="I946:2407;848:1505">
-                      <div className="d126 d61 d127">
-                        <div className="d22 d3 d4 d74 d25 d26 d27 d7 d76 d30 d78 d32">
-                          <p className="d35 d44">정적인 화면에</p>
-                          <p className="d35">브랜드의 개성을 더하다.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="d3 d56 d25 d7 d11" data-node-id="I946:2407;919:857">
-                      <div className="d126 d61 d127">
-                        <div className="d22 d3 d4 d74 d25 d26 d27 d7 d139 d30 d140 d141">
-                          <p className="d142 d44">스크롤과 타이포그래피, 화면 전환을 활용해 닌텐도 특유의 즐거움을</p>
-                          <p className="d142">표현하고, 사용자가 콘텐츠를 탐색하는 과정에 움직임을 더했습니다.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="d131 d7 d11 d143" data-node-id="I946:2407;848:1502" data-name="Contribution / Preview Image">
-                    <img alt="" className="d13 d63 d64 d101 d102 d8" src="./assets/924-2265-0.png" />
-                  </div>
+            <div className="d18 d13 d3 d56 d25 d297 d298" data-node-id="948:2443">
+              <div className="d126 d61 d127">
+                <div className="d22 d3 d4 d45 d25 d26 d27 d7 d46 d47 d49 d32">
+                  <p className="d35">/ FRONT-END DEVELOPMENT</p>
                 </div>
               </div>
             </div>
-            <div className="d13 d2 d3 d4 d5 d129 d10 d148" data-node-id="946:2408" data-name="Contribution Card / 04 Collaboration">
-              <div className="d131 d7 d11 d132" data-node-id="I946:2408;924:2000" data-name="Contribution / Container">
-                <div className="d13 d2 d3 d133 d56 d37 d59" data-node-id="I946:2408;924:2179" data-name="Contribution / Content Row">
-                  <div className="d2 d3 d4 d134 d135 d7 d11 d136" data-node-id="I946:2408;924:1967" data-name="Contribution / Text Block">
-                    <div className="d3 d56 d25 d137 d7 d11 d138" data-node-id="I946:2408;848:1506">
-                      <div className="d126 d61 d127 d12">
-                        <div className="d22 d3 d4 d45 d25 d26 d27 d7 d46 d47 d49 d12">
-                          <p className="d79">04 / COLLABORATION</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="d3 d56 d25 d7 d11" data-node-id="I946:2408;848:1505">
-                      <div className="d126 d61 d127">
-                        <div className="d22 d3 d4 d74 d25 d26 d27 d7 d76 d30 d78 d32">
-                          <p className="d35 d44">함께 만든 디자인을</p>
-                          <p className="d35">하나의 경험으로 완성하다.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="d3 d56 d25 d7 d11" data-node-id="I946:2408;919:857">
-                      <div className="d126 d61 d127">
-                        <div className="d22 d3 d4 d74 d25 d26 d27 d7 d139 d30 d140 d141">
-                          <p className="d142 d44">공통 디자인 규칙과 작업 방향을 공유하고, 팀원들의 결과물이 자연스럽게</p>
-                          <p className="d142">연결될 수 있도록 협업했습니다.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="d131 d7 d11 d143" data-node-id="I946:2408;848:1502" data-name="Contribution / Preview Image">
-                    <img alt="" className="d13 d63 d64 d101 d102 d8" src={imgContributionPreviewImage1} />
-                  </div>
+            <div className="d18 d13 d3 d56 d25 d299 d300" data-node-id="948:2446">
+              <div className="d126 d61 d127">
+                <div className="d22 d3 d4 d45 d25 d26 d27 d7 d46 d47 d49 d32">
+                  <p className="d35">React · CSS · JavaScript · GSAP</p>
+                </div>
+              </div>
+            </div>
+            <div className="d18 d13 d3 d56 d25 d301 d302" data-node-id="948:2444">
+              <div className="d126 d61 d127">
+                <div className="d22 d3 d4 d74 d25 d26 d27 d7 d76 d30 d78 d32">
+                  <p className="d35">디자인을 코드로 연결하다.</p>
+                </div>
+              </div>
+            </div>
+            <div className="d18 d13 d3 d56 d25 d303 d304" data-node-id="948:2447">
+              <div className="d126 d61 d127">
+                <div className="d22 d3 d4 d74 d25 d26 d27 d7 d139 d30 d140 d32">
+                  <p className="d142">디자인의 시각적 완성도를 웹에서도 유지할 수 있도록 인터랙션과 화면 구현에 집중했습니다.</p>
+                </div>
+              </div>
+            </div>
+            <IconArrowDownRight className="d13 d3 d56 d25 d305 d306 d307" />
+            <div className="d18 d13 d3 d56 d25 d308 d309" data-node-id="948:2746">
+              <div className="d126 d61 d127">
+                <div className="d22 d3 d4 d45 d25 d26 d27 d7 d46 d47 d49 d32">
+                  <p className="d35">Before_Design</p>
+                </div>
+              </div>
+            </div>
+            <div className="d18 d13 d3 d56 d25 d310 d309" data-node-id="948:2748">
+              <div className="d126 d61 d127">
+                <div className="d22 d3 d4 d45 d25 d26 d27 d7 d46 d47 d49 d32">
+                  <p className="d35">After_</p>
                 </div>
               </div>
             </div>
@@ -1010,7 +939,7 @@ export default function PortfolioEomMinseong() {
         </div>
       </div>
       <div className="d9 d7 d11 d12" data-node-id="919:962" data-name="Section / Design Philosophy">
-        <div className="d18 d22 d13 d3 d4 d81 d25 d26 d37 d27 d228 d30 d229 d32" data-node-id="919:963">
+        <div className="d18 d22 d13 d3 d4 d81 d25 d26 d37 d27 d228 d30 d311 d32" data-node-id="919:963">
           <p className="d230 d44">형태와 감각이</p>
           <p className="d230">만나는 지점.</p>
         </div>

@@ -1,0 +1,27 @@
+/* Counter the parent reflection so the source preview images remain readable. */
+#root [data-name="Contribution / Preview Image"]>img{transform:scaleX(-1)}
+#root [data-node-id="948:2744"] img{clip-path:inset(70px 0 69px)}
+#root [data-name="Icon / Arrow Down Right"] img{position:relative;inset:auto;transform:scale(-3.62524,3.62524) rotate(-45deg)}
+@media(max-width:600px){
+  #root [data-name="Contribution / Preview Image"]>img{transform:none}
+  #root [data-name="Section / FRONT-END DEVELOPMENT"]{display:flex;flex-direction:column;gap:16px}
+  #root [data-node-id="948:2443"]{order:0}
+  #root [data-node-id="948:2444"]{order:1}
+  #root [data-node-id="948:2444"] p{font-size:28px;line-height:1.4}
+  #root [data-node-id="948:2446"]{order:2}
+  #root [data-node-id="948:2447"]{order:3;margin-bottom:20px}
+  #root [data-node-id="948:2442"]{order:4;width:100%!important;aspect-ratio:666/301}
+  #root [data-node-id="948:2746"]{order:5}
+  #root [data-name="Icon / Arrow Down Right"]{order:6;height:48px!important;width:48px!important;align-self:center;margin:16px;transform:none}
+  #root [data-name="Icon / Arrow Down Right"] img{transform:scale(2.12132) rotate(45deg)}
+  #root [data-node-id="948:2744"]{order:7;width:100%!important;aspect-ratio:666/427;overflow:hidden}
+  #root [data-node-id="948:2748"]{order:8;margin-top:-30px}
+  #root [data-node-id="948:2442"]>div,#root [data-node-id="948:2442"]>div>div,#root [data-node-id="948:2744"]>div,#root [data-node-id="948:2744"]>div>div{width:100%!important;height:100%!important}
+  #root [data-node-id="948:2442"] img,#root [data-node-id="948:2744"] img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  #root [data-node-id="948:2744"] img{clip-path:inset(16.4% 0 16.2%)}
+  #root [data-node-id="924:2261"],#root [data-node-id="946:2404"],#root [data-node-id="924:2232"],#root [data-node-id="924:2261"]>div,#root [data-node-id="946:2404"]>div,#root [data-node-id="924:2232"]>div{width:100%!important;max-width:100%}
+  #root [data-name="Section / Skills"]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  #root [data-name="Section / Skills"]::before{grid-column:1/-1}
+  #root [data-name^="Skill Card"]{background:#e5e5e5;padding:16px;margin:0;min-height:240px}
+  #root [data-name="Card / Background"]{display:none}
+}

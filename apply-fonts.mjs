@@ -1,6 +1,6 @@
-import {readFileSync,writeFileSync} from 'node:fs';
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 const source=readFileSync('design-source.jsx','utf8');
-const classes=[...new Set([...source.matchAll(/className="([^"]+)"/g)].flatMap(m=>m[1].split(' ')))];
+const classes=existsSync('design-classes.json')?JSON.parse(readFileSync('design-classes.json','utf8')):[...new Set([...source.matchAll(/className="([^"]+)"/g)].flatMap(m=>m[1].split(' ')))];
 const faces=[
  ['PP Neue Montreal','ppneuemontreal-book.otf','opentype','400'],
  ['PP Neue Montreal','ppneuemontreal-medium.otf','opentype','500'],

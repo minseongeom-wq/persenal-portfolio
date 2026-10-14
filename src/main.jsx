@@ -11,7 +11,7 @@ requestAnimationFrame(()=>{
  initHoverGhosts();
  initScrollTitles();
  const sections=[...document.querySelectorAll('[data-name^="Section /"]')];
- const names=['home','about','work','contribution','contribution-more','skills','playground','philosophy','contact'];
+ const names=['home','about','work','contribution','development','skills','playground','philosophy','contact'];
  sections.forEach((s,i)=>s.id=names[i]);
  const go=id=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
  document.querySelectorAll('[data-name*="Navigation Link"],[data-name="Footer Link / Work"]').forEach(e=>activate(e,()=>go('work')));

@@ -1,13 +1,14 @@
-const assetPathPrefix = "https://www.figma.com/api/mcp/asset/cddc25a5-057d-4a1a-8e40-077197b0abd3";
+const assetPathPrefix = "https://www.figma.com/api/mcp/asset/78c992ba-c664-4260-898a-6a896d9bfa69";
+const imgIconArrowDownRight = `${assetPathPrefix}/46f35.svg`;
 import { ShaderEffect } from "./lib/custom-effect-runtime/index";
 import { setup as setupCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417, render as renderCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417, manifest as manifestCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417 } from "./lib/custom-effects/CodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417";
 import { setup as setupCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598, render as renderCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598, manifest as manifestCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598 } from "./lib/custom-effects/CodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598";
-import { setup as setupCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603, render as renderCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603, manifest as manifestCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603 } from "./lib/custom-effects/CodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603";
 import { setup as setupCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411, render as renderCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411, manifest as manifestCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411 } from "./lib/custom-effects/CodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411";
 const imgPortfolioEomMinseong = `${assetPathPrefix}/6dbd7.png`;
-const imgProjectPreviewPrimary = `${assetPathPrefix}/4bc4d.png`;
+const imgProjectPreviewPrimary = `${assetPathPrefix}/4e748.png`;
 const imgContributionPreviewImage = `${assetPathPrefix}/e3ae6.png`;
 const imgContributionPreviewImage1 = `${assetPathPrefix}/f7356.png`;
+const imgRectangle7 = `${assetPathPrefix}/c7a92.png`;
 const imgNavigationImageAccent = `${assetPathPrefix}/e51b5.png`;
 const imgIconLinkArrow = `${assetPathPrefix}/eeb28.svg`;
 const imgIconProjectArrow = `${assetPathPrefix}/307af.svg`;
@@ -15,6 +16,14 @@ const imgIconProjectArrow1 = `${assetPathPrefix}/2d508.svg`;
 const imgDividerProjectsHeader = `${assetPathPrefix}/ca880.svg`;
 const imgIconLinkArrow1 = `${assetPathPrefix}/08a83.svg`;
 const imgDividerFooter = `${assetPathPrefix}/0f9d3.svg`;
+
+function IconArrowDownRight({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[16px]"} data-node-id="823:1640" data-name="Icon / Arrow Down Right">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconArrowDownRight} />
+    </div>
+  );
+}
 
 export default function PortfolioEomMinseong() {
   return (
@@ -195,11 +204,9 @@ export default function PortfolioEomMinseong() {
         <p className="[word-break:break-word] absolute font-['PP_Neue_Montreal:Medium'] leading-[normal] left-[calc(50%+603px)] not-italic text-[120px] text-black top-[calc(50%-468px)] tracking-[-4.8px] whitespace-nowrap" data-node-id="919:894">
           /05
         </p>
-        <ShaderEffect className="-translate-x-1/2 -translate-y-1/2 absolute h-[564px] left-[calc(50%+314.5px)] top-[calc(50%+102px)] w-[1133px]" data-node-id="919:895" shaders={[{ setup: setupCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603, render: renderCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603, params: { preserveInput: 11, threshold: -24, foregroundColor: { r: 0.10096153616905212, g: 0.2807711958885193, b: 1, a: 1 }, mode: 0, spread: 0, backgroundColor: { r: 0.9759615659713745, g: 0.9759615659713745, b: 0.9759615659713745, a: 1 }, invert: true, edgeSoftness: 1.399999976158142 }, manifest: manifestCodeComponentId_21735e902a05a5a6705d9b6bed9b4f68c5073d58_603 }]}>
-          <div className="h-[564px] relative w-[1133px]" data-name="Project Preview / Primary">
-            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgProjectPreviewPrimary} />
-          </div>
-        </ShaderEffect>
+        <div className="-translate-x-1/2 -translate-y-1/2 absolute h-[564px] left-[calc(50%+314.5px)] top-[calc(50%+102px)] w-[1133px]" data-node-id="919:895" data-name="Project Preview / Primary">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgProjectPreviewPrimary} />
+        </div>
         <div className="-translate-x-1/2 -translate-y-1/2 absolute bg-[#919191] h-[564px] left-[calc(50%+314.5px)] top-[calc(50%+736px)] w-[1133px]" data-node-id="919:896" data-name="Project Preview / Secondary" />
         <div className="-translate-x-1/2 -translate-y-1/2 absolute bg-[#1a48ff] h-[51px] left-[calc(50%-589.5px)] top-[calc(50%-154.5px)] w-[583px]" data-node-id="919:897" data-name="Project Link / 01 Nintendo - Team / Active">
           <div className="absolute content-stretch flex gap-[23px] items-start left-[10px] top-[9px]" data-node-id="I919:897;918:61" data-name="Project Link / Content">
@@ -282,7 +289,7 @@ export default function PortfolioEomMinseong() {
       </div>
       <div className="flex items-center justify-center relative shrink-0" data-node-id="924:2261">
         <div className="-scale-y-100 flex-none rotate-180">
-          <div className="h-[1992px] overflow-clip relative w-[1762px]" data-name="Section / My Contribution">
+          <div className="h-[2038px] overflow-clip relative w-[1762px]" data-name="Section / My Contribution">
             <div className="absolute content-stretch flex flex-col items-start left-[686px] overflow-clip top-[441px]" data-node-id="924:2263" data-name="Contribution Card / 01 Restructuring">
               <div className="h-[305px] relative shrink-0 w-[1019px]" data-node-id="I924:2263;924:2000" data-name="Contribution / Container">
                 <div className="absolute content-stretch flex gap-[45px] items-center left-0 top-0" data-node-id="I924:2263;924:2179" data-name="Contribution / Content Row">
@@ -479,139 +486,61 @@ export default function PortfolioEomMinseong() {
       </div>
       <div className="flex items-center justify-center relative shrink-0" data-node-id="946:2404">
         <div className="-scale-y-100 flex-none rotate-180">
-          <div className="h-[1732px] overflow-clip relative w-[1762px]" data-name="Section / My Contribution">
-            <div className="absolute content-stretch flex flex-col items-start left-[686px] overflow-clip top-[441px]" data-node-id="946:2405" data-name="Contribution Card / 01 Restructuring">
-              <div className="h-[305px] relative shrink-0 w-[1019px]" data-node-id="I946:2405;924:2000" data-name="Contribution / Container">
-                <div className="absolute content-stretch flex gap-[45px] items-center left-0 top-0" data-node-id="I946:2405;924:2179" data-name="Contribution / Content Row">
-                  <div className="content-stretch flex flex-col gap-[19px] items-end relative shrink-0 w-[430px]" data-node-id="I946:2405;924:1967" data-name="Contribution / Text Block">
-                    <div className="flex items-center justify-center min-w-full relative shrink-0 w-[min-content]" data-node-id="I946:2405;848:1506">
-                      <div className="-scale-y-100 flex-none rotate-180 w-full">
-                        <div className="[word-break:break-word] flex flex-col font-['PP_Neue_Montreal_Mono:Medium'] justify-center leading-[0] not-italic relative text-[#808080] text-[16px] tracking-[-0.48px] w-full">
-                          <p className="leading-[1.5]">01 / RESTRUCTURING</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center relative shrink-0" data-node-id="I946:2405;848:1505">
-                      <div className="-scale-y-100 flex-none rotate-180">
-                        <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative text-[40px] text-black tracking-[-1.2px] whitespace-nowrap">
-                          <p className="leading-none">탐색의 흐름을 다시 설계하다.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center relative shrink-0" data-node-id="I946:2405;919:857">
-                      <div className="-scale-y-100 flex-none rotate-180">
-                        <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative text-[14px] text-black tracking-[-0.42px] w-[401px]">
-                          <p className="leading-[1.4] mb-0">게임과 캐릭터를 발견하는 경험에 주목해 기존 사이트의 탐색 구조를</p>
-                          <p className="leading-[1.4]">분석하고, 콘텐츠 간 연결을 고려한 정보구조와 사용자 흐름을 설계했습니다.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="h-[305px] relative shrink-0 w-[536px]" data-node-id="I946:2405;848:1502" data-name="Contribution / Preview Image">
-                    <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgContributionPreviewImage} />
-                  </div>
+          <div className="h-[1100px] overflow-clip relative w-[1762px]" data-name="Section / FRONT-END DEVELOPMENT">
+            <div className="absolute flex h-[301px] items-center justify-center left-[952px] top-[426px] w-[666px]" data-node-id="948:2442">
+              <div className="-scale-y-100 flex-none rotate-180">
+                <div className="h-[301px] relative w-[666px]">
+                  <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle7} />
                 </div>
               </div>
             </div>
-            <div className="absolute content-stretch flex flex-col items-start left-[686px] overflow-clip top-[809px]" data-node-id="946:2406" data-name="Contribution Card / 02 Systemizing">
-              <div className="h-[305px] relative shrink-0 w-[1019px]" data-node-id="I946:2406;924:2000" data-name="Contribution / Container">
-                <div className="absolute content-stretch flex gap-[45px] items-center left-0 top-0" data-node-id="I946:2406;924:2179" data-name="Contribution / Content Row">
-                  <div className="content-stretch flex flex-col gap-[19px] items-end relative shrink-0 w-[430px]" data-node-id="I946:2406;924:1967" data-name="Contribution / Text Block">
-                    <div className="flex items-center justify-center min-w-full relative shrink-0 w-[min-content]" data-node-id="I946:2406;848:1506">
-                      <div className="-scale-y-100 flex-none rotate-180 w-full">
-                        <div className="[word-break:break-word] flex flex-col font-['PP_Neue_Montreal_Mono:Medium'] justify-center leading-[0] not-italic relative text-[#808080] text-[16px] tracking-[-0.48px] w-full">
-                          <p className="leading-[1.5]">02 / SYSTEMIZING</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center relative shrink-0" data-node-id="I946:2406;848:1505">
-                      <div className="-scale-y-100 flex-none rotate-180">
-                        <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative text-[40px] text-black tracking-[-1.2px] whitespace-nowrap">
-                          <p className="leading-none mb-0">서로 다른 작업을</p>
-                          <p className="leading-none">하나의 기준으로 연결하다.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center relative shrink-0" data-node-id="I946:2406;919:857">
-                      <div className="-scale-y-100 flex-none rotate-180">
-                        <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative text-[14px] text-black tracking-[-0.42px] w-[401px]">
-                          <p className="leading-[1.4] mb-0">타이포그래피, 컬러, 공통 UI 요소를 정리한 디자인 시스템을 통해</p>
-                          <p className="leading-[1.4]">여러 페이지에서 일관된 시각적 경험을 구현할 수 있는 기준을 마련했습니다.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="h-[305px] relative shrink-0 w-[536px]" data-node-id="I946:2406;848:1502" data-name="Contribution / Preview Image">
-                    <div className="absolute inset-0 overflow-hidden" />
-                  </div>
+            <div className="absolute flex h-[427px] items-center justify-center left-[144px] top-[365px] w-[666px]" data-node-id="948:2744">
+              <div className="-scale-y-100 flex-none rotate-180">
+                <div className="h-[427px] relative w-[666px]">
+                  <div className="absolute inset-0 overflow-hidden" />
                 </div>
               </div>
             </div>
-            <div className="absolute content-stretch flex flex-col items-start left-[686px] overflow-clip top-[1177px]" data-node-id="946:2407" data-name="Contribution Card / 03 Visual Experience">
-              <div className="h-[305px] relative shrink-0 w-[1019px]" data-node-id="I946:2407;924:2000" data-name="Contribution / Container">
-                <div className="absolute content-stretch flex gap-[45px] items-center left-0 top-0 w-[1011px]" data-node-id="I946:2407;924:2179" data-name="Contribution / Content Row">
-                  <div className="content-stretch flex flex-col gap-[19px] items-end relative shrink-0 w-[430px]" data-node-id="I946:2407;924:1967" data-name="Contribution / Text Block">
-                    <div className="flex items-center justify-center min-w-full relative shrink-0 w-[min-content]" data-node-id="I946:2407;848:1506">
-                      <div className="-scale-y-100 flex-none rotate-180 w-full">
-                        <div className="[word-break:break-word] flex flex-col font-['PP_Neue_Montreal_Mono:Medium'] justify-center leading-[0] not-italic relative text-[#808080] text-[16px] tracking-[-0.48px] w-full">
-                          <p className="leading-[1.5]">03 / VISUAL EXPERIENCE</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center relative shrink-0" data-node-id="I946:2407;848:1505">
-                      <div className="-scale-y-100 flex-none rotate-180">
-                        <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative text-[40px] text-black tracking-[-1.2px] whitespace-nowrap">
-                          <p className="leading-none mb-0">정적인 화면에</p>
-                          <p className="leading-none">브랜드의 개성을 더하다.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center relative shrink-0" data-node-id="I946:2407;919:857">
-                      <div className="-scale-y-100 flex-none rotate-180">
-                        <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative text-[14px] text-black tracking-[-0.42px] w-[401px]">
-                          <p className="leading-[1.4] mb-0">스크롤과 타이포그래피, 화면 전환을 활용해 닌텐도 특유의 즐거움을</p>
-                          <p className="leading-[1.4]">표현하고, 사용자가 콘텐츠를 탐색하는 과정에 움직임을 더했습니다.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="h-[305px] relative shrink-0 w-[536px]" data-node-id="I946:2407;848:1502" data-name="Contribution / Preview Image">
-                    <div className="absolute inset-0 overflow-hidden" />
-                  </div>
+            <div className="-translate-y-1/2 absolute flex items-center justify-center left-[1403px] top-[244px]" data-node-id="948:2443">
+              <div className="-scale-y-100 flex-none rotate-180">
+                <div className="[word-break:break-word] flex flex-col font-['PP_Neue_Montreal_Mono:Medium'] justify-center leading-[0] not-italic relative text-[#808080] text-[16px] tracking-[-0.48px] whitespace-nowrap">
+                  <p className="leading-none">/ FRONT-END DEVELOPMENT</p>
                 </div>
               </div>
             </div>
-            <div className="absolute content-stretch flex flex-col items-start left-[686px] overflow-clip top-[1545px]" data-node-id="946:2408" data-name="Contribution Card / 04 Collaboration">
-              <div className="h-[305px] relative shrink-0 w-[1019px]" data-node-id="I946:2408;924:2000" data-name="Contribution / Container">
-                <div className="absolute content-stretch flex gap-[45px] items-center left-0 top-0" data-node-id="I946:2408;924:2179" data-name="Contribution / Content Row">
-                  <div className="content-stretch flex flex-col gap-[19px] items-end relative shrink-0 w-[430px]" data-node-id="I946:2408;924:1967" data-name="Contribution / Text Block">
-                    <div className="flex items-center justify-center min-w-full relative shrink-0 w-[min-content]" data-node-id="I946:2408;848:1506">
-                      <div className="-scale-y-100 flex-none rotate-180 w-full">
-                        <div className="[word-break:break-word] flex flex-col font-['PP_Neue_Montreal_Mono:Medium'] justify-center leading-[0] not-italic relative text-[#808080] text-[16px] tracking-[-0.48px] w-full">
-                          <p className="leading-[1.5]">04 / COLLABORATION</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center relative shrink-0" data-node-id="I946:2408;848:1505">
-                      <div className="-scale-y-100 flex-none rotate-180">
-                        <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative text-[40px] text-black tracking-[-1.2px] whitespace-nowrap">
-                          <p className="leading-none mb-0">함께 만든 디자인을</p>
-                          <p className="leading-none">하나의 경험으로 완성하다.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center relative shrink-0" data-node-id="I946:2408;919:857">
-                      <div className="-scale-y-100 flex-none rotate-180">
-                        <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative text-[14px] text-black tracking-[-0.42px] w-[401px]">
-                          <p className="leading-[1.4] mb-0">공통 디자인 규칙과 작업 방향을 공유하고, 팀원들의 결과물이 자연스럽게</p>
-                          <p className="leading-[1.4]">연결될 수 있도록 협업했습니다.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="h-[305px] relative shrink-0 w-[536px]" data-node-id="I946:2408;848:1502" data-name="Contribution / Preview Image">
-                    <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgContributionPreviewImage1} />
-                  </div>
+            <div className="-translate-y-1/2 absolute flex items-center justify-center left-[1330px] top-[320px]" data-node-id="948:2446">
+              <div className="-scale-y-100 flex-none rotate-180">
+                <div className="[word-break:break-word] flex flex-col font-['PP_Neue_Montreal_Mono:Medium'] justify-center leading-[0] not-italic relative text-[#808080] text-[16px] tracking-[-0.48px] whitespace-nowrap">
+                  <p className="leading-none">React · CSS · JavaScript · GSAP</p>
+                </div>
+              </div>
+            </div>
+            <div className="-translate-y-1/2 absolute flex items-center justify-center left-[1223px] top-[282px]" data-node-id="948:2444">
+              <div className="-scale-y-100 flex-none rotate-180">
+                <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative text-[40px] text-black tracking-[-1.2px] whitespace-nowrap">
+                  <p className="leading-none">디자인을 코드로 연결하다.</p>
+                </div>
+              </div>
+            </div>
+            <div className="-translate-y-1/2 absolute flex items-center justify-center left-[1136px] top-[355px]" data-node-id="948:2447">
+              <div className="-scale-y-100 flex-none rotate-180">
+                <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative text-[14px] text-black tracking-[-0.42px] whitespace-nowrap">
+                  <p className="leading-[1.4]">디자인의 시각적 완성도를 웹에서도 유지할 수 있도록 인터랙션과 화면 구현에 집중했습니다.</p>
+                </div>
+              </div>
+            </div>
+            <IconArrowDownRight className="absolute flex items-center justify-center left-[839.97px] size-[82.031px] top-[550px]" />
+            <div className="-translate-y-1/2 absolute flex items-center justify-center left-[1499px] top-[745px]" data-node-id="948:2746">
+              <div className="-scale-y-100 flex-none rotate-180">
+                <div className="[word-break:break-word] flex flex-col font-['PP_Neue_Montreal_Mono:Medium'] justify-center leading-[0] not-italic relative text-[#808080] text-[16px] tracking-[-0.48px] whitespace-nowrap">
+                  <p className="leading-none">Before_Design</p>
+                </div>
+              </div>
+            </div>
+            <div className="-translate-y-1/2 absolute flex items-center justify-center left-[754px] top-[745px]" data-node-id="948:2748">
+              <div className="-scale-y-100 flex-none rotate-180">
+                <div className="[word-break:break-word] flex flex-col font-['PP_Neue_Montreal_Mono:Medium'] justify-center leading-[0] not-italic relative text-[#808080] text-[16px] tracking-[-0.48px] whitespace-nowrap">
+                  <p className="leading-none">After_</p>
                 </div>
               </div>
             </div>
@@ -1009,7 +938,7 @@ export default function PortfolioEomMinseong() {
         </div>
       </div>
       <div className="h-[1080px] relative shrink-0 w-full" data-node-id="919:962" data-name="Section / Design Philosophy">
-        <div className="-translate-y-1/2 [word-break:break-word] absolute flex flex-col font-['Pretendard:Light'] justify-center leading-[0] left-0 not-italic text-[64px] text-black top-[1032px] whitespace-nowrap" data-node-id="919:963">
+        <div className="-translate-y-1/2 [word-break:break-word] absolute flex flex-col font-['Pretendard:Light'] justify-center leading-[0] left-0 not-italic text-[64px] text-black top-[1017px] whitespace-nowrap" data-node-id="919:963">
           <p className="leading-[1.26] mb-0">형태와 감각이</p>
           <p className="leading-[1.26]">만나는 지점.</p>
         </div>
