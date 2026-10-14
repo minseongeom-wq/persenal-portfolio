@@ -1,0 +1,16 @@
+@font-face{font-family:'PP Neue Montreal';src:url('./fonts/ppneuemontreal-book.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'PP Neue Montreal';src:url('./fonts/ppneuemontreal-medium.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'PP Neue Montreal';src:url('./fonts/ppneuemontreal-bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'PP Neue Montreal Mono';src:url('./fonts/pp-neue-montreal-mono-3.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('./fonts/PretendardVariable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url('./fonts/InterVariable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap}
+.d23{font-family:'Inter','Pretendard',sans-serif;font-weight:800}
+.d33{font-family:'PP Neue Montreal','Pretendard',sans-serif;font-weight:700}
+.d39{font-family:'PP Neue Montreal','Pretendard',sans-serif;font-weight:400}
+.d45{font-family:'PP Neue Montreal Mono',monospace;font-weight:500}
+.d74{font-family:'Pretendard','Pretendard',sans-serif;font-weight:500}
+.d81{font-family:'Pretendard','Pretendard',sans-serif;font-weight:300}
+.d89{font-family:'PP Neue Montreal','Pretendard',sans-serif;font-weight:500}
+.d199{font-family:'Inter','Pretendard',sans-serif;font-weight:700}
+.d259{font-family:'Inter','Pretendard',sans-serif;font-weight:300}
+.d262{font-family:'Inter','Pretendard',sans-serif;font-weight:600}
