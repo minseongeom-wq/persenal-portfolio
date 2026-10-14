@@ -4,7 +4,7 @@ import {readFileSync,writeFileSync} from 'node:fs';
 const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
 try{
  const page=await browser.newPage({viewport:{width:1920,height:1080}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(pathToFileURL(process.cwd()+'/dist/index.html').href);await page.locator('.elastic-canvas').first().waitFor();await page.waitForTimeout(150);
+ await page.goto(pathToFileURL(process.cwd()+'/dist/index.html').href);await page.locator('.elastic-canvas').first().waitFor();await page.waitForTimeout(3800);
  const hero=page.locator('[data-node-id="919:872"] p');
  const baseline=JSON.parse(readFileSync('typography-baseline.json','utf8'));
  const geometry=await page.locator('.ghost-title').evaluateAll(nodes=>nodes.map(n=>{const s=getComputedStyle(n),r=n.getBoundingClientRect();return {text:[...n.childNodes].filter(c=>c.nodeType===3||c.nodeName==='BR').map(c=>c.nodeName==='BR'?'\n':c.textContent).join('').trim(),font:s.fontFamily,fontSize:s.fontSize,fontWeight:s.fontWeight,lineHeight:s.lineHeight,letterSpacing:s.letterSpacing,box:{x:r.x,y:r.y,width:r.width,height:r.height}}}));
@@ -24,14 +24,15 @@ try{
  await page.screenshot({path:'elastic-moving.png',clip});
  await page.mouse.move(30,30);const leaving=await hero.getAttribute('data-elastic-phase');if(leaving!=='recovering')throw Error('Exit snapped instead of spring recovery');
  await page.waitForTimeout(180);await page.screenshot({path:'elastic-recovering.png',clip});
- await page.waitForTimeout(700);const recovered=await hero.getAttribute('data-elastic-phase');if(recovered!=='idle')throw Error('Not restored within .9 seconds: '+recovered);
+ await page.waitForTimeout(620);if(await hero.getAttribute('data-elastic-phase')==='idle')throw Error('Recovery ended before .8 seconds');await page.screenshot({path:'elastic-lingering.png',clip});
+ await page.waitForTimeout(2400);const recovered=await hero.getAttribute('data-elastic-phase');if(recovered!=='idle')throw Error('Not restored within 3.2 seconds: '+recovered);
  await page.screenshot({path:'elastic-restored.png',clip});
  const readPull=()=>hero.evaluate(t=>{const g=t.querySelector('canvas').getContext('webgl'),p=g.getParameter(g.CURRENT_PROGRAM);return {black:[...g.getUniform(p,g.getUniformLocation(p,'u_pull'))],red:[...g.getUniform(p,g.getUniformLocation(p,'u_redPull'))],cyan:[...g.getUniform(p,g.getUniformLocation(p,'u_cyanPull'))]};});
- const gesture=async(direction,delay,steps=12)=>{await page.mouse.move(30,30);await page.waitForTimeout(900);await page.mouse.move(box.x+(direction>0?190:330),y);await page.waitForTimeout(20);for(let i=1;i<=steps;i++){await page.mouse.move(box.x+(direction>0?190:330)+direction*i*8,y);await page.waitForTimeout(delay);}await page.waitForTimeout(15);return readPull();};
+ const gesture=async(direction,delay,steps=12)=>{await page.mouse.move(30,30);await page.waitForTimeout(3200);await page.mouse.move(box.x+(direction>0?190:330),y);await page.waitForTimeout(20);for(let i=1;i<=steps;i++){await page.mouse.move(box.x+(direction>0?190:330)+direction*i*8,y);await page.waitForTimeout(delay);}await page.waitForTimeout(15);return readPull();};
  const slow=await gesture(1,36),fast=await gesture(1,8),reverse=await gesture(-1,8),onset=await gesture(1,8,4);
  if(!(fast.black[0]>slow.black[0]*1.3&&reverse.black[0]<0))throw Error('Velocity/direction response failed');
  if(!(Math.abs(onset.red[0])<Math.abs(onset.black[0])&&Math.abs(onset.cyan[0])<Math.abs(onset.black[0])))throw Error('Chromatic onset did not lag the black body');
- await page.mouse.move(30,30);await page.waitForTimeout(900);
+ await page.mouse.move(30,30);await page.waitForTimeout(3200);
  if(await page.locator('.ghost-layer').count())throw Error('Old RGB duplicate layers remain');
  if(await page.locator('.elastic-canvas:not([aria-hidden="true"])').count())throw Error('Decorative canvas exposed to screen readers');
  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(80);if(await page.locator('.elastic-canvas').count())throw Error('Reduced motion still renders displacement');

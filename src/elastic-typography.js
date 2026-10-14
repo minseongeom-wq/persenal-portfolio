@@ -1,6 +1,9 @@
 import {vertexShader,fragmentShader} from './elastic-typography-shader.js';
 const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
 const spring=(value=0)=>({value,velocity:0});
+const smooth=(t)=>{t=clamp(t,0,1);return t*t*(3-2*t);};
+// Ease into the return, gather speed, then let the remaining color settle gently.
+const recoveryTempo=(elapsed)=>.24+.38*smooth(elapsed/.26)-.26*smooth((elapsed-.48)/.44);
 function step(s,target,dt,frequency,damping){const count=Math.ceil(dt/.008),h=dt/count;for(let i=0;i<count;i++){s.velocity+=((target-s.value)*frequency*frequency-2*damping*frequency*s.velocity)*h;s.value+=s.velocity*h;}}
 function compile(gl,type,code){const s=gl.createShader(type);gl.shaderSource(s,code);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){const error=gl.getShaderInfoLog(s);gl.deleteShader(s);throw Error(error);}return s;}
 function renderer(canvas){
@@ -8,8 +11,8 @@ function renderer(canvas){
  const vertex=compile(gl,gl.VERTEX_SHADER,vertexShader),fragment=compile(gl,gl.FRAGMENT_SHADER,fragmentShader),program=gl.createProgram();gl.attachShader(program,vertex);gl.attachShader(program,fragment);gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.deleteShader(vertex);gl.deleteShader(fragment);gl.useProgram(program);
  const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);const a=gl.getAttribLocation(program,'a_position');gl.enableVertexAttribArray(a);gl.vertexAttribPointer(a,2,gl.FLOAT,false,0,0);
  const texture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,texture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,1,1,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(4));
- const names=['size','center','colorCenter','pull','redPull','cyanPull','radius','active','strength'];const u=Object.fromEntries(names.map(n=>[n,gl.getUniformLocation(program,'u_'+n)]));
- return{upload(image){gl.bindTexture(gl.TEXTURE_2D,texture);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,image);gl.viewport(0,0,canvas.width,canvas.height);},draw(s){gl.useProgram(program);gl.bindTexture(gl.TEXTURE_2D,texture);for(const n of names.slice(0,7))gl.uniform2f(u[n],...s[n]);gl.uniform1f(u.active,s.active);gl.uniform1f(u.strength,s.strength);gl.drawArrays(gl.TRIANGLES,0,6);},dispose(){gl.deleteTexture(texture);gl.deleteBuffer(buffer);gl.deleteProgram(program);gl.getExtension('WEBGL_lose_context')?.loseContext();}};
+ const names=['size','center','colorCenter','pull','redPull','cyanPull','radius','active','strength','intro'];const u=Object.fromEntries(names.map(n=>[n,gl.getUniformLocation(program,'u_'+n)]));
+ return{upload(image){gl.bindTexture(gl.TEXTURE_2D,texture);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,image);gl.viewport(0,0,canvas.width,canvas.height);},draw(s){gl.useProgram(program);gl.bindTexture(gl.TEXTURE_2D,texture);for(const n of names.slice(0,7))gl.uniform2f(u[n],...s[n]);gl.uniform1f(u.active,s.active);gl.uniform1f(u.strength,s.strength);gl.uniform1f(u.intro,s.intro);gl.drawArrays(gl.TRIANGLES,0,6);},dispose(){gl.deleteTexture(texture);gl.deleteBuffer(buffer);gl.deleteProgram(program);gl.getExtension('WEBGL_lose_context')?.loseContext();}};
 }
 /** Draw each glyph at its DOM Range position: preserve native tracking/kerning/baselines. */
 function rasterize(title,padding,ratio){
@@ -23,16 +26,38 @@ function rasterize(title,padding,ratio){
 export function createElasticTypography(title){
  const enabled=matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
  let disposed=false,initializing=false,canvas=null,gpu=null,frame=0,resizeFrame=0,observer=null;
- let size=[1,1],padding=64,fontSize=200,hovered=false,lastPointer=null,lastInput=-Infinity,lastFrame=0;
+ let size=[1,1],padding=64,fontSize=200,hovered=false,lastPointer=null,lastInput=-Infinity,lastFrame=0,recoveryElapsed=0;
  const target={x:0,y:0,cx:0,cy:0},black=[spring(),spring()],red=[spring(),spring()],cyan=[spring(),spring()],center=[spring(),spring()],colorCenter=[spring(),spring()];
  const all=[...black,...red,...cyan,...center,...colorCenter];
- function paint(active){gpu?.draw({size,center:center.map(s=>s.value),colorCenter:colorCenter.map(s=>s.value),pull:black.map(s=>s.value),redPull:red.map(s=>s.value),cyanPull:cyan.map(s=>s.value),radius:[fontSize*.70,fontSize*.48],active:active?1:0,strength:clamp(Math.hypot(...black.map(s=>s.value))/12,0,1)});}
+ let previousScrollY=window.scrollY,previousScrollTime=performance.now(),lastScroll=-Infinity,scrollPull=[0,0];
+ let introTimer=0,introStart=-Infinity;
+ function paint(active){const intro=active&&Number.isFinite(introStart)?1:0;gpu?.draw({size,center:center.map(s=>s.value),colorCenter:colorCenter.map(s=>s.value),pull:black.map(s=>s.value),redPull:red.map(s=>s.value),cyanPull:cyan.map(s=>s.value),radius:[fontSize*.70,fontSize*.48],active:active?1:0,intro,strength:clamp(Math.max(Math.hypot(...black.map(s=>s.value)),intro?Math.hypot(...red.map(s=>s.value)):0)/12,0,1)});}
  function neutral(){cancelAnimationFrame(frame);frame=0;black.concat(red,cyan).forEach(s=>{s.value=s.velocity=0;});target.x=target.y=0;lastInput=-Infinity;lastPointer=null;hovered=false;title.classList.remove('elastic-rendering');title.dataset.elasticPhase=gpu?'idle':'disabled';paint(false);}
  function resize(){if(!gpu||!title.offsetWidth||!title.offsetHeight)return;neutral();fontSize=Number.parseFloat(getComputedStyle(title).fontSize);padding=Math.ceil(Math.min(90,Math.max(48,fontSize*.30)));const ratio=Math.min(devicePixelRatio||1,2),raster=rasterize(title,padding,ratio);size=[raster.width,raster.height];canvas.width=raster.image.width;canvas.height=raster.image.height;canvas.style.setProperty('--elastic-padding',padding+'px');gpu.upload(raster.image);target.cx=size[0]/2;target.cy=size[1]/2;center[0].value=colorCenter[0].value=target.cx;center[1].value=colorCenter[1].value=target.cy;all.forEach(s=>s.velocity=0);paint(false);}
- function animate(now){if(!gpu)return;const dt=clamp((now-lastFrame)/1000,.001,.032);lastFrame=now;const moving=hovered&&now-lastInput<95,pull=[moving?target.x:0,moving?target.y:0];for(let i=0;i<2;i++){step(black[i],pull[i],dt,23,.78);step(red[i],black[i].value*1.07,dt,16,.78);step(cyan[i],black[i].value*.91,dt,18,.80);step(center[i],i?target.cy:target.cx,dt,34,1);step(colorCenter[i],center[i].value,dt,21,1);}const energy=[...black,...red,...cyan].reduce((n,s)=>n+Math.abs(s.value)+Math.abs(s.velocity)*.02,0);if(!moving&&energy<.025){neutral();return;}title.classList.add('elastic-rendering');title.dataset.elasticPhase=hovered?'active':'recovering';paint(true);frame=requestAnimationFrame(animate);}
+ function animate(now){
+  if(!gpu)return;
+  // A cursor resting over the title must not cancel the entrance animation.
+  if((hovered&&now-lastInput<95)||now-lastScroll<110)introStart=-Infinity;
+  const dt=clamp((now-lastFrame)/1000,.001,.032);lastFrame=now;
+  // RAF's timestamp can precede the timer callback; keep that first frame alive.
+  const pointerMoving=hovered&&now-lastInput<95,scrollMoving=now-lastScroll<110,introProgress=Number.isFinite(introStart)?Math.max(0,(now-introStart)/1200):Infinity,introMoving=introProgress<1;
+  const moving=pointerMoving||scrollMoving||introMoving,limit=Math.min(52,fontSize*.24);
+  const introPull=introMoving?smooth(introProgress/.22)*limit*.95:0;
+  if(introMoving){target.cx=padding+title.offsetWidth*(.06+.88*smooth(introProgress/.85));target.cy=padding+fontSize*.55;}
+  const pull=[clamp((pointerMoving?target.x:0)+(scrollMoving?scrollPull[0]:0)+introPull,-limit,limit),clamp((pointerMoving?target.y:0)+(scrollMoving?scrollPull[1]:0),-limit,limit)];
+  // Keep the established return rhythm, but stretch it after pointer exit.
+  const recoveryClock=dt*(hovered?1:.72);
+  recoveryElapsed=moving?0:recoveryElapsed+recoveryClock;
+  const recoveryDt=moving?dt:recoveryClock*recoveryTempo(recoveryElapsed);
+  const introTrail=Number.isFinite(introStart);
+  for(let i=0;i<2;i++){step(black[i],pull[i],recoveryDt,23,.78);step(red[i],black[i].value*(introTrail?1.55:1.07),recoveryDt,16,.78);step(cyan[i],black[i].value*(introTrail?.72:.91),recoveryDt,18,.80);step(center[i],i?target.cy:target.cx,dt,34,1);step(colorCenter[i],center[i].value,dt,21,1);}
+  const energy=[...black,...red,...cyan].reduce((n,s)=>n+Math.abs(s.value)+Math.abs(s.velocity)*.02,0);
+  if(!moving&&energy<.025){neutral();return;}
+  title.classList.add('elastic-rendering');title.dataset.elasticPhase=hovered||scrollMoving||introMoving?'active':'recovering';paint(true);frame=requestAnimationFrame(animate);
+ }
  function pointer(event){if(!gpu||!enabled.matches||event.pointerType==='touch')return;const rect=title.getBoundingClientRect(),zoom=rect.width/title.offsetWidth,current={x:(event.clientX-rect.left)/zoom+padding,y:(event.clientY-rect.top)/zoom+padding,time:performance.now()};hovered=true;target.cx=current.x;target.cy=current.y;if(lastPointer){const dt=clamp(current.time-lastPointer.time,5,80),limit=Math.min(52,fontSize*.24);target.x=Math.tanh((current.x-lastPointer.x)/dt/1.15)*limit;target.y=Math.tanh((current.y-lastPointer.y)/dt/1.4)*limit*.26;lastInput=current.time;if(!frame){lastFrame=current.time;frame=requestAnimationFrame(animate);}}else{center[0].value=colorCenter[0].value=current.x;center[1].value=colorCenter[1].value=current.y;}lastPointer=current;}
  function leave(){hovered=false;lastPointer=null;lastInput=-Infinity;if(gpu&&frame)title.dataset.elasticPhase='recovering';}
- function teardown(){neutral();cancelAnimationFrame(resizeFrame);observer?.disconnect();observer=null;gpu?.dispose();gpu=null;canvas?.remove();canvas=null;title.classList.remove('elastic-title');title.dataset.elasticPhase='disabled';}
+ function teardown(){clearTimeout(introTimer);clearInterval(introTimer);introTimer=0;introStart=-Infinity;neutral();cancelAnimationFrame(resizeFrame);observer?.disconnect();observer=null;gpu?.dispose();gpu=null;canvas?.remove();canvas=null;title.classList.remove('elastic-title');title.dataset.elasticPhase='disabled';}
  async function initialize(){
   if(disposed||initializing||gpu||!enabled.matches)return;
   initializing=true;
@@ -60,8 +85,39 @@ export function createElasticTypography(title){
   resize();
   observer=new ResizeObserver(()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(resize);});
   observer.observe(title);
+  if(!introTimer&&title.closest('[data-node-id="919:872"]')){
+   const playIntro=()=>{
+    const rect=title.getBoundingClientRect();
+    if(disposed||!gpu||!enabled.matches||document.hidden||frame||rect.bottom<=0||rect.top>=innerHeight)return;
+    introStart=lastFrame=performance.now();recoveryElapsed=0;
+    target.cx=padding+title.offsetWidth*.12;target.cy=padding+fontSize*.55;
+    center[0].value=colorCenter[0].value=target.cx;center[1].value=colorCenter[1].value=target.cy;
+    frame=requestAnimationFrame(animate);
+   };
+   introTimer=setTimeout(()=>{
+    playIntro();
+    introTimer=setInterval(playIntro,10000);
+   },400);
+  }
  }
- const mediaChange=()=>enabled.matches?initialize():teardown(),blur=()=>leave(),scroll=()=>{if(!title.matches(':hover'))leave();},visibility=()=>{if(document.hidden)neutral();};
+ function scroll(){
+  const now=performance.now(),delta=window.scrollY-previousScrollY,elapsed=clamp(now-previousScrollTime,12,100);
+  previousScrollY=window.scrollY;previousScrollTime=now;
+  if(!title.matches(':hover'))leave();
+  if(!gpu||!enabled.matches||document.hidden||delta===0)return;
+  const rect=title.getBoundingClientRect();
+  if(rect.bottom<=0||rect.top>=innerHeight)return;
+  const velocity=clamp(delta/elapsed,-6,6),amount=Math.tanh(velocity/2)*Math.min(52,fontSize*.24);
+  scrollPull=[amount*.35,-amount*.65];lastScroll=now;
+  if(!hovered){
+   const zoom=rect.width/title.offsetWidth;
+   target.cx=padding+title.offsetWidth*.5;
+   target.cy=padding+(clamp(innerHeight*.5,Math.max(0,rect.top),Math.min(innerHeight,rect.bottom))-rect.top)/zoom;
+   if(!frame){center[0].value=colorCenter[0].value=target.cx;center[1].value=colorCenter[1].value=target.cy;}
+  }
+  if(!frame){lastFrame=now;frame=requestAnimationFrame(animate);}
+ }
+ const mediaChange=()=>enabled.matches?initialize():teardown(),blur=()=>{lastScroll=-Infinity;leave();},visibility=()=>{if(document.hidden){lastScroll=-Infinity;neutral();}};
  title.addEventListener('pointerenter',pointer);title.addEventListener('pointermove',pointer);title.addEventListener('pointerleave',leave);title.addEventListener('pointercancel',leave);window.addEventListener('blur',blur);window.addEventListener('scroll',scroll,{passive:true});document.addEventListener('visibilitychange',visibility);enabled.addEventListener('change',mediaChange);title.dataset.elasticPhase='disabled';initialize();
  return{dispose(){disposed=true;teardown();title.removeEventListener('pointerenter',pointer);title.removeEventListener('pointermove',pointer);title.removeEventListener('pointerleave',leave);title.removeEventListener('pointercancel',leave);window.removeEventListener('blur',blur);window.removeEventListener('scroll',scroll);document.removeEventListener('visibilitychange',visibility);enabled.removeEventListener('change',mediaChange);delete title.dataset.elasticPhase;}};
 }
