@@ -2,13 +2,13 @@
 import {createRoot} from 'react-dom/client';
 import {flushSync} from 'react-dom';
 import Portfolio from './Portfolio.jsx';
-import {initHoverGhosts} from './hover-ghost.js';
+import {useElasticTypography} from './use-elastic-typography.js';
 import {initScrollTitles} from './scroll-titles.js';
-flushSync(()=>createRoot(document.getElementById('root')).render(<Portfolio/>));
+function App(){useElasticTypography();return <Portfolio/>;}
+flushSync(()=>createRoot(document.getElementById('root')).render(<App/>));
 
 function activate(element, action, label){element.tabIndex=0;element.setAttribute('role','button');if(label)element.setAttribute('aria-label',label);element.addEventListener('click',action);element.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();action()}})}
 requestAnimationFrame(()=>{
- initHoverGhosts();
  initScrollTitles();
  const sections=[...document.querySelectorAll('[data-name^="Section /"]')];
  const names=['home','about','work','contribution','development','skills','playground','philosophy','contact'];

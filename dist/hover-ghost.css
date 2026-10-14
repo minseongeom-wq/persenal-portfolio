@@ -1,12 +1,5 @@
-/* The base text stays in place; only decorative copies appear during hover. */
-#root .ghost-title{position:relative;overflow:visible;isolation:isolate}
-#root .ghost-title>.ghost-layer{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;margin:0;padding:0;font:inherit;letter-spacing:inherit;line-height:inherit;text-align:inherit;white-space:pre;pointer-events:none;user-select:none;opacity:0;transform:translate(0,0);transition:opacity 180ms ease,transform 260ms cubic-bezier(.2,.7,.2,1);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-#root .ghost-layer--chrome{z-index:-1;background-image:linear-gradient(118deg,#d9d9d9 5%,#fff 24%,#474d54 38%,#f60707 43%,#080808 51%,#c73e0c 62%,#3f3f40 76%,#fff 90%);filter:url(#hover-ghost-refraction)}
-#root .ghost-layer--trail{z-index:-2;background-image:linear-gradient(110deg,#808080 5%,#f60707 40%,#b64c2a 58%,#8e9398 83%);filter:blur(.45px)}
-/* This existing duplicate represents the unavailable shader, not the new hover layer. */
+﻿#root .ghost-title{position:relative;overflow:visible;isolation:isolate}
+#root .elastic-title>.elastic-canvas{position:absolute;left:calc(-1*var(--elastic-padding));top:calc(-1*var(--elastic-padding));right:auto;bottom:auto;width:calc(100% + var(--elastic-padding)*2);height:calc(100% + var(--elastic-padding)*2);max-width:none;margin:0;padding:0;display:block;transform:none;pointer-events:none;user-select:none;z-index:1}
+#root .elastic-title.elastic-rendering,#root .elastic-title.elastic-rendering :not(canvas){color:transparent!important;-webkit-text-fill-color:transparent!important}
 [data-node-id="919:1337"]{visibility:hidden}
-@media(hover:hover) and (pointer:fine){
-  #root .ghost-title.is-ghost-hover>.ghost-layer--chrome{opacity:.68;transform:translate(var(--ghost-x,14px),var(--ghost-y,2px)) skewX(-2deg)}
-  #root .ghost-title.is-ghost-hover>.ghost-layer--trail{opacity:.22;transform:translate(calc(var(--ghost-x,14px)*1.55),calc(var(--ghost-y,2px)*-.7)) skewX(1deg)}
-}
-@media(prefers-reduced-motion:reduce){#root .ghost-title>.ghost-layer{transition:none}#root .ghost-layer--chrome{filter:none}}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){#root .elastic-title>.elastic-canvas{display:none}#root .elastic-title.elastic-rendering,#root .elastic-title.elastic-rendering :not(canvas){color:inherit!important;-webkit-text-fill-color:inherit!important}}

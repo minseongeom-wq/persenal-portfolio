@@ -1,0 +1,86 @@
+[
+  {
+    "text": "Eom\nminseong",
+    "font": "\"PP Neue Montreal\", Pretendard, sans-serif",
+    "fontSize": "200px",
+    "fontWeight": "700",
+    "lineHeight": "200px",
+    "letterSpacing": "-8px",
+    "box": {
+      "x": 819.046875,
+      "y": 194,
+      "width": 856,
+      "height": 400
+    }
+  },
+  {
+    "text": "Select Projects",
+    "font": "\"PP Neue Montreal\", Pretendard, sans-serif",
+    "fontSize": "120px",
+    "fontWeight": "500",
+    "lineHeight": "normal",
+    "letterSpacing": "-4.8px",
+    "box": {
+      "x": 79,
+      "y": 2476,
+      "width": 717.84375,
+      "height": 148
+    }
+  },
+  {
+    "text": "Playground",
+    "font": "Inter, Pretendard, sans-serif",
+    "fontSize": "200px",
+    "fontWeight": "700",
+    "lineHeight": "200px",
+    "letterSpacing": "-6px",
+    "box": {
+      "x": 393,
+      "y": 8015,
+      "width": 1220,
+      "height": 200
+    }
+  },
+  {
+    "text": "FORM",
+    "font": "\"PP Neue Montreal\", Pretendard, sans-serif",
+    "fontSize": "345.455px",
+    "fontWeight": "700",
+    "lineHeight": "300.546px",
+    "letterSpacing": "-13.8182px",
+    "box": {
+      "x": 516.34375,
+      "y": 9243.703125,
+      "width": 1282.65625,
+      "height": 300.53125
+    }
+  },
+  {
+    "text": "MEETS",
+    "font": "\"PP Neue Montreal\", Pretendard, sans-serif",
+    "fontSize": "345.455px",
+    "fontWeight": "700",
+    "lineHeight": "300.546px",
+    "letterSpacing": "-13.8182px",
+    "box": {
+      "x": 516.34375,
+      "y": 9544.234375,
+      "width": 1282.65625,
+      "height": 300.53125
+    }
+  },
+  {
+    "text": "FEELNG",
+    "font": "\"PP Neue Montreal\", Pretendard, sans-serif",
+    "fontSize": "345.455px",
+    "fontWeight": "700",
+    "lineHeight": "300.546px",
+    "letterSpacing": "-13.8182px",
+    "box": {
+      "x": 516.34375,
+      "y": 9844.765625,
+      "width": 1282.65625,
+      "height": 300.53125
+    }
+  }
+]
