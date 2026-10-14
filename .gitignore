@@ -1,0 +1,5 @@
+node_modules/
+.openai/*.zip
+.preview-profile/
+preview.png
+mobile-preview.png

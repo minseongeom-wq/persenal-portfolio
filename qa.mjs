@@ -1,0 +1,18 @@
+import {chromium} from 'playwright';
+import {pathToFileURL} from 'node:url';
+const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+const page=await browser.newPage({viewport:{width:1920,height:1080}});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto(pathToFileURL(process.cwd()+'/dist/index.html').href);await page.waitForTimeout(500);
+await page.screenshot({path:'preview.png',fullPage:true});
+const assets=await page.locator('img').evaluateAll(nodes=>nodes.map(n=>({src:n.getAttribute('src'),loaded:n.complete&&n.naturalWidth>0,width:n.getBoundingClientRect().width,height:n.getBoundingClientRect().height})));
+await page.locator('[data-name^="Project Link / 02"]').click();
+if(await page.locator('[data-node-id="919:893"]').textContent()!=='02')throw Error('Project selection failed');
+await page.locator('[data-name^="Project Link / 01"]').click();
+await page.locator('[data-name^="Playground Item"]').first().click();
+if(!await page.locator('dialog').isVisible())throw Error('Dialog failed');await page.locator('dialog button').click();
+await page.setViewportSize({width:390,height:844});await page.goto(pathToFileURL(process.cwd()+'/dist/index.html').href);await page.waitForTimeout(300);
+await page.screenshot({path:'mobile-preview.png',fullPage:true});
+const mobile=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth}));
+console.log(JSON.stringify({errors,assets,mobile},null,2));await browser.close();
+if(errors.length||assets.some(a=>!a.loaded||a.width===0||a.height===0)||mobile.scrollWidth>mobile.width)process.exitCode=1;
