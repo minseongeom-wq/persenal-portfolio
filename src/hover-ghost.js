@@ -60,7 +60,9 @@ export function initHoverGhosts() {
     text.addEventListener('pointercancel', reset);
     finePointer.addEventListener('change', reset);
     window.addEventListener('blur', reset);
-    // Scrolling can move the title away from a stationary mouse without a leave event.
-    window.addEventListener('scroll', reset, {passive: true});
+    // Preserve the effect while the pointer still covers a moving title.
+    window.addEventListener('scroll', () => {
+      if (!text.matches(':hover')) reset();
+    }, {passive: true});
   }
 }

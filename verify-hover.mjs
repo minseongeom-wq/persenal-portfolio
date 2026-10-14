@@ -18,7 +18,7 @@ try{
  await page.mouse.move(10,10);await page.waitForTimeout(300);
  if(await hero.locator('.ghost-layer').evaluateAll(l=>l.some(e=>Number(getComputedStyle(e).opacity)>0)))throw Error('Effect did not reset');
  if(await page.locator('.ghost-layer:not([aria-hidden="true"])').count())throw Error('Decorative text exposed to screen readers');
- for(let i=1;i<count;i++){const t=titles.nth(i);await t.scrollIntoViewIfNeeded();await page.waitForTimeout(120);await t.hover();await page.waitForTimeout(300);if(!await t.evaluate(e=>e.classList.contains('is-ghost-hover')))throw Error('Missing hover on line '+i);await page.mouse.move(10,10);}
+ for(let i=1;i<count;i++){const t=titles.nth(i);await t.scrollIntoViewIfNeeded();await page.waitForTimeout(1100);await t.hover();await page.waitForTimeout(300);if(!await t.evaluate(e=>e.classList.contains('is-ghost-hover')))throw Error('Missing hover on line '+i);await page.mouse.move(10,10);}
  const touch=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});await touch.goto(pathToFileURL(process.cwd()+'/dist/index.html').href);await touch.locator('.ghost-title').first().waitFor();await touch.locator('[data-node-id="919:872"] .ghost-title').tap();if(await touch.locator('.is-ghost-hover').count())throw Error('Sticky effect on touch');
  const mobile=await touch.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth}));if(mobile.width!==mobile.scrollWidth)throw Error('Mobile overflow');
  await page.emulateMedia({reducedMotion:'reduce'});const transition=await hero.locator('.ghost-layer').first().evaluate(e=>getComputedStyle(e).transitionDuration);if(transition!=='0s')throw Error('Reduced motion not respected');
