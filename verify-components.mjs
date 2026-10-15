@@ -1,0 +1,43 @@
+import {chromium} from 'playwright';
+import {pathToFileURL} from 'node:url';
+import {readFile,stat} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+for(const [file,expected] of [['src/Navigation.jsx','54b8cb7813b1ab2692d4808f70627c212744806d7f5813632b925223b8cb2ae9'],['dist/navigation.css','2fed72f3293caa67483cafbf268842f477c2a7ab6cd27e6ab39364fc9b9d9e1a']])if(createHash('sha256').update(await readFile(file)).digest('hex')!==expected)throw Error('Navigation was modified');
+const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+try{
+ const page=await browser.newPage({viewport:{width:1920,height:1080}});
+ await page.goto(pathToFileURL(process.cwd()+'/dist/index.html').href);
+ await page.evaluate(()=>{document.documentElement.style.scrollBehavior='auto';return document.fonts.ready;});
+ const links=page.locator('[data-name^="Project Link /"][role="button"]');
+ const first=links.nth(0),second=links.nth(1);
+ await first.scrollIntoViewIfNeeded();await page.mouse.move(1800,100);
+ const check=async(link,active)=>{
+  const s=await link.evaluate(e=>{const c=e.querySelector('[data-name="Project Link / Content"]'),p=e.querySelector('p'),arrow=e.querySelector(getComputedStyle(e.querySelector('.project-arrow-on')).display==='none'?'.project-arrow-off':'.project-arrow-on');const r=arrow.getBoundingClientRect();return {background:getComputedStyle(e).backgroundColor,color:getComputedStyle(p).color,left:getComputedStyle(c).left,src:arrow.getAttribute('src'),loaded:arrow.complete&&arrow.naturalWidth>0,width:r.width,height:r.height};});
+  if(s.background!==(active?'rgb(26, 72, 255)':'rgba(0, 0, 0, 0)')||s.color!==(active?'rgb(255, 255, 255)':'rgb(0, 0, 0)')||s.left!==(active?'10px':'0px')||s.src!==(active?'./assets/307af.svg':'./assets/46f35.svg')||!s.loaded||Math.abs(s.width-33)>1||Math.abs(s.height-33)>1)throw Error('Project state mismatch: '+JSON.stringify(s));
+ };
+ await check(first,true);await check(second,false);
+ await page.screenshot({path:'components-project-default.png'});
+ await second.hover();await check(second,true);
+ await page.screenshot({path:'components-project-hover.png'});
+ await second.click();await page.mouse.move(1800,100);await second.evaluate(e=>e.blur());
+ await check(second,true);await check(first,false);
+ if((await page.locator('[data-node-id="919:893"]').textContent()).trim()!=='02')throw Error('Project selection action broken');
+ const item=page.locator('[data-name^="Playground Item"]').first();
+ await item.scrollIntoViewIfNeeded();await page.mouse.move(1800,100);
+ if(await item.locator('p').first().evaluate(e=>getComputedStyle(e).backgroundColor)!=='rgba(0, 0, 0, 0)')throw Error('Playground default has a background');
+ await item.hover();
+ const lines=await item.locator('p').evaluateAll(nodes=>nodes.map(e=>({background:getComputedStyle(e).backgroundColor,width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height})));
+ for(const [i,line] of lines.entries())if(line.background!=='rgb(241, 239, 235)'||Math.abs(line.width-[185,92,192,74][i])>1||Math.abs(line.height-[22,16,16,16][i])>1)throw Error('Playground hover mismatch: '+JSON.stringify(lines));
+ await page.screenshot({path:'components-playground-hover.png'});
+ await item.click();if(!await page.locator('#detail').isVisible())throw Error('Playground dialog broken');
+ await page.keyboard.press('Escape');
+ const row=page.locator('[data-name="Contribution / Content Row"]').first();
+ if(await row.evaluate(e=>getComputedStyle(e).gap)!=='45px')throw Error('Contribution spacing mismatch');
+ if(await page.locator('video').count()!==3)throw Error('Videos removed');
+ for(const file of ['46f35.svg','307af.svg'])if(!(await stat('dist/assets/'+file)).size)throw Error('Missing component icon');
+ await page.setViewportSize({width:390,height:844});
+ await second.scrollIntoViewIfNeeded();await second.focus();
+ await item.scrollIntoViewIfNeeded();await item.focus();
+ await page.screenshot({path:'components-mobile.png'});
+ console.log('Project on/off/hover assets, Playground line backgrounds, contribution spacing and existing actions verified; navigation unchanged.');
+}finally{await browser.close();}

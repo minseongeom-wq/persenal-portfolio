@@ -15,7 +15,7 @@ function renderer(canvas){
  return{upload(image){gl.bindTexture(gl.TEXTURE_2D,texture);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,image);gl.viewport(0,0,canvas.width,canvas.height);},draw(s){gl.useProgram(program);gl.bindTexture(gl.TEXTURE_2D,texture);for(const n of names.slice(0,7))gl.uniform2f(u[n],...s[n]);gl.uniform1f(u.active,s.active);gl.uniform1f(u.strength,s.strength);gl.uniform1f(u.intro,s.intro);gl.drawArrays(gl.TRIANGLES,0,6);},dispose(){gl.deleteTexture(texture);gl.deleteBuffer(buffer);gl.deleteProgram(program);gl.getExtension('WEBGL_lose_context')?.loseContext();}};
 }
 /** Draw each glyph at its DOM Range position: preserve native tracking/kerning/baselines. */
-function rasterize(title,padding,ratio){
+export function rasterize(title,padding,ratio){
  const bounds=title.getBoundingClientRect(),width=title.offsetWidth+padding*2,height=title.offsetHeight+padding*2,zoom=bounds.width/title.offsetWidth;
  const image=document.createElement('canvas');image.width=Math.ceil(width*ratio);image.height=Math.ceil(height*ratio);const ctx=image.getContext('2d');ctx.scale(ratio,ratio);ctx.fillStyle='#000';ctx.textBaseline='alphabetic';
  const walker=document.createTreeWalker(title,NodeFilter.SHOW_TEXT);let node;
@@ -30,7 +30,7 @@ export function createElasticTypography(title){
  const target={x:0,y:0,cx:0,cy:0},black=[spring(),spring()],red=[spring(),spring()],cyan=[spring(),spring()],center=[spring(),spring()],colorCenter=[spring(),spring()];
  const all=[...black,...red,...cyan,...center,...colorCenter];
  let previousScrollY=window.scrollY,previousScrollTime=performance.now(),lastScroll=-Infinity,scrollPull=[0,0];
- let introTimer=0,introStart=-Infinity;
+ let introTimer=0,introStart=-Infinity,entranceStarted=false;
  function paint(active){const intro=active&&Number.isFinite(introStart)?1:0;gpu?.draw({size,center:center.map(s=>s.value),colorCenter:colorCenter.map(s=>s.value),pull:black.map(s=>s.value),redPull:red.map(s=>s.value),cyanPull:cyan.map(s=>s.value),radius:[fontSize*.70,fontSize*.48],active:active?1:0,intro,strength:clamp(Math.max(Math.hypot(...black.map(s=>s.value)),intro?Math.hypot(...red.map(s=>s.value)):0)/12,0,1)});}
  function neutral(){cancelAnimationFrame(frame);frame=0;black.concat(red,cyan).forEach(s=>{s.value=s.velocity=0;});target.x=target.y=0;lastInput=-Infinity;lastPointer=null;hovered=false;title.classList.remove('elastic-rendering');title.dataset.elasticPhase=gpu?'idle':'disabled';paint(false);}
  function resize(){if(!gpu||!title.offsetWidth||!title.offsetHeight)return;neutral();fontSize=Number.parseFloat(getComputedStyle(title).fontSize);padding=Math.ceil(Math.min(90,Math.max(48,fontSize*.30)));const ratio=Math.min(devicePixelRatio||1,2),raster=rasterize(title,padding,ratio);size=[raster.width,raster.height];canvas.width=raster.image.width;canvas.height=raster.image.height;canvas.style.setProperty('--elastic-padding',padding+'px');gpu.upload(raster.image);target.cx=size[0]/2;target.cy=size[1]/2;center[0].value=colorCenter[0].value=target.cx;center[1].value=colorCenter[1].value=target.cy;all.forEach(s=>s.velocity=0);paint(false);}
@@ -55,7 +55,7 @@ export function createElasticTypography(title){
   if(!moving&&energy<.025){neutral();return;}
   title.classList.add('elastic-rendering');title.dataset.elasticPhase=hovered||scrollMoving||introMoving?'active':'recovering';paint(true);frame=requestAnimationFrame(animate);
  }
- function pointer(event){if(!gpu||!enabled.matches||event.pointerType==='touch')return;const rect=title.getBoundingClientRect(),zoom=rect.width/title.offsetWidth,current={x:(event.clientX-rect.left)/zoom+padding,y:(event.clientY-rect.top)/zoom+padding,time:performance.now()};hovered=true;target.cx=current.x;target.cy=current.y;if(lastPointer){const dt=clamp(current.time-lastPointer.time,5,80),limit=Math.min(52,fontSize*.24);target.x=Math.tanh((current.x-lastPointer.x)/dt/1.15)*limit;target.y=Math.tanh((current.y-lastPointer.y)/dt/1.4)*limit*.26;lastInput=current.time;if(!frame){lastFrame=current.time;frame=requestAnimationFrame(animate);}}else{center[0].value=colorCenter[0].value=current.x;center[1].value=colorCenter[1].value=current.y;}lastPointer=current;}
+ function pointer(event){if(!gpu||!enabled.matches||title.dataset.heroEntering==='true'||event.pointerType==='touch')return;const rect=title.getBoundingClientRect(),zoom=rect.width/title.offsetWidth,current={x:(event.clientX-rect.left)/zoom+padding,y:(event.clientY-rect.top)/zoom+padding,time:performance.now()};hovered=true;target.cx=current.x;target.cy=current.y;if(lastPointer){const dt=clamp(current.time-lastPointer.time,5,80),limit=Math.min(52,fontSize*.24);target.x=Math.tanh((current.x-lastPointer.x)/dt/1.15)*limit;target.y=Math.tanh((current.y-lastPointer.y)/dt/1.4)*limit*.26;lastInput=current.time;if(!frame){lastFrame=current.time;frame=requestAnimationFrame(animate);}}else{center[0].value=colorCenter[0].value=current.x;center[1].value=colorCenter[1].value=current.y;}lastPointer=current;}
  function leave(){hovered=false;lastPointer=null;lastInput=-Infinity;if(gpu&&frame)title.dataset.elasticPhase='recovering';}
  function teardown(){clearTimeout(introTimer);clearInterval(introTimer);introTimer=0;introStart=-Infinity;neutral();cancelAnimationFrame(resizeFrame);observer?.disconnect();observer=null;gpu?.dispose();gpu=null;canvas?.remove();canvas=null;title.classList.remove('elastic-title');title.dataset.elasticPhase='disabled';}
  async function initialize(){
@@ -90,25 +90,24 @@ export function createElasticTypography(title){
     const rect=title.getBoundingClientRect();
     if(disposed||!gpu||!enabled.matches||document.hidden||frame||rect.bottom<=0||rect.top>=innerHeight)return;
     introStart=lastFrame=performance.now();recoveryElapsed=0;
+    if(!entranceStarted){entranceStarted=true;title.dispatchEvent(new Event('hero-title-start'));}
     target.cx=padding+title.offsetWidth*.12;target.cy=padding+fontSize*.55;
     center[0].value=colorCenter[0].value=target.cx;center[1].value=colorCenter[1].value=target.cy;
     frame=requestAnimationFrame(animate);
    };
-   introTimer=setTimeout(()=>{
-    playIntro();
-    introTimer=setInterval(playIntro,10000);
-   },400);
+   // Restore the original entrance distortion; the Hero controller only fades its opacity.
+   introTimer=setTimeout(()=>{playIntro();introTimer=setInterval(playIntro,10000);},400);
   }
  }
  function scroll(){
   const now=performance.now(),delta=window.scrollY-previousScrollY,elapsed=clamp(now-previousScrollTime,12,100);
   previousScrollY=window.scrollY;previousScrollTime=now;
   if(!title.matches(':hover'))leave();
-  if(!gpu||!enabled.matches||document.hidden||delta===0)return;
+  if(!gpu||!enabled.matches||document.hidden||title.dataset.heroEntering==='true'||delta===0)return;
   const rect=title.getBoundingClientRect();
   if(rect.bottom<=0||rect.top>=innerHeight)return;
-  const velocity=clamp(delta/elapsed,-6,6),amount=Math.tanh(velocity/2)*Math.min(52,fontSize*.24);
-  scrollPull=[amount*.35,-amount*.65];lastScroll=now;
+  const velocity=clamp(delta/elapsed,-6,6),amount=Math.tanh(velocity/1.25)*Math.min(52,fontSize*.24);
+  scrollPull=[amount*.60,-amount*1.05];lastScroll=now;
   if(!hovered){
    const zoom=rect.width/title.offsetWidth;
    target.cx=padding+title.offsetWidth*.5;

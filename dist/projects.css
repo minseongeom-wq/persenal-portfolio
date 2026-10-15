@@ -1,0 +1,49 @@
+#root [data-name="Section / Selected Projects"]{width:1762px;height:2775px;margin-left:-36px;overflow:visible}
+#root .project-stage{position:sticky;top:0;width:100%;height:min(var(--project-viewport-height,1080px),2775px);transform:none;z-index:1;pointer-events:none}
+#root .project-stage [role=button],#root .project-stage .ghost-title{pointer-events:auto}
+@media(min-width:601px){
+ #root .project-stage::before{content:'';position:absolute;left:0;right:0;top:0;height:280px;background:#f1efeb url('./assets/e9016.png') -79px 0/1920px 1075px;z-index:-1;pointer-events:none;transform:none}
+}
+#root [data-node-id="919:892"]{left:0;top:72px}
+#root [data-node-id="919:893"]{left:886px;top:72px}
+#root [data-node-id="919:894"]{left:1582px;top:72px}
+#root [data-name^="Project Link /"][role=button]{left:0;--tx:0px;--ty:0px}
+#root [data-node-id="919:897"]{top:360px}
+#root [data-node-id="919:898"]{top:426px}
+#root [data-node-id="919:899"]{top:492px}
+#root [data-node-id="919:900"]{top:558px}
+#root [data-node-id="919:901"]{top:624px}
+#root [data-node-id="919:902"]{display:none}
+#root .project-gallery{position:absolute;left:767px;top:360px;width:995px;height:auto;display:flex;flex-direction:column;gap:24px;transform:none;margin:0}
+#root .project-gallery__card{position:relative;width:100%;margin:0;transform:none}
+#root .project-gallery__card:nth-child(3){margin-bottom:0}
+#root .project-gallery__image{position:relative;width:100%;height:542px;overflow:hidden;transform:none}
+#root .project-gallery__card:nth-child(3) .project-gallery__image{height:541px}
+#root .project-gallery__image img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;transform:none;pointer-events:none}
+#root .project-gallery__color{opacity:0}
+#root .project-gallery__image::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.1) 0px,rgba(0,0,0,.1) 1px,transparent 1px,transparent 3px),repeating-linear-gradient(90deg,rgba(255,0,0,.025) 0px,rgba(0,255,0,.025) 1px,rgba(0,0,255,.025) 2px,transparent 3px);box-shadow:inset 0 0 45px rgba(0,0,0,.08)}
+#root .project-gallery__noise{position:absolute;inset:0;width:100%;height:100%;max-width:none;margin:0;padding:0;display:block;opacity:0;transform:none;pointer-events:none;z-index:1}
+#root .project-gallery__card:is(:hover,:focus-visible) .project-gallery__color{opacity:1}
+#root .project-gallery figcaption{margin-top:10px;font-family:'PP Neue Montreal Mono',monospace;font-size:16px;font-weight:500;line-height:16px;letter-spacing:-.48px;color:#808080}
+#root .project-gallery__card:focus-visible{outline:2px solid #1a48ff;outline-offset:4px}
+#root [data-name="Section / Selected Projects"]:has([data-project-link="0"]:is(:hover,:focus-visible)) [data-project-index="0"] .project-gallery__color,
+#root [data-name="Section / Selected Projects"]:has([data-project-link="1"]:is(:hover,:focus-visible)) [data-project-index="1"] .project-gallery__color,
+#root [data-name="Section / Selected Projects"]:has([data-project-link="2"]:is(:hover,:focus-visible)) [data-project-index="2"] .project-gallery__color,
+#root [data-name="Section / Selected Projects"]:has([data-project-link="3"]:is(:hover,:focus-visible)) [data-project-index="3"] .project-gallery__color{opacity:1}
+@media(max-width:600px){
+ #root .project-stage{display:contents}
+ #root [data-name="Section / Selected Projects"]{width:100%;height:auto;margin-left:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+ #root [data-node-id="919:892"],#root [data-name^="Project Link /"][role=button],#root .project-gallery{grid-column:1/-1}
+ #root [data-node-id="919:894"]{text-align:right}
+ #root [data-name^="Project Link /"][role=button]{width:100%;height:51px;margin:0;padding:0}
+ #root [data-name^="Project Link /"][role=button] [data-name="Project Link / Content"]{position:absolute;top:9px;margin:0;padding:0}
+ #root [data-node-id="919:892"],#root [data-node-id="919:893"],#root [data-node-id="919:894"],#root [data-name^="Project Link /"][role=button]{position:relative;left:auto;top:auto}
+ #root [data-node-id="919:902"]{display:none}
+ #root .project-gallery{position:relative;left:auto;top:auto;width:100%;height:auto;margin:16px 0 0;gap:28px;order:10}
+ #root .project-gallery__image{width:100%;height:auto;aspect-ratio:995/542}
+ #root .project-gallery__card:nth-child(3) .project-gallery__image{height:auto;aspect-ratio:995/541}
+ #root .project-gallery__image img{position:absolute;inset:0;width:100%;height:100%}
+ #root .project-gallery__card:nth-child(3){margin-bottom:0}
+ #root .project-gallery figcaption{font-size:12px;line-height:16px}
+}
+@media(prefers-reduced-motion:reduce){#root .project-gallery__color{transition:none}#root .project-gallery__noise{display:none}}

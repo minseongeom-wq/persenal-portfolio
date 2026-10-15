@@ -1,4 +1,5 @@
 node_modules/
+.video-tools/
 .openai/*.zip
 .openai/*.tar.gz
 .preview-profile/

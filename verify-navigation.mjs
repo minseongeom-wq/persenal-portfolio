@@ -1,0 +1,96 @@
+import {chromium} from 'playwright';
+import {pathToFileURL} from 'node:url';
+import {stat} from 'node:fs/promises';
+const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+try {
+ const page=await browser.newPage({viewport:{width:1920,height:1080}});
+ await page.goto(pathToFileURL(process.cwd()+'/dist/index.html').href);
+ await page.evaluate(()=>document.fonts.ready);
+ const nav=page.locator('.portfolio-navigation');
+ const checkFixed=async()=>{
+  const geometry=await nav.locator('.portfolio-navigation__logo').evaluate(e=>{const r=e.getBoundingClientRect();return {center:r.top+r.height/2,viewport:innerHeight,position:getComputedStyle(e.closest('nav')).position};});
+  if(geometry.position!=='fixed'||Math.abs(geometry.center-geometry.viewport/2)>1)throw Error('Navigation not fixed at viewport center: '+JSON.stringify(geometry));
+ };
+ await checkFixed();
+ if(await nav.locator('.portfolio-navigation__items').isVisible())throw Error('Menu initially expanded');
+ const asset=await nav.locator('img').evaluate(img=>({loaded:img.complete&&img.naturalWidth>0,source:img.getAttribute('src'),width:img.getBoundingClientRect().width,height:img.getBoundingClientRect().height,crop:img.parentElement.getBoundingClientRect().toJSON()}));
+ if(!asset.loaded||!(await stat('dist/assets/e51b5.png')).size)throw Error('Missing logo asset');
+ await page.screenshot({path:'navigation-default.png',clip:{x:0,y:390,width:240,height:304}});
+ await nav.locator('.portfolio-navigation__logo').hover();
+ await page.waitForTimeout(700);
+ const labels=await nav.locator('.portfolio-navigation__item').allTextContents();
+ if(labels.join(',')!=='Intro,About,Work,Contribution,Development,Skill,Playground,Philosophy,Contact')throw Error('Incorrect menu labels');
+ const color=await nav.locator('.portfolio-navigation__item[href="#about"]').evaluate(e=>getComputedStyle(e).color);
+ if(color!=='rgb(128, 128, 128)')throw Error('Incorrect inactive text color: '+color);
+ await page.screenshot({path:'navigation-hover.png',clip:{x:0,y:390,width:240,height:304}});
+ await page.evaluate(()=>{document.documentElement.style.scrollBehavior='auto';window.scrollTo(0,0);});
+ for(const target of ['about','work','contribution','skills','playground','philosophy','contact','home']) {
+  await nav.locator('.portfolio-navigation__logo').hover();
+  await page.waitForTimeout(700);
+  await nav.locator(`.portfolio-navigation__item[href="#${target}"]`).click();
+  await page.waitForFunction(target=>document.querySelector('.portfolio-navigation').dataset.section===target,target);
+  await nav.locator('.portfolio-navigation__logo').hover();
+  await page.waitForTimeout(100);
+  const during=await nav.locator('.portfolio-navigation__track[data-selected=true]').evaluate(e=>getComputedStyle(e).transform);
+  await page.waitForTimeout(650);
+  const after=await nav.locator('.portfolio-navigation__track[data-selected=true]').evaluate(e=>getComputedStyle(e).transform);
+  if(during===after||after!=='matrix(1, 0, 0, 1, 0, 0)')throw Error('Menu did not rotate to current section: '+target+' '+during+' '+after);
+  const top=await page.locator(`#${target}`).evaluate(e=>e.getBoundingClientRect().top);
+  if(Math.abs(top)>2)throw Error('Incorrect navigation destination: '+target+' '+top);
+  await checkFixed();
+ }
+ await page.evaluate(()=>window.scrollTo(0,0));
+ await nav.locator('.portfolio-navigation__logo').focus();
+ if(await nav.getAttribute('data-open')!=='true')throw Error('Keyboard did not open menu');
+ await page.keyboard.press('Escape');
+ if(await nav.getAttribute('data-open')!=='false')throw Error('Escape did not close menu');
+ await page.mouse.move(500,400);
+ await page.setViewportSize({width:1440,height:900});
+ await checkFixed();
+ await nav.locator('.portfolio-navigation__logo').hover();
+ await page.waitForTimeout(230);
+ await page.screenshot({path:'navigation-hover-1440.png',clip:{x:0,y:303,width:240,height:304}});
+ await page.mouse.move(700,100);
+ await page.evaluate(()=>document.activeElement?.blur());
+ await page.locator('#skills').evaluate(e=>window.scrollTo(0,window.scrollY+e.getBoundingClientRect().top));
+ await page.waitForFunction(()=>document.querySelector('.portfolio-navigation').dataset.section==='skills');
+ const sectionNames={home:'Intro',about:'About',work:'Work',contribution:'Contribution',development:'Development',skills:'Skill',playground:'Playground',philosophy:'Philosophy',contact:'Contact'};
+ for(const [target,label] of Object.entries(sectionNames)){
+  await page.locator(`#${target}`).evaluate(e=>window.scrollTo(0,window.scrollY+e.getBoundingClientRect().top));
+  await page.waitForFunction(target=>document.querySelector('.portfolio-navigation').dataset.section===target,target);
+  const title=nav.locator('.portfolio-navigation__default');
+  if(await title.textContent()!==label||!await title.isVisible())throw Error('Section label missing: '+target);
+  await nav.locator('.portfolio-navigation__logo').hover();
+  if(await nav.locator('.portfolio-navigation__track[data-selected=true] .portfolio-navigation__item').textContent()!==label)throw Error('Hover label does not match section: '+target);
+  await page.mouse.move(700,100);
+ }
+ await page.waitForTimeout(1900);
+ if(await nav.locator('.portfolio-navigation__default').isVisible())throw Error('Section label did not fade out');
+ await page.locator('#skills').evaluate(e=>window.scrollTo(0,window.scrollY+e.getBoundingClientRect().top));
+ await page.waitForFunction(()=>document.querySelector('.portfolio-navigation').dataset.section==='skills');
+ await nav.locator('.portfolio-navigation__default').waitFor({state:'visible',timeout:1000});
+ await page.waitForTimeout(1900);
+ await page.evaluate(()=>window.scrollBy(0,10));
+ await page.waitForTimeout(100);
+ if(await nav.locator('.portfolio-navigation__default').isVisible())throw Error('Scrolling within section replayed label');
+ await checkFixed();
+ await page.locator('#about').evaluate(e=>window.scrollTo(0,window.scrollY+e.getBoundingClientRect().top));
+ await page.waitForFunction(()=>document.querySelector('.portfolio-navigation').dataset.section==='about');
+ await page.evaluate(()=>{
+  const rect=document.querySelector('.portfolio-navigation__default').getBoundingClientRect();
+  const content=document.querySelector('[data-node-id="919:872"] p');
+  window.navigationOverlapFixture={content,parent:content.parentElement,next:content.nextSibling,style:content.getAttribute('style')};
+  Object.assign(content.style,{position:'absolute',left:`${rect.left}px`,top:`${rect.top+scrollY}px`,width:'120px',height:'36px',transform:'none'});
+  document.getElementById('root').append(content);window.dispatchEvent(new Event('resize'));
+ });
+ await page.waitForFunction(()=>document.querySelector('.portfolio-navigation').dataset.overlapping==='true');
+ await page.waitForTimeout(260);
+ const overlappingOpacity=await nav.locator('.portfolio-navigation__default').evaluate(e=>Number(getComputedStyle(e).opacity));
+ if(Math.abs(overlappingOpacity-.55)>.01)throw Error('Overlapping label not translucent: '+overlappingOpacity);
+ await page.evaluate(()=>{const {content,parent,next,style}=window.navigationOverlapFixture;parent.insertBefore(content,next);if(style===null)content.removeAttribute('style');else content.setAttribute('style',style);window.dispatchEvent(new Event('resize'));});
+ await page.waitForFunction(()=>document.querySelector('.portfolio-navigation').dataset.overlapping==='false');
+ await page.waitForTimeout(260);
+ const clearOpacity=await nav.locator('.portfolio-navigation__default').evaluate(e=>Number(getComputedStyle(e).opacity));
+ if(clearOpacity!==1)throw Error('Label opacity did not restore: '+clearOpacity);
+ console.log(JSON.stringify({labels,asset,gray:color,sectionLinks:true,keyboard:true}));
+}finally{await browser.close();}

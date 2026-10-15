@@ -4,12 +4,14 @@ import {flushSync} from 'react-dom';
 import Portfolio from './Portfolio.jsx';
 import {useElasticTypography} from './use-elastic-typography.js';
 import {initScrollTitles} from './scroll-titles.js';
+import {initComponentDesigns} from './component-designs.js';
 function App(){useElasticTypography();return <Portfolio/>;}
 flushSync(()=>createRoot(document.getElementById('root')).render(<App/>));
 
 function activate(element, action, label){element.tabIndex=0;element.setAttribute('role','button');if(label)element.setAttribute('aria-label',label);element.addEventListener('click',action);element.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();action()}})}
 requestAnimationFrame(()=>{
  initScrollTitles();
+ initComponentDesigns();
  const sections=[...document.querySelectorAll('[data-name^="Section /"]')];
  const names=['home','about','work','contribution','development','skills','playground','philosophy','contact'];
  sections.forEach((s,i)=>s.id=names[i]);
@@ -23,7 +25,19 @@ requestAnimationFrame(()=>{
  function notify(text){notice.textContent=text;notice.hidden=false;clearTimeout(timer);timer=setTimeout(()=>notice.hidden=true,3500)}
  document.querySelectorAll('[data-name^="Social Link"]').forEach(e=>activate(e,()=>notify('소셜 프로필 주소를 아직 등록하지 않았습니다.')));
  const links=[...document.querySelectorAll('[data-name^="Project Link /"]')].filter(e=>/Project Link \/ \d/.test(e.dataset.name));
- links.forEach((e,i)=>{e.setAttribute('aria-pressed',String(i===0));activate(e,()=>{links.forEach(l=>{l.classList.remove('selected');l.setAttribute('aria-pressed','false')});e.classList.add('selected');e.setAttribute('aria-pressed','true');document.querySelector('[data-node-id="919:893"] p')?.replaceChildren(String(i+1).padStart(2,'0'));const counter=document.querySelector('[data-node-id="919:893"]');if(counter)counter.textContent=String(i+1).padStart(2,'0');const preview=document.querySelector('[data-node-id="919:895"]');preview.style.visibility=i===0?'visible':'hidden';document.querySelector('[data-node-id="919:896"]').classList.toggle('project-placeholder',i!==0);if(i!==0)notify('이 프로젝트의 미리보기는 원본 디자인에 등록되어 있지 않습니다.');})});
+ links.forEach((link,index)=>{
+  link.dataset.projectLink=String(index);
+  link.setAttribute('aria-pressed',String(index===0));
+  activate(link,()=>{
+   links.forEach(item=>{item.classList.remove('selected');item.setAttribute('aria-pressed','false');});
+   link.classList.add('selected');link.setAttribute('aria-pressed','true');
+   const counter=document.querySelector('[data-node-id="919:893"]');
+   if(counter)counter.textContent=String(index+1).padStart(2,'0');
+   const preview=document.querySelector(`[data-project-index="${index}"]`);
+   if(preview)preview.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});
+   else notify('프로젝트 미리보기를 준비 중입니다.');
+  });
+ });
  document.querySelectorAll('[data-name^="Playground Item"]').forEach(e=>activate(e,()=>{document.getElementById('detail-title').textContent=e.querySelector('p').textContent;document.getElementById('detail').showModal()}));
 });
 

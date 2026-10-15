@@ -1,0 +1,27 @@
+/* Figma component states. Page content and navigation retain their own behavior. */
+#root [data-name^="Project Link /"]{background:transparent;color:#000}
+#root [data-name^="Project Link /"] [data-name="Project Link / Content"]{left:0}
+#root [data-name^="Project Link /"] p{color:inherit}
+#root [data-name^="Project Link /"] :has(>[data-name="Icon / Project Arrow"]){transform:none}
+#root [data-name^="Project Link /"] [data-name="Icon / Project Arrow"]{width:33px;height:33px}
+#root .project-arrow-off,#root .project-arrow-on{position:absolute;inset:0;width:33px;height:33px;max-width:none;transform:rotate(-90deg)}
+#root .project-arrow-on{display:none}
+#root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible){background:#1a48ff;color:#fff}
+#root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible) p{color:#fff}
+#root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible) [data-name="Project Link / Content"]{left:10px}
+#root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible) .project-arrow-off{display:none}
+#root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible) .project-arrow-on{display:block}
+#root [data-name^="Playground Item"] p{text-align:center}
+#root [data-name^="Playground Item"]>p:nth-child(1){width:185px;height:22px}
+#root [data-name^="Playground Item"]>p:nth-child(2){width:92px;height:16px}
+#root [data-name^="Playground Item"]>p:nth-child(3){width:192px;height:16px}
+#root [data-name^="Playground Item"]>p:nth-child(4){width:74px;height:16px}
+#root [data-name^="Playground Item"]:is(:hover,:focus-visible)>p{background:#f1efeb}
+@media(min-width:601px){
+ #root [data-name="Contribution / Content Row"]{gap:45px}
+ #root [data-name="Contribution / Text Block"]{gap:19px;width:430px}
+ #root [data-name="Contribution / Preview Image"]{width:536px;height:305px}
+}
+@media(max-width:600px){
+ #root [data-name^="Playground Item"]>p{height:auto}
+}

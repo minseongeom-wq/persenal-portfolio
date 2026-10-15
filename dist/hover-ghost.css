@@ -3,3 +3,10 @@
 #root .elastic-title.elastic-rendering,#root .elastic-title.elastic-rendering :not(canvas){color:transparent!important;-webkit-text-fill-color:transparent!important}
 [data-node-id="919:1337"]{visibility:hidden}
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){#root .elastic-title>.elastic-canvas{display:none}#root .elastic-title.elastic-rendering,#root .elastic-title.elastic-rendering :not(canvas){color:inherit!important;-webkit-text-fill-color:inherit!important}}
+
+/* One-time Hero entrance; native text remains selectable and accessible. */
+#root .hero-entry-pending{opacity:0}
+#root .hero-entry-rendering{position:relative;overflow:visible}
+#root .hero-entry-rendering,#root .hero-entry-rendering :not(canvas){color:transparent!important;-webkit-text-fill-color:transparent!important}
+#root .hero-entry-canvas{position:absolute;inset:auto;left:calc(-1 * var(--entry-padding));top:calc(-1 * var(--entry-padding));width:calc(100% + var(--entry-padding)*2);height:calc(100% + var(--entry-padding)*2);max-width:none;margin:0;padding:0;display:block;transform:none;pointer-events:none;z-index:2}
+@media(prefers-reduced-motion:reduce){#root .hero-entry-pending{opacity:1}#root .hero-entry-canvas{display:none}#root .hero-entry-rendering,#root .hero-entry-rendering :not(canvas){color:inherit!important;-webkit-text-fill-color:inherit!important}}
