@@ -30,9 +30,9 @@ const server=createServer(async(req,res)=>{
       const stream=createReadStream(filename,{start,end});stream.on('error',()=>res.destroy());res.on('close',()=>stream.destroy());stream.pipe(res);return;
     }
     const body=await readFile(filename);
-    res.writeHead(200,{'Content-Type':types[path.extname(filename)] ?? 'application/octet-stream','Cache-Control':'no-store'});
-    res.end(body);
+    res.writeHead(200,{'Content-Type':types[path.extname(filename)] ?? 'application/octet-stream','Content-Length':body.length,'Cache-Control':'no-store'});
+    res.end(req.method==='HEAD'?undefined:body);
   }catch{res.writeHead(404);res.end('Not found');}
 });
-server.listen(port,'127.0.0.1',()=>console.log(`Local: http://localhost:${port}`));
+server.listen(port,'127.0.0.1',()=>console.log(`Local: http://localhost:${server.address().port}`));
 for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>server.close(()=>process.exit(0)));

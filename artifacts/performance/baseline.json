@@ -1,0 +1,678 @@
+[
+  {
+    "mode": "normal",
+    "startup": {
+      "maps": 189,
+      "mapEncodeMs": 731.8000000007451,
+      "geometryReads": 1141,
+      "longTasks": [
+        {
+          "start": 34,
+          "duration": 126
+        },
+        {
+          "start": 191,
+          "duration": 564
+        },
+        {
+          "start": 759.3999999985099,
+          "duration": 251
+        },
+        {
+          "start": 1011.6999999992549,
+          "duration": 236
+        },
+        {
+          "start": 1248.5,
+          "duration": 234
+        },
+        {
+          "start": 1483.300000000745,
+          "duration": 236
+        },
+        {
+          "start": 1758.8999999985099,
+          "duration": 237
+        },
+        {
+          "start": 1996.699999999255,
+          "duration": 241
+        },
+        {
+          "start": 2238.89999999851,
+          "duration": 236
+        },
+        {
+          "start": 2476.10000000149,
+          "duration": 237
+        },
+        {
+          "start": 2713.39999999851,
+          "duration": 242
+        },
+        {
+          "start": 2956.60000000149,
+          "duration": 244
+        },
+        {
+          "start": 3201.699999999255,
+          "duration": 246
+        },
+        {
+          "start": 3448.60000000149,
+          "duration": 247
+        },
+        {
+          "start": 3696.39999999851,
+          "duration": 254
+        },
+        {
+          "start": 3951.60000000149,
+          "duration": 247
+        },
+        {
+          "start": 4200.199999999255,
+          "duration": 247
+        },
+        {
+          "start": 4448,
+          "duration": 251
+        },
+        {
+          "start": 4700.300000000745,
+          "duration": 246
+        },
+        {
+          "start": 4946.60000000149,
+          "duration": 244
+        },
+        {
+          "start": 5191.60000000149,
+          "duration": 247
+        },
+        {
+          "start": 5441.800000000745,
+          "duration": 309
+        }
+      ],
+      "time": 7282
+    },
+    "end": {
+      "maps": 270,
+      "mapEncodeMs": 1219.2000000067055,
+      "geometryReads": 38416,
+      "longTasks": [
+        {
+          "start": 34,
+          "duration": 126
+        },
+        {
+          "start": 191,
+          "duration": 564
+        },
+        {
+          "start": 759.3999999985099,
+          "duration": 251
+        },
+        {
+          "start": 1011.6999999992549,
+          "duration": 236
+        },
+        {
+          "start": 1248.5,
+          "duration": 234
+        },
+        {
+          "start": 1483.300000000745,
+          "duration": 236
+        },
+        {
+          "start": 1758.8999999985099,
+          "duration": 237
+        },
+        {
+          "start": 1996.699999999255,
+          "duration": 241
+        },
+        {
+          "start": 2238.89999999851,
+          "duration": 236
+        },
+        {
+          "start": 2476.10000000149,
+          "duration": 237
+        },
+        {
+          "start": 2713.39999999851,
+          "duration": 242
+        },
+        {
+          "start": 2956.60000000149,
+          "duration": 244
+        },
+        {
+          "start": 3201.699999999255,
+          "duration": 246
+        },
+        {
+          "start": 3448.60000000149,
+          "duration": 247
+        },
+        {
+          "start": 3696.39999999851,
+          "duration": 254
+        },
+        {
+          "start": 3951.60000000149,
+          "duration": 247
+        },
+        {
+          "start": 4200.199999999255,
+          "duration": 247
+        },
+        {
+          "start": 4448,
+          "duration": 251
+        },
+        {
+          "start": 4700.300000000745,
+          "duration": 246
+        },
+        {
+          "start": 4946.60000000149,
+          "duration": 244
+        },
+        {
+          "start": 5191.60000000149,
+          "duration": 247
+        },
+        {
+          "start": 5441.800000000745,
+          "duration": 309
+        },
+        {
+          "start": 7687,
+          "duration": 306
+        },
+        {
+          "start": 8009.60000000149,
+          "duration": 269
+        },
+        {
+          "start": 8299.39999999851,
+          "duration": 268
+        },
+        {
+          "start": 8583.60000000149,
+          "duration": 265
+        },
+        {
+          "start": 8852.10000000149,
+          "duration": 260
+        },
+        {
+          "start": 9115.89999999851,
+          "duration": 257
+        },
+        {
+          "start": 9401,
+          "duration": 316
+        },
+        {
+          "start": 9721,
+          "duration": 239
+        },
+        {
+          "start": 9975.300000000745,
+          "duration": 260
+        }
+      ]
+    },
+    "scroll": {
+      "frames": 241,
+      "p50": 16.69999999999891,
+      "p95": 33.29999999999927,
+      "over33": 10,
+      "over50": 10,
+      "max": 316.6999999999998
+    },
+    "delta": {
+      "TaskDuration": 3.5379190000000005,
+      "ScriptDuration": 2.7983089999999997,
+      "LayoutDuration": 0.010550000000000004,
+      "RecalcStyleDuration": 0.178124,
+      "LayoutCount": 114,
+      "RecalcStyleCount": 593
+    },
+    "top": [
+      {
+        "name": "(idle)",
+        "url": "",
+        "line": -1,
+        "samples": 2878
+      },
+      {
+        "name": "L2",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 1756
+      },
+      {
+        "name": "Yp",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 1040
+      },
+      {
+        "name": "HTMLCanvasElement.toDataURL",
+        "url": "",
+        "line": 4,
+        "samples": 611
+      },
+      {
+        "name": "(program)",
+        "url": "",
+        "line": -1,
+        "samples": 446
+      },
+      {
+        "name": "G2",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 204
+      },
+      {
+        "name": "Gp",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 144
+      },
+      {
+        "name": "g",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 139
+      },
+      {
+        "name": "q2",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 119
+      },
+      {
+        "name": "h",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 111
+      },
+      {
+        "name": "(garbage collector)",
+        "url": "",
+        "line": -1,
+        "samples": 91
+      },
+      {
+        "name": "L2",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 77
+      },
+      {
+        "name": "h",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 66
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 49
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 43
+      }
+    ]
+  },
+  {
+    "mode": "no-section-filter",
+    "startup": {
+      "maps": 189,
+      "mapEncodeMs": 813.4000000357628,
+      "geometryReads": 1141,
+      "longTasks": [
+        {
+          "start": 31.600000001490116,
+          "duration": 114
+        },
+        {
+          "start": 146.80000000074506,
+          "duration": 531
+        },
+        {
+          "start": 740.5,
+          "duration": 272
+        },
+        {
+          "start": 1015.3000000007451,
+          "duration": 252
+        },
+        {
+          "start": 1268.8999999985099,
+          "duration": 250
+        },
+        {
+          "start": 1520,
+          "duration": 247
+        },
+        {
+          "start": 1767.6000000014901,
+          "duration": 249
+        },
+        {
+          "start": 2017.6000000014901,
+          "duration": 247
+        },
+        {
+          "start": 2265,
+          "duration": 250
+        },
+        {
+          "start": 2516,
+          "duration": 246
+        },
+        {
+          "start": 2762.89999999851,
+          "duration": 244
+        },
+        {
+          "start": 3007.800000000745,
+          "duration": 246
+        },
+        {
+          "start": 3254.300000000745,
+          "duration": 249
+        },
+        {
+          "start": 3504,
+          "duration": 244
+        },
+        {
+          "start": 3749.199999999255,
+          "duration": 250
+        },
+        {
+          "start": 4000.39999999851,
+          "duration": 247
+        },
+        {
+          "start": 4248.39999999851,
+          "duration": 243
+        },
+        {
+          "start": 4492.699999999255,
+          "duration": 245
+        },
+        {
+          "start": 4738.199999999255,
+          "duration": 245
+        },
+        {
+          "start": 4984.5,
+          "duration": 248
+        },
+        {
+          "start": 5233.60000000149,
+          "duration": 246
+        },
+        {
+          "start": 5483.10000000149,
+          "duration": 88
+        }
+      ],
+      "time": 7098.300000000745
+    },
+    "end": {
+      "maps": 270,
+      "mapEncodeMs": 1219.9000000432134,
+      "geometryReads": 40569,
+      "longTasks": [
+        {
+          "start": 31.600000001490116,
+          "duration": 114
+        },
+        {
+          "start": 146.80000000074506,
+          "duration": 531
+        },
+        {
+          "start": 740.5,
+          "duration": 272
+        },
+        {
+          "start": 1015.3000000007451,
+          "duration": 252
+        },
+        {
+          "start": 1268.8999999985099,
+          "duration": 250
+        },
+        {
+          "start": 1520,
+          "duration": 247
+        },
+        {
+          "start": 1767.6000000014901,
+          "duration": 249
+        },
+        {
+          "start": 2017.6000000014901,
+          "duration": 247
+        },
+        {
+          "start": 2265,
+          "duration": 250
+        },
+        {
+          "start": 2516,
+          "duration": 246
+        },
+        {
+          "start": 2762.89999999851,
+          "duration": 244
+        },
+        {
+          "start": 3007.800000000745,
+          "duration": 246
+        },
+        {
+          "start": 3254.300000000745,
+          "duration": 249
+        },
+        {
+          "start": 3504,
+          "duration": 244
+        },
+        {
+          "start": 3749.199999999255,
+          "duration": 250
+        },
+        {
+          "start": 4000.39999999851,
+          "duration": 247
+        },
+        {
+          "start": 4248.39999999851,
+          "duration": 243
+        },
+        {
+          "start": 4492.699999999255,
+          "duration": 245
+        },
+        {
+          "start": 4738.199999999255,
+          "duration": 245
+        },
+        {
+          "start": 4984.5,
+          "duration": 248
+        },
+        {
+          "start": 5233.60000000149,
+          "duration": 246
+        },
+        {
+          "start": 5483.10000000149,
+          "duration": 88
+        },
+        {
+          "start": 7503.199999999255,
+          "duration": 289
+        },
+        {
+          "start": 7803.60000000149,
+          "duration": 259
+        },
+        {
+          "start": 8098.60000000149,
+          "duration": 259
+        },
+        {
+          "start": 8360.39999999851,
+          "duration": 250
+        },
+        {
+          "start": 8613.699999999255,
+          "duration": 246
+        },
+        {
+          "start": 8863.39999999851,
+          "duration": 252
+        },
+        {
+          "start": 9138.89999999851,
+          "duration": 270
+        },
+        {
+          "start": 9412.699999999255,
+          "duration": 250
+        },
+        {
+          "start": 9674,
+          "duration": 252
+        }
+      ]
+    },
+    "scroll": {
+      "frames": 255,
+      "p50": 16.69999999999891,
+      "p95": 16.899999999999636,
+      "over33": 10,
+      "over50": 9,
+      "max": 283.40000000000055
+    },
+    "delta": {
+      "TaskDuration": 3.3438409999999994,
+      "ScriptDuration": 2.6783540000000006,
+      "LayoutDuration": 0.010376999999999997,
+      "RecalcStyleDuration": 0.159856,
+      "LayoutCount": 118,
+      "RecalcStyleCount": 623
+    },
+    "top": [
+      {
+        "name": "(idle)",
+        "url": "",
+        "line": -1,
+        "samples": 3003
+      },
+      {
+        "name": "L2",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 1653
+      },
+      {
+        "name": "Yp",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 1127
+      },
+      {
+        "name": "HTMLCanvasElement.toDataURL",
+        "url": "",
+        "line": 4,
+        "samples": 603
+      },
+      {
+        "name": "(program)",
+        "url": "",
+        "line": -1,
+        "samples": 384
+      },
+      {
+        "name": "G2",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 200
+      },
+      {
+        "name": "L2",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 155
+      },
+      {
+        "name": "g",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 131
+      },
+      {
+        "name": "q2",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 115
+      },
+      {
+        "name": "h",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 114
+      },
+      {
+        "name": "(garbage collector)",
+        "url": "",
+        "line": -1,
+        "samples": 83
+      },
+      {
+        "name": "h",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 63
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 46
+      },
+      {
+        "name": "Yp",
+        "url": "http://localhost:56353/app.js",
+        "line": 775,
+        "samples": 41
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 39
+      }
+    ]
+  }
+]

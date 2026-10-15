@@ -78,7 +78,9 @@ export function createProjectCurl(media,{requestFrame=()=>{},options={}}={}){
     renderer.upload(source);lastSource=source;lastVideoTime=video?source.currentTime:-1;dirty=false;
    }
    const sourceAspect=sw/sh,aspect=width/height;
-   const cover=sourceAspect>aspect?[aspect/sourceAspect,1]:[1,sourceAspect/aspect];
+   // Contain, matching the DOM: values above 1 mark the transparent letterbox,
+   // rather than cropping the source to fill a mismatched container ratio.
+   const cover=sourceAspect>aspect?[1,sourceAspect/aspect]:[aspect/sourceAspect,1];
    const strength=params.maxStrength*activity;
    renderer.draw(strength,cover);canvas.style.opacity='1';media.dataset.curlStrength=String(strength);
    return true;

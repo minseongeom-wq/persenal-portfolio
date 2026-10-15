@@ -91,7 +91,10 @@ body
 body
     .portfolio-navigation[data-label-visible='true'][data-open='false'][data-overlapping='true']
     .portfolio-navigation__default {
-    opacity: 0.55;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
 }
 body .portfolio-navigation__items {
     position: absolute;

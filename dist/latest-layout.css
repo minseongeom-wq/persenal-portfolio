@@ -1,21 +1,28 @@
+/* Center the Playground heading and project list within the section. */
+#root [data-name="Playground / Heading Lockup"]{left:50%;--tx:-50%;text-align:center}
+#root [data-name="Playground / Heading Lockup"]>[data-shader-unavailable]{left:0;right:0}
+#root [data-name="Playground / Project Grid"]{left:50%;--tx:-50%;text-align:center}
+#root [data-name^="Playground Item /"]>p{left:50%;--tx:-50%;text-align:center}
+@media(max-width:600px){
+ #root [data-name="Section / Playground"],#root [data-name="Section / Playground"]::before{text-align:center}
+ #root [data-name="Playground / Project Grid"]{left:auto;--tx:0px;width:100%}
+ #root [data-name^="Playground Item /"]>p{left:auto;--tx:0px;width:100%}
+}
 /* Counter the parent reflection so the source preview images remain readable. */
 #root [data-name="Contribution / Preview Image"]>img{transform:scaleX(-1)}
 /* Match the orientation of the native image fills in the refreshed design. */
 #root [data-name="Contribution / Preview Image"]>img[src$="e3ae6.png"],#root [data-name="Contribution / Preview Image"]>img[src$="f7356.png"]{transform:none}
 #root [data-name^="Project Link /"][aria-pressed=true] p{color:#fff}
 #root [data-name="Contribution / Preview Image"],#root [data-node-id="948:2744"]{overflow:hidden}
-#root .portfolio-video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;transform:scaleX(-1)}
-#root .portfolio-video--systemizing{transform:scale(-1.2,1.2)}
-#root .portfolio-video--visual{transform:scale(-1.34,1.34)}
-#root .portfolio-video--development{transform:none;clip-path:inset(70px 0 69px)}
+#root [data-name="Contribution / Preview Image"]>img,#root [data-node-id="948:2442"] img,#root [data-node-id="948:2744"] img{object-fit:contain}
+#root .portfolio-video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:contain;display:block;transform:scaleX(-1)}
+#root .portfolio-video--development{transform:none;clip-path:none}
 #root [data-node-id="948:2744"]>div,#root [data-node-id="948:2744"]>div>div{width:100%;height:100%}
-#root [data-node-id="948:2744"] img{clip-path:inset(70px 0 69px)}
+#root [data-node-id="948:2744"] img{clip-path:none}
 #root [data-name="Icon / Arrow Down Right"] img{position:relative;inset:auto;transform:scale(-3.62524,3.62524) rotate(-45deg)}
 @media(max-width:600px){
   #root [data-name="Contribution / Preview Image"]>img{transform:none}
   #root .portfolio-video{transform:none}
-  #root .portfolio-video--systemizing{transform:scale(1.2)}
-  #root .portfolio-video--visual{transform:scale(1.34)}
   #root .portfolio-video--development{transform:none;clip-path:none}
   #root [data-name="Section / FRONT-END DEVELOPMENT"]{display:flex;flex-direction:column;gap:16px}
   #root [data-node-id="948:2443"]{order:0}
@@ -30,8 +37,8 @@
   #root [data-node-id="948:2744"]{order:7;width:100%!important;aspect-ratio:666/427;overflow:hidden}
   #root [data-node-id="948:2748"]{order:8;margin-top:-30px}
   #root [data-node-id="948:2442"]>div,#root [data-node-id="948:2442"]>div>div,#root [data-node-id="948:2744"]>div,#root [data-node-id="948:2744"]>div>div{width:100%!important;height:100%!important}
-  #root [data-node-id="948:2442"] img,#root [data-node-id="948:2744"] img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  #root [data-node-id="948:2744"] img{clip-path:inset(16.4% 0 16.2%)}
+  #root [data-node-id="948:2442"] img,#root [data-node-id="948:2744"] img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  #root [data-node-id="948:2744"] img{clip-path:none}
   #root [data-node-id="924:2261"],#root [data-node-id="946:2404"],#root [data-node-id="924:2232"],#root [data-node-id="924:2261"]>div,#root [data-node-id="946:2404"]>div,#root [data-node-id="924:2232"]>div{width:100%!important;max-width:100%}
   #root [data-name="Section / Skills"]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   #root [data-name="Section / Skills"]::before{grid-column:1/-1}

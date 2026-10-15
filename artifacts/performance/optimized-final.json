@@ -1,0 +1,326 @@
+[
+  {
+    "mode": "normal",
+    "startup": {
+      "maps": 9,
+      "mapEncodeMs": 81.40000000223517,
+      "geometryReads": 134,
+      "longTasks": [
+        {
+          "start": 32.899999998509884,
+          "duration": 132
+        },
+        {
+          "start": 229.39999999850988,
+          "duration": 52
+        },
+        {
+          "start": 393.5999999977648,
+          "duration": 312
+        },
+        {
+          "start": 709.1999999992549,
+          "duration": 56
+        }
+      ],
+      "time": 2217.099999997765
+    },
+    "end": {
+      "maps": 14,
+      "mapEncodeMs": 140.90000000223517,
+      "geometryReads": 15696,
+      "longTasks": [
+        {
+          "start": 32.899999998509884,
+          "duration": 132
+        },
+        {
+          "start": 229.39999999850988,
+          "duration": 52
+        },
+        {
+          "start": 393.5999999977648,
+          "duration": 312
+        },
+        {
+          "start": 709.1999999992549,
+          "duration": 56
+        },
+        {
+          "start": 2614.199999999255,
+          "duration": 53
+        },
+        {
+          "start": 2730.300000000745,
+          "duration": 61
+        },
+        {
+          "start": 7792.39999999851,
+          "duration": 61
+        }
+      ]
+    },
+    "scroll": {
+      "frames": 355,
+      "p50": 16.699999999999818,
+      "p95": 33.30000000000018,
+      "over33": 8,
+      "over50": 2,
+      "max": 100.19999999999982
+    },
+    "delta": {
+      "TaskDuration": 1.796328,
+      "ScriptDuration": 0.643354,
+      "LayoutDuration": 0.006871999999999989,
+      "RecalcStyleDuration": 0.258425,
+      "LayoutCount": 46,
+      "RecalcStyleCount": 778
+    },
+    "top": [
+      {
+        "name": "(idle)",
+        "url": "",
+        "line": -1,
+        "samples": 3663
+      },
+      {
+        "name": "(program)",
+        "url": "",
+        "line": -1,
+        "samples": 612
+      },
+      {
+        "name": "Gp",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 145
+      },
+      {
+        "name": "m",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 138
+      },
+      {
+        "name": "L2",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 117
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 83
+      },
+      {
+        "name": "HTMLCanvasElement.toDataURL",
+        "url": "",
+        "line": 4,
+        "samples": 75
+      },
+      {
+        "name": "X",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 61
+      },
+      {
+        "name": "Yp",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 58
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 53
+      },
+      {
+        "name": "vt",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 17
+      },
+      {
+        "name": "f",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 15
+      },
+      {
+        "name": "M",
+        "url": "http://localhost:56522/app.js",
+        "line": 8,
+        "samples": 15
+      },
+      {
+        "name": "(garbage collector)",
+        "url": "",
+        "line": -1,
+        "samples": 14
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 11
+      }
+    ]
+  },
+  {
+    "mode": "no-section-filter",
+    "startup": {
+      "maps": 9,
+      "mapEncodeMs": 63.399999998509884,
+      "geometryReads": 134,
+      "longTasks": [
+        {
+          "start": 32.400000002235174,
+          "duration": 123
+        },
+        {
+          "start": 308.5,
+          "duration": 51
+        },
+        {
+          "start": 361.19999999925494,
+          "duration": 88
+        }
+      ],
+      "time": 1998.800000000745
+    },
+    "end": {
+      "maps": 15,
+      "mapEncodeMs": 120.80000000074506,
+      "geometryReads": 16466,
+      "longTasks": [
+        {
+          "start": 32.400000002235174,
+          "duration": 123
+        },
+        {
+          "start": 308.5,
+          "duration": 51
+        },
+        {
+          "start": 361.19999999925494,
+          "duration": 88
+        },
+        {
+          "start": 2430,
+          "duration": 65
+        }
+      ]
+    },
+    "scroll": {
+      "frames": 374,
+      "p50": 16.699999999999818,
+      "p95": 16.80000000000109,
+      "over33": 4,
+      "over50": 1,
+      "max": 66.60000000000036
+    },
+    "delta": {
+      "TaskDuration": 1.614662,
+      "ScriptDuration": 0.6689309999999999,
+      "LayoutDuration": 0.006404999999999994,
+      "RecalcStyleDuration": 0.226711,
+      "LayoutCount": 49,
+      "RecalcStyleCount": 828
+    },
+    "top": [
+      {
+        "name": "(idle)",
+        "url": "",
+        "line": -1,
+        "samples": 3768
+      },
+      {
+        "name": "(program)",
+        "url": "",
+        "line": -1,
+        "samples": 523
+      },
+      {
+        "name": "m",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 145
+      },
+      {
+        "name": "L2",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 127
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 87
+      },
+      {
+        "name": "HTMLCanvasElement.toDataURL",
+        "url": "",
+        "line": 4,
+        "samples": 61
+      },
+      {
+        "name": "Yp",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 55
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 48
+      },
+      {
+        "name": "X",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 43
+      },
+      {
+        "name": "Gp",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 24
+      },
+      {
+        "name": "(garbage collector)",
+        "url": "",
+        "line": -1,
+        "samples": 23
+      },
+      {
+        "name": "ke",
+        "url": "http://localhost:56522/app.js",
+        "line": 775,
+        "samples": 14
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 13
+      },
+      {
+        "name": "Element.getBoundingClientRect",
+        "url": "",
+        "line": 5,
+        "samples": 11
+      },
+      {
+        "name": "M",
+        "url": "http://localhost:56522/app.js",
+        "line": 8,
+        "samples": 11
+      }
+    ]
+  }
+]

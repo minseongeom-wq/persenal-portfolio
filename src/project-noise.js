@@ -14,24 +14,27 @@ export function initProjectNoise(gallery,{frameEffect=()=>false,onReady=()=>{}}=
   const color=item.card.matches(':hover,:focus-visible')||link?.matches(':hover,:focus-visible');
   return item.card.querySelector(color?'.project-gallery__color':'.project-gallery__base');
  }
- function drawCover(context,image,w,h){
-  const ratio=Math.max(w/image.naturalWidth,h/image.naturalHeight),iw=image.naturalWidth*ratio,ih=image.naturalHeight*ratio;
+ function drawContained(context,image,w,h){
+  const ratio=Math.min(w/image.naturalWidth,h/image.naturalHeight),iw=image.naturalWidth*ratio,ih=image.naturalHeight*ratio;
+  context.clearRect(0,0,w,h);
   context.drawImage(image,(w-iw)/2,(h-ih)/2,iw,ih);
  }
  function rasterize(item){
   const image=sourceFor(item);
-  if(!image.complete||!image.naturalWidth)return false;
+  const base=item.card.querySelector('.project-gallery__base');
+  if(!image.complete||!image.naturalWidth||!base.complete||!base.naturalWidth)return false;
   const bounds=item.canvas.parentElement.getBoundingClientRect();
   const w=Math.min(640,Math.max(1,Math.round(bounds.width))),h=Math.max(1,Math.round(w*bounds.height/bounds.width));
+  if(!bounds.width||!bounds.height)return false;
   if(item.source===image&&item.buffer.width===w&&item.buffer.height===h)return true;
   // Keep the currently displayed pixels when a hover reverses mid-transition.
-  const previous=item.previous.getContext('2d',{alpha:false});
+  const previous=item.previous.getContext('2d');
   item.previous.width=w;item.previous.height=h;
   if(item.canvas.dataset.noiseActive==='true'&&item.canvas.width)previous.drawImage(item.canvas,0,0,w,h);
-  else if(item.source?.complete)drawCover(previous,item.source,w,h);
-  else drawCover(previous,item.card.querySelector('.project-gallery__base'),w,h);
+  else if(item.source?.complete)drawContained(previous,item.source,w,h);
+  else drawContained(previous,item.card.querySelector('.project-gallery__base'),w,h);
   item.source=image;item.canvas.width=item.buffer.width=w;item.canvas.height=item.buffer.height=h;
-  drawCover(item.buffer.getContext('2d',{alpha:false}),image,w,h);
+  drawContained(item.buffer.getContext('2d'),image,w,h);
   return true;
  }
  function wake(){if(!frame&&!reduced.matches&&!document.hidden&&!disposed)frame=requestAnimationFrame(render);}

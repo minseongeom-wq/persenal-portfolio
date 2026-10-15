@@ -5,17 +5,29 @@ import Portfolio from './Portfolio.jsx';
 import {useElasticTypography} from './use-elastic-typography.js';
 import {initScrollTitles} from './scroll-titles.js';
 import {initComponentDesigns} from './component-designs.js';
+import {initSmoothScroll} from './smooth-scroll.js';
+import {initScrollCurl} from './scroll-curl.js';
+import {initContactEntrance} from './contact-entrance.js';
 function App(){useElasticTypography();return <Portfolio/>;}
 flushSync(()=>createRoot(document.getElementById('root')).render(<App/>));
 
-function activate(element, action, label){element.tabIndex=0;element.setAttribute('role','button');if(label)element.setAttribute('aria-label',label);element.addEventListener('click',action);element.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();action()}})}
+function activate(element, action, label){if(!element)return;element.tabIndex=0;element.setAttribute('role','button');if(label)element.setAttribute('aria-label',label);element.addEventListener('click',action);element.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();action()}})}
 requestAnimationFrame(()=>{
+ initSmoothScroll();
+ initScrollCurl();
+ initContactEntrance();
  initScrollTitles();
  initComponentDesigns();
  const sections=[...document.querySelectorAll('[data-name^="Section /"]')];
  const names=['home','about','work','contribution','development','skills','playground','philosophy','contact'];
  sections.forEach((s,i)=>s.id=names[i]);
- const go=id=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+ const go=id=>document.getElementById(id)?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+ // Section IDs are assigned after React mounts, so restore direct fragment links now.
+ const restoreFragment=()=>{
+  let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}
+  if(names.includes(id))document.getElementById(id)?.scrollIntoView({behavior:'instant'});
+ };
+ if(location.hash)document.fonts.ready.then(()=>requestAnimationFrame(restoreFragment));
  document.querySelectorAll('[data-name*="Navigation Link"],[data-name="Footer Link / Work"]').forEach(e=>activate(e,()=>go('work')));
  document.querySelectorAll('[data-name="Footer Link / About"]').forEach(e=>activate(e,()=>go('about')));
  activate(document.querySelector('[data-node-id="919:875"]'),()=>go('about'));

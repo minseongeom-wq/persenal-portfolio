@@ -1,12 +1,17 @@
-#root [data-name="Section / Selected Projects"]{width:1762px;height:2775px;margin-left:-36px;overflow:visible}
+#root [data-name="Section / Selected Projects"]{width:1690px;height:2775px;margin-left:0;overflow:visible}
 #root .project-stage{position:sticky;top:0;width:100%;height:min(var(--project-viewport-height,1080px),2775px);transform:none;z-index:1;pointer-events:none}
 #root .project-stage [role=button],#root .project-stage .ghost-title{pointer-events:auto}
 @media(min-width:601px){
- #root .project-stage::before{content:'';position:absolute;left:0;right:0;top:0;height:280px;background:#f1efeb url('./assets/e9016.png') -79px 0/1920px 1075px;z-index:-1;pointer-events:none;transform:none}
+ /* The Figma gallery extends 36px past the section; cover that edge as well. */
+ #root .project-stage::before{content:'';position:absolute;left:0;right:-36px;top:0;height:280px;background:#f1efeb url('./assets/e9016.png') -115px 0/1920px 1075px;z-index:-1;pointer-events:none;transform:none}
+ #root [data-node-id="919:892"]{width:723px}
+ #root [data-node-id="919:892"]>p,#root [data-node-id="919:893"],#root [data-node-id="919:894"]{line-height:1.2}
+ #root [data-node-id="919:893"]{width:113px}
+ #root [data-node-id="919:894"]{width:180px}
 }
-#root [data-node-id="919:892"]{left:0;top:72px}
-#root [data-node-id="919:893"]{left:886px;top:72px}
-#root [data-node-id="919:894"]{left:1582px;top:72px}
+#root [data-node-id="919:892"]{left:5px;top:72px}
+#root [data-node-id="919:893"]{left:855px;top:72px}
+#root [data-node-id="919:894"]{left:1510px;top:72px}
 #root [data-name^="Project Link /"][role=button]{left:0;--tx:0px;--ty:0px}
 #root [data-node-id="919:897"]{top:360px}
 #root [data-node-id="919:898"]{top:426px}
@@ -14,7 +19,7 @@
 #root [data-node-id="919:900"]{top:558px}
 #root [data-node-id="919:901"]{top:624px}
 #root [data-node-id="919:902"]{display:none}
-#root .project-gallery{position:absolute;left:767px;top:360px;width:995px;height:auto;display:flex;flex-direction:column;gap:24px;transform:none;margin:0;z-index:0}
+#root .project-gallery{position:absolute;left:760px;top:360px;width:966px;height:auto;display:flex;flex-direction:column;gap:24px;transform:none;margin:0;z-index:0}
 #root .project-gallery__card{position:relative;width:100%;margin:0;transform:none}
 #root .project-gallery__card:nth-child(3){margin-bottom:0}
 #root .project-gallery__image{
@@ -28,7 +33,7 @@
  position:relative;width:100%;height:542px;overflow:hidden;transform:none;
 }
 #root .project-gallery__card:nth-child(3) .project-gallery__image{height:541px}
-#root .project-gallery__image :is(img,video){position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;transform:none;pointer-events:none}
+#root .project-gallery__image :is(img,video){position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;transform:none;pointer-events:none}
 #root .project-gallery__color{opacity:0}
 /* Static, neutral raster shared by images and videos; no animated filters or extra layers. */
 #root .project-gallery__image::after{
@@ -57,8 +62,8 @@
  #root [data-node-id="919:892"],#root [data-node-id="919:893"],#root [data-node-id="919:894"],#root [data-name^="Project Link /"][role=button]{position:relative;left:auto;top:auto}
  #root [data-node-id="919:902"]{display:none}
  #root .project-gallery{position:relative;left:auto;top:auto;width:100%;height:auto;margin:16px 0 0;gap:28px;order:10}
- #root .project-gallery__image{width:100%;height:auto;aspect-ratio:995/542}
- #root .project-gallery__card:nth-child(3) .project-gallery__image{height:auto;aspect-ratio:995/541}
+ #root .project-gallery__image{width:100%;height:auto;aspect-ratio:966/542}
+ #root .project-gallery__card:nth-child(3) .project-gallery__image{height:auto;aspect-ratio:966/541}
  #root .project-gallery__image img{position:absolute;inset:0;width:100%;height:100%}
  #root .project-gallery__card:nth-child(3){margin-bottom:0}
  #root .project-gallery figcaption{font-size:12px;line-height:16px}

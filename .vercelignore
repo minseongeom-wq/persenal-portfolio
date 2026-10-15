@@ -1,0 +1,13 @@
+.git/
+.openai/
+.video-tools/
+.preview-profile/
+node_modules/
+/*.png
+/*.jpg
+/verify-*.mjs
+/capture-*.mjs
+/inspect-*.mjs
+/qa.mjs
+/typography-baseline.json
+/design-effects-baseline.json

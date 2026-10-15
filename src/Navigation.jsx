@@ -13,18 +13,23 @@ export default function Navigation(){
   useEffect(()=>{
     const sections=[...document.querySelectorAll('#root [data-name^="Section /"]')];
     const content=[...document.querySelectorAll('#root p,#root img,#root svg,#root h1,#root h2,#root h3,#root h4,#root h5,#root h6')];
+    const contentBySection=new Map(sections.map(section=>[section,[]]));
+    content.forEach(element=>contentBySection.get(element.closest('[data-name^="Section /"]'))?.push(element));
     let current=-1,frame=0,timer=0;
     const update=()=>{
       frame=0;
-      const label=labelRef.current?.getBoundingClientRect();
-      if(label)setOverlapping(content.some(element=>{
+      const sectionBounds=sections.map(element=>({element,rect:element.getBoundingClientRect()}));
+      // A hidden label cannot overlap content; only inspect currently visible sections.
+      const nav=labelRef.current?.closest('nav');
+      const label=nav?.dataset.labelVisible==='true'&&nav.dataset.open==='false'?labelRef.current.getBoundingClientRect():null;
+      if(label)setOverlapping(sectionBounds.filter(({rect})=>rect.bottom>0&&rect.top<innerHeight).some(({element})=>contentBySection.get(element).some(element=>{
         const rect=element.getBoundingClientRect();
         if(!rect.width||!rect.height||rect.right<=label.left||rect.left>=label.right||rect.bottom<=label.top||rect.top>=label.bottom)return false;
         const style=getComputedStyle(element);
         return style.visibility==='visible'&&style.display!=='none'&&Number(style.opacity)>0;
-      }));
+      })));
       let next=0;
-      sections.forEach((element,index)=>{if(element.getBoundingClientRect().top<=innerHeight*.45)next=index;});
+      sectionBounds.forEach(({rect},index)=>{if(rect.top<=innerHeight*.45)next=index;});
       if(window.scrollY>0&&window.scrollY+innerHeight>=document.documentElement.scrollHeight-2)next=sections.length-1;
       if(next===current)return;
       current=next;setSection(next);setLabelVisible(true);
@@ -54,7 +59,7 @@ export default function Navigation(){
           </span>
         </span>
       </button>
-      <a ref={labelRef} className="portfolio-navigation__primary portfolio-navigation__default" href={`#${sectionTargets[section]}`} tabIndex={!open&&labelVisible?0:-1} aria-hidden={open||!labelVisible}>{sectionLabels[section]}</a>
+      <a ref={labelRef} className="portfolio-navigation__primary portfolio-navigation__default" href={`#${sectionTargets[section]}`} tabIndex={!open&&labelVisible&&!overlapping?0:-1} aria-hidden={open||!labelVisible||overlapping}>{sectionLabels[section]}</a>
       <div id="portfolio-navigation-items" className="portfolio-navigation__items">
         {sectionTargets.map((target,index)=>{
           const offset=((index-section+13)%9)-4;

@@ -4,7 +4,7 @@
 #root [data-name^="Project Link /"] p{color:inherit}
 #root [data-name^="Project Link /"] :has(>[data-name="Icon / Project Arrow"]){transform:none}
 #root [data-name^="Project Link /"] [data-name="Icon / Project Arrow"]{width:33px;height:33px}
-#root .project-arrow-off,#root .project-arrow-on{position:absolute;inset:0;width:33px;height:33px;max-width:none;transform:rotate(-90deg)}
+#root .project-arrow-off,#root .project-arrow-on{position:absolute;inset:auto;left:50%;top:50%;width:auto;height:auto;max-width:none;transform:translate(-50%,-50%) rotate(-90deg)}
 #root .project-arrow-on{display:none}
 #root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible){background:#1a48ff;color:#fff}
 #root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible) p{color:#fff}

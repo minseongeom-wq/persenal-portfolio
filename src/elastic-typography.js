@@ -30,7 +30,7 @@ export function createElasticTypography(title){
  const target={x:0,y:0,cx:0,cy:0},black=[spring(),spring()],red=[spring(),spring()],cyan=[spring(),spring()],center=[spring(),spring()],colorCenter=[spring(),spring()];
  const all=[...black,...red,...cyan,...center,...colorCenter];
  let previousScrollY=window.scrollY,previousScrollTime=performance.now(),lastScroll=-Infinity,scrollPull=[0,0];
- let introTimer=0,introStart=-Infinity,entranceStarted=false;
+ let introTimer=0,introStart=-Infinity,entranceStarted=false,introDirection=-1;
  function paint(active){const intro=active&&Number.isFinite(introStart)?1:0;gpu?.draw({size,center:center.map(s=>s.value),colorCenter:colorCenter.map(s=>s.value),pull:black.map(s=>s.value),redPull:red.map(s=>s.value),cyanPull:cyan.map(s=>s.value),radius:[fontSize*.70,fontSize*.48],active:active?1:0,intro,strength:clamp(Math.max(Math.hypot(...black.map(s=>s.value)),intro?Math.hypot(...red.map(s=>s.value)):0)/12,0,1)});}
  function neutral(){cancelAnimationFrame(frame);frame=0;black.concat(red,cyan).forEach(s=>{s.value=s.velocity=0;});target.x=target.y=0;lastInput=-Infinity;lastPointer=null;hovered=false;title.classList.remove('elastic-rendering');title.dataset.elasticPhase=gpu?'idle':'disabled';paint(false);}
  function resize(){if(!gpu||!title.offsetWidth||!title.offsetHeight)return;neutral();fontSize=Number.parseFloat(getComputedStyle(title).fontSize);padding=Math.ceil(Math.min(90,Math.max(48,fontSize*.30)));const ratio=Math.min(devicePixelRatio||1,2),raster=rasterize(title,padding,ratio);size=[raster.width,raster.height];canvas.width=raster.image.width;canvas.height=raster.image.height;canvas.style.setProperty('--elastic-padding',padding+'px');gpu.upload(raster.image);target.cx=size[0]/2;target.cy=size[1]/2;center[0].value=colorCenter[0].value=target.cx;center[1].value=colorCenter[1].value=target.cy;all.forEach(s=>s.velocity=0);paint(false);}
@@ -42,8 +42,8 @@ export function createElasticTypography(title){
   // RAF's timestamp can precede the timer callback; keep that first frame alive.
   const pointerMoving=hovered&&now-lastInput<95,scrollMoving=now-lastScroll<110,introProgress=Number.isFinite(introStart)?Math.max(0,(now-introStart)/1200):Infinity,introMoving=introProgress<1;
   const moving=pointerMoving||scrollMoving||introMoving,limit=Math.min(52,fontSize*.24);
-  const introPull=introMoving?smooth(introProgress/.22)*limit*.95:0;
-  if(introMoving){target.cx=padding+title.offsetWidth*(.06+.88*smooth(introProgress/.85));target.cy=padding+fontSize*.55;}
+  const introPull=introMoving?smooth(introProgress/.22)*limit*.95*introDirection:0;
+  if(introMoving){const progress=smooth(introProgress/.85);target.cx=padding+title.offsetWidth*(introDirection>0?.06+.88*progress:.94-.88*progress);target.cy=padding+fontSize*.55;}
   const pull=[clamp((pointerMoving?target.x:0)+(scrollMoving?scrollPull[0]:0)+introPull,-limit,limit),clamp((pointerMoving?target.y:0)+(scrollMoving?scrollPull[1]:0),-limit,limit)];
   // Keep the established return rhythm, but stretch it after pointer exit.
   const recoveryClock=dt*(hovered?1:.72);
@@ -89,14 +89,15 @@ export function createElasticTypography(title){
    const playIntro=()=>{
     const rect=title.getBoundingClientRect();
     if(disposed||!gpu||!enabled.matches||document.hidden||frame||rect.bottom<=0||rect.top>=innerHeight)return;
+    introDirection*=-1;
     introStart=lastFrame=performance.now();recoveryElapsed=0;
     if(!entranceStarted){entranceStarted=true;title.dispatchEvent(new Event('hero-title-start'));}
-    target.cx=padding+title.offsetWidth*.12;target.cy=padding+fontSize*.55;
+    target.cx=padding+title.offsetWidth*(introDirection>0?.06:.94);target.cy=padding+fontSize*.55;
     center[0].value=colorCenter[0].value=target.cx;center[1].value=colorCenter[1].value=target.cy;
     frame=requestAnimationFrame(animate);
    };
    // Restore the original entrance distortion; the Hero controller only fades its opacity.
-   introTimer=setTimeout(()=>{playIntro();introTimer=setInterval(playIntro,10000);},400);
+   introTimer=setTimeout(()=>{playIntro();introTimer=setInterval(playIntro,6000);},400);
   }
  }
  function scroll(){

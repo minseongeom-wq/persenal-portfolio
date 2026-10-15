@@ -1,1 +1,1 @@
-{"name":"eom-portfolio","private":true,"type":"module","scripts":{"build":"node build.mjs","dev":"node serve.mjs"},"dependencies":{"react":"^19.0.0","react-dom":"^19.0.0"},"devDependencies":{"esbuild":"^0.25.0","playwright":"^1.64.0"}}
+{"name":"eom-portfolio","private":true,"type":"module","scripts":{"build":"node build.mjs","dev":"node serve.mjs","check":"node verify-deployment.mjs"},"dependencies":{"react":"^19.0.0","react-dom":"^19.0.0"},"devDependencies":{"esbuild":"^0.25.0","playwright":"^1.64.0"}}

@@ -1,4 +1,5 @@
 import {build} from 'esbuild';
-await build({entryPoints:['src/main.jsx'],bundle:true,outfile:'dist/app.js',minify:true,loader:{'.ts':'ts'},jsx:'automatic'});
-await build({entryPoints:['src/ProjectCurlTest.jsx'],bundle:true,outfile:'dist/curl-test.js',minify:true,jsx:'automatic'});
+const options={bundle:true,minify:true,jsx:'automatic',target:['es2020'],define:{'process.env.NODE_ENV':'"production"'}};
+await build({...options,entryPoints:['src/main.jsx'],outfile:'dist/app.js',loader:{'.ts':'ts'}});
+await build({...options,entryPoints:['src/ProjectCurlTest.jsx'],outfile:'dist/curl-test.js'});
 console.log('Portfolio build complete');
