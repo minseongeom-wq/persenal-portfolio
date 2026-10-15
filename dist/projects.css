@@ -14,15 +14,32 @@
 #root [data-node-id="919:900"]{top:558px}
 #root [data-node-id="919:901"]{top:624px}
 #root [data-node-id="919:902"]{display:none}
-#root .project-gallery{position:absolute;left:767px;top:360px;width:995px;height:auto;display:flex;flex-direction:column;gap:24px;transform:none;margin:0}
+#root .project-gallery{position:absolute;left:767px;top:360px;width:995px;height:auto;display:flex;flex-direction:column;gap:24px;transform:none;margin:0;z-index:0}
 #root .project-gallery__card{position:relative;width:100%;margin:0;transform:none}
 #root .project-gallery__card:nth-child(3){margin-bottom:0}
-#root .project-gallery__image{position:relative;width:100%;height:542px;overflow:hidden;transform:none}
+#root .project-gallery__image{
+ --raster-vertical-gap:3px;
+ --raster-vertical-width:1px;
+ --raster-vertical-opacity:.14;
+ --raster-horizontal-gap:4px;
+ --raster-horizontal-width:.5px;
+ --raster-horizontal-opacity:.035;
+ --raster-opacity:1;
+ position:relative;width:100%;height:542px;overflow:hidden;transform:none;
+}
 #root .project-gallery__card:nth-child(3) .project-gallery__image{height:541px}
-#root .project-gallery__image img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;transform:none;pointer-events:none}
+#root .project-gallery__image :is(img,video){position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;transform:none;pointer-events:none}
 #root .project-gallery__color{opacity:0}
-#root .project-gallery__image::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.1) 0px,rgba(0,0,0,.1) 1px,transparent 1px,transparent 3px),repeating-linear-gradient(90deg,rgba(255,0,0,.025) 0px,rgba(0,255,0,.025) 1px,rgba(0,0,255,.025) 2px,transparent 3px);box-shadow:inset 0 0 45px rgba(0,0,0,.08)}
+/* Static, neutral raster shared by images and videos; no animated filters or extra layers. */
+#root .project-gallery__image::after{
+ content:'';position:absolute;inset:0;z-index:2;pointer-events:none;transform:none;
+ opacity:var(--raster-opacity);
+ background:
+  repeating-linear-gradient(90deg,rgb(0 0 0 / var(--raster-vertical-opacity)) 0 var(--raster-vertical-width),transparent var(--raster-vertical-width) var(--raster-vertical-gap)),
+  repeating-linear-gradient(0deg,rgb(0 0 0 / var(--raster-horizontal-opacity)) 0 var(--raster-horizontal-width),transparent var(--raster-horizontal-width) var(--raster-horizontal-gap));
+}
 #root .project-gallery__noise{position:absolute;inset:0;width:100%;height:100%;max-width:none;margin:0;padding:0;display:block;opacity:0;transform:none;pointer-events:none;z-index:1}
+#root .project-gallery__curl{position:absolute;inset:0;width:100%;height:100%;max-width:none;margin:0;padding:0;display:block;opacity:0;transform:none;pointer-events:none;z-index:1}
 #root .project-gallery__card:is(:hover,:focus-visible) .project-gallery__color{opacity:1}
 #root .project-gallery figcaption{margin-top:10px;font-family:'PP Neue Montreal Mono',monospace;font-size:16px;font-weight:500;line-height:16px;letter-spacing:-.48px;color:#808080}
 #root .project-gallery__card:focus-visible{outline:2px solid #1a48ff;outline-offset:4px}

@@ -1,5 +1,5 @@
 ﻿/** Reference-style tiled media transitions, with a static CRT overlay at rest. */
-export function initProjectNoise(gallery){
+export function initProjectNoise(gallery,{frameEffect=()=>false,onReady=()=>{}}={}){
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const items=[...gallery.querySelectorAll('.project-gallery__card')].map(card=>({
   card,canvas:card.querySelector('.project-gallery__noise'),buffer:document.createElement('canvas'),
@@ -43,11 +43,13 @@ export function initProjectNoise(gallery){
  function render(now){
   frame=0;
   if(disposed||reduced.matches||document.hidden)return;
-  if(now-lastFrame<1000/24){wake();return;}lastFrame=now;
+  const updateNoise=now-lastFrame>=1000/24;
+  if(updateNoise)lastFrame=now;
   let running=false;
   for(const item of items){
    if(!item.visible||now>=item.until){clear(item);continue;}
    running=true;
+   if(!updateNoise)continue;
    if(!rasterize(item))continue;
    const progress=Math.min(1,Math.max(0,(now-item.start)/560));
    const motion=item.scroll*Math.max(0,1-(now-item.lastScroll)/220);
@@ -73,7 +75,9 @@ export function initProjectNoise(gallery){
    }
    ctx.globalAlpha=1;item.canvas.style.opacity='1';item.canvas.dataset.noiseActive='true';
   }
-  if(running)wake();
+  // Curl samples this frame's finished hover canvas; both effects share one RAF.
+  const effectRunning=frameEffect(now);
+  if(running||effectRunning)wake();
  }
  const observer=new IntersectionObserver(entries=>{
   for(const entry of entries){const item=items.find(item=>item.card===entry.target);item.visible=entry.isIntersecting&&entry.intersectionRatio>=.12;if(item.visible)burst(item);else clear(item);}
@@ -97,5 +101,6 @@ export function initProjectNoise(gallery){
  const stop=()=>{cancelAnimationFrame(frame);frame=0;items.forEach(clear);};
  const visibility=()=>{if(document.hidden)stop();};
  reduced.addEventListener('change',stop);document.addEventListener('visibilitychange',visibility);
+ onReady(wake);
  return()=>{disposed=true;stop();observer.disconnect();cleanups.forEach(cleanup=>cleanup());window.removeEventListener('scroll',scroll);reduced.removeEventListener('change',stop);document.removeEventListener('visibilitychange',visibility);};
 }

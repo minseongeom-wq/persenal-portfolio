@@ -1,5 +1,6 @@
 import React,{useEffect,useLayoutEffect,useRef} from 'react';
 import {initProjectNoise} from './project-noise.js';
+import {createProjectCurl} from './project-curl.js';
 
 const projects=[
  {name:'Nintendo - Team',caption:'001_Nintendo-Team',base:'4e748.png',hover:'4bc4d.png',node:'919:1423'},
@@ -9,7 +10,15 @@ const projects=[
 ];
 export default function ProjectGallery(){
  const ref=useRef(null);
- useEffect(()=>initProjectNoise(ref.current),[]);
+ useEffect(()=>{
+  let requestFrame=()=>{};
+  const curls=[...ref.current.querySelectorAll('.project-gallery__image')].map(media=>createProjectCurl(media,{requestFrame:()=>requestFrame()}));
+  const stopNoise=initProjectNoise(ref.current,{
+   frameEffect:now=>{let active=false;for(const curl of curls)active=curl.frame(now)||active;return active;},
+   onReady:wake=>{requestFrame=wake;},
+  });
+  return()=>{stopNoise();curls.forEach(curl=>curl.dispose());};
+ },[]);
  useLayoutEffect(()=>{
   const section=ref.current.closest('[data-name="Section / Selected Projects"]');
   const resize=()=>{

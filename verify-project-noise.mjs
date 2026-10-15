@@ -10,7 +10,7 @@ try{
  await page.goto('http://127.0.0.1:5187');
  await page.evaluate(()=>{document.documentElement.style.scrollBehavior='auto';return document.fonts.ready;});
  for(let i=0;i<4;i++){
-  const card=page.locator(`[data-project-index="${i}"]`),canvas=card.locator('canvas');
+  const card=page.locator(`[data-project-index="${i}"]`),canvas=card.locator('.project-gallery__noise');
   await card.scrollIntoViewIfNeeded();await card.locator('img').evaluateAll(images=>Promise.all(images.map(image=>image.decode())));
   await page.mouse.move(1900,100);await page.waitForTimeout(800);
   await card.hover();
@@ -32,12 +32,12 @@ try{
  if(await page.locator('[data-noise-active="true"]').count())throw Error('Offscreen noise still active');
  await page.emulateMedia({reducedMotion:'reduce'});
  await card.scrollIntoViewIfNeeded();await card.hover();await page.waitForTimeout(100);
- if(await card.locator('canvas').evaluate(e=>getComputedStyle(e).display)!=='none')throw Error('Reduced motion not respected');
+ if(await card.locator('.project-gallery__noise').evaluate(e=>getComputedStyle(e).display)!=='none')throw Error('Reduced motion not respected');
  await page.emulateMedia({reducedMotion:'no-preference'});
  await page.setViewportSize({width:390,height:844});await card.scrollIntoViewIfNeeded();
  await page.waitForFunction(()=>document.querySelector('[data-project-index="1"] canvas').dataset.noiseActive==='true');
  await page.waitForTimeout(700);
- if(await card.locator('canvas').getAttribute('data-noise-active')!=='false')throw Error('Mobile noise did not settle');
+ if(await card.locator('.project-gallery__noise').getAttribute('data-noise-active')!=='false')throw Error('Mobile noise did not settle');
  if(errors.length)throw Error(errors.join('\n'));
  console.log('All 4 images animate TV noise on hover/entry/scroll, settle at rest, stop offscreen and respect reduced motion; desktop and mobile verified.');
 }finally{await browser.close();server.kill();}
