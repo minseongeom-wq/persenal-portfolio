@@ -12,11 +12,12 @@
 #root [data-name="Contribution / Preview Image"]>img{transform:scaleX(-1)}
 /* Match the orientation of the native image fills in the refreshed design. */
 #root [data-name="Contribution / Preview Image"]>img[src$="e3ae6.png"],#root [data-name="Contribution / Preview Image"]>img[src$="f7356.png"]{transform:none}
-#root [data-name^="Project Link /"][aria-pressed=true] p{color:#fff}
+
 #root [data-name="Contribution / Preview Image"],#root [data-node-id="948:2744"]{overflow:hidden}
 #root [data-name="Contribution / Preview Image"]>img,#root [data-node-id="948:2442"] img,#root [data-node-id="948:2744"] img{object-fit:contain}
 #root .portfolio-video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:contain;display:block;transform:scaleX(-1)}
-#root .portfolio-video--development{transform:none;clip-path:none}
+#root .portfolio-video--development{transform:none;clip-path:none;object-fit:cover}
+#root [data-node-id="948:2744"]{height:301px;top:426px}
 #root [data-node-id="948:2744"]>div,#root [data-node-id="948:2744"]>div>div{width:100%;height:100%}
 #root [data-node-id="948:2744"] img{clip-path:none}
 #root [data-name="Icon / Arrow Down Right"] img{position:relative;inset:auto;transform:scale(-3.62524,3.62524) rotate(-45deg)}
@@ -34,8 +35,8 @@
   #root [data-node-id="948:2746"]{order:5}
   #root [data-name="Icon / Arrow Down Right"]{order:6;height:48px!important;width:48px!important;align-self:center;margin:16px;transform:none}
   #root [data-name="Icon / Arrow Down Right"] img{transform:scale(2.12132) rotate(45deg)}
-  #root [data-node-id="948:2744"]{order:7;width:100%!important;aspect-ratio:666/427;overflow:hidden}
-  #root [data-node-id="948:2748"]{order:8;margin-top:-30px}
+  #root [data-node-id="948:2744"]{order:7;width:100%!important;height:auto;aspect-ratio:666/301;overflow:hidden}
+  #root [data-node-id="948:2748"]{order:8;margin-top:0}
   #root [data-node-id="948:2442"]>div,#root [data-node-id="948:2442"]>div>div,#root [data-node-id="948:2744"]>div,#root [data-node-id="948:2744"]>div>div{width:100%!important;height:100%!important}
   #root [data-node-id="948:2442"] img,#root [data-node-id="948:2744"] img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
   #root [data-node-id="948:2744"] img{clip-path:none}

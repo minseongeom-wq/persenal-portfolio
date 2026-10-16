@@ -265,20 +265,6 @@ export default function PortfolioEomMinseong() {
             </div>
           </div>
         </div>
-        <div className="d84 d18 d13 d105 d325 d119 d108" data-node-id="919:901" data-name="Project Link / 05 Placeholder / Inactive">
-          <div className="d13 d2 d3 d109 d5 d37 d111" data-node-id="I919:901;918:80" data-name="Project Link / Content">
-            <p className="d22 d89 d35 d27 d7 d11 d112 d30 d114 d32" data-node-id="I919:901;827:21755">
-              05. ddasdada
-            </p>
-            <div className="d3 d56 d25 d7 d11 d115" data-node-id="I919:901;827:21756">
-              <div className="d60 d61">
-                <div className="d7 d115" data-name="Icon / Project Arrow">
-                  <img alt="" className="d13 d62 d63 d64 d8" src={imgIconProjectArrow1} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="d13 d120 d326 d121 d122" data-node-id="919:902" data-name="Divider / Projects Header">
           <div className="d13 d123">
             <img alt="" className="d62 d64 d8" src={imgDividerProjectsHeader} />

@@ -1,5 +1,4 @@
 import React,{useEffect,useLayoutEffect,useRef} from 'react';
-import {initProjectNoise} from './project-noise.js';
 
 const projects=[
  {name:'Nintendo - Team',caption:'001_Nintendo-Team',base:'4e748.png',hover:'4bc4d.png',node:'919:1423'},
@@ -9,9 +8,6 @@ const projects=[
 ];
 export default function ProjectGallery(){
  const ref=useRef(null);
- useEffect(()=>{
-  return initProjectNoise(ref.current);
- },[]);
  useLayoutEffect(()=>{
   const section=ref.current.closest('[data-name="Section / Selected Projects"]');
   const resize=()=>{
@@ -46,7 +42,6 @@ export default function ProjectGallery(){
    <div className="project-gallery__image" data-node-id={project.node}>
     <img className="project-gallery__base" src={`./assets/${project.base}`} alt={`${project.name} 프로젝트`} loading={index?'lazy':'eager'} decoding="async" />
     <img className="project-gallery__color" src={`./assets/${project.hover}`} alt="" aria-hidden="true" loading={index?'lazy':'eager'} decoding="async" />
-    <canvas className="project-gallery__noise" aria-hidden="true" />
    </div>
    <figcaption>{project.caption}</figcaption>
   </figure>)}

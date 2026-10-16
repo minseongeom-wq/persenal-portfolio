@@ -1,16 +1,26 @@
 /* Figma component states. Page content and navigation retain their own behavior. */
-#root [data-name^="Project Link /"]{background:transparent;color:#000}
-#root [data-name^="Project Link /"] [data-name="Project Link / Content"]{left:0}
-#root [data-name^="Project Link /"] p{color:inherit}
+#root [data-name^="Project Link /"]{background:transparent;color:#000;transition:background-color 220ms cubic-bezier(.22,1,.36,1),color 180ms ease}
+#root [data-name^="Project Link /"] [data-name="Project Link / Content"]{left:0;transition:left 220ms cubic-bezier(.22,1,.36,1)}
+#root [data-name^="Project Link /"] p{color:inherit;transition:color 180ms ease}
 #root [data-name^="Project Link /"] :has(>[data-name="Icon / Project Arrow"]){transform:none}
 #root [data-name^="Project Link /"] [data-name="Icon / Project Arrow"]{width:33px;height:33px}
-#root .project-arrow-off,#root .project-arrow-on{position:absolute;inset:auto;left:50%;top:50%;width:auto;height:auto;max-width:none;transform:translate(-50%,-50%) rotate(-90deg)}
-#root .project-arrow-on{display:none}
-#root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible){background:#1a48ff;color:#fff}
-#root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible) p{color:#fff}
-#root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible) [data-name="Project Link / Content"]{left:10px}
-#root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible) .project-arrow-off{display:none}
-#root [data-name^="Project Link /"]:is([aria-pressed=true],:hover,:focus-visible) .project-arrow-on{display:block}
+#root .project-arrow-off,#root .project-arrow-on{position:absolute;inset:auto;left:50%;top:50%;width:auto;height:auto;max-width:none;transform:translate(-50%,-50%) rotate(-90deg);transition:opacity 180ms ease,transform 220ms cubic-bezier(.22,1,.36,1)}
+#root .project-arrow-on{display:block;opacity:0;transform:translate(calc(-50% - 6px),calc(-50% + 6px)) rotate(-90deg)}
+#root [data-name^="Project Link /"]:is(:hover,:focus-visible){background:#1a48ff;color:#fff}
+#root [data-name^="Project Link /"]:is(:hover,:focus-visible) p{color:#fff}
+#root [data-name^="Project Link /"]:is(:hover,:focus-visible) [data-name="Project Link / Content"]{left:10px}
+#root [data-name^="Project Link /"]:is(:hover,:focus-visible) .project-arrow-off{opacity:0;transform:translate(calc(-50% + 6px),calc(-50% - 6px)) rotate(-90deg)}
+#root [data-name^="Project Link /"]:is(:hover,:focus-visible) .project-arrow-on{opacity:1;transform:translate(-50%,-50%) rotate(-90deg)}
+/* Follow the visible project unless a button is being previewed directly. */
+#root .project-stage:not(:has([data-project-link]:is(:hover,:focus-visible))) [data-project-link][aria-pressed=true]{background:#1a48ff;color:#fff}
+#root .project-stage:not(:has([data-project-link]:is(:hover,:focus-visible))) [data-project-link][aria-pressed=true] p{color:#fff}
+#root .project-stage:not(:has([data-project-link]:is(:hover,:focus-visible))) [data-project-link][aria-pressed=true] [data-name="Project Link / Content"]{left:10px}
+#root .project-stage:not(:has([data-project-link]:is(:hover,:focus-visible))) [data-project-link][aria-pressed=true] .project-arrow-off{opacity:0;transform:translate(calc(-50% + 6px),calc(-50% - 6px)) rotate(-90deg)}
+#root .project-stage:not(:has([data-project-link]:is(:hover,:focus-visible))) [data-project-link][aria-pressed=true] .project-arrow-on{opacity:1;transform:translate(-50%,-50%) rotate(-90deg)}
+#root [data-project-link]:active [data-name="Project Link / Content"]{left:14px;transition-duration:120ms}
+@media(prefers-reduced-motion:reduce){
+ #root [data-project-link],#root [data-project-link] [data-name="Project Link / Content"],#root [data-project-link] p,#root .project-arrow-off,#root .project-arrow-on{transition:none}
+}
 #root [data-name^="Playground Item"] p{text-align:center}
 #root [data-name^="Playground Item"]>p:nth-child(1){width:185px;height:22px}
 #root [data-name^="Playground Item"]>p:nth-child(2){width:92px;height:16px}

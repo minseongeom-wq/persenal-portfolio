@@ -96,7 +96,7 @@ export function createElasticTypography(title){
     center[0].value=colorCenter[0].value=target.cx;center[1].value=colorCenter[1].value=target.cy;
     frame=requestAnimationFrame(animate);
    };
-   // Restore the original entrance distortion; the Hero controller only fades its opacity.
+   // Use the existing elastic shader for the entrance, as a virtual pointer pass.
    introTimer=setTimeout(()=>{playIntro();introTimer=setInterval(playIntro,6000);},400);
   }
  }

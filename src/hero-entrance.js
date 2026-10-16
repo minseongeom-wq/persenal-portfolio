@@ -7,7 +7,7 @@ export function initHeroEntrance(){
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const main=hero.querySelector('[data-node-id="919:872"] p');
  const groups=['919:873','919:874','919:875','919:877','919:880','919:883'];
- const entries=[{title:main,delay:0,duration:1100,main:true},...groups.flatMap((id,index)=>[...hero.querySelectorAll(`[data-node-id="${id}"] p`)].map(title=>({title,delay:index===0?600:900,duration:index===0?600:1100,main:false,trail:index>0})))].filter(entry=>entry.title);
+ const entries=[{title:main,delay:0,duration:1500,main:true},...groups.flatMap((id,index)=>[...hero.querySelectorAll(`[data-node-id="${id}"] p`)].map(title=>({title,delay:index===0?600:900,duration:index===0?600:1100,main:false,trail:index>0})))].filter(entry=>entry.title);
  for(const entry of entries)entry.arrow=entry.title.closest('[data-name^="Social Link /"],[data-name^="Contact Link /"]')?.querySelector('[data-name="Icon / Link Arrow"]');
  let frame=0,disposed=false,finished=false,start=0,smallStart=null;
  const beginSmall=()=>{if(smallStart===null&&!finished)smallStart=performance.now();};
@@ -67,7 +67,7 @@ export function initHeroEntrance(){
    if(entry.main){
     entry.title.classList.remove('hero-entry-pending');
     entry.title.style.opacity=String(ease(elapsed/entry.duration));
-    if(entry.title.dataset.heroEntryPhase!=='entering')entry.title.dataset.heroEntryPhase='entering';
+    entry.title.dataset.heroEntryPhase='entering';
     if(elapsed>=entry.duration){entry.done=true;entry.title.style.removeProperty('opacity');entry.title.dataset.heroEntering='false';entry.title.dataset.heroEntryPhase='complete';}
     continue;
    }

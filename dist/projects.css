@@ -2,6 +2,10 @@
 #root .project-stage{position:sticky;top:0;width:100%;height:min(var(--project-viewport-height,1080px),2775px);transform:none;z-index:1;pointer-events:none}
 #root .project-stage [role=button],#root .project-stage .ghost-title{pointer-events:auto}
 @media(min-width:601px){
+ /* Fit a complete preview below the pinned heading, including its caption. */
+ #root [data-name="Section / Selected Projects"]{--project-image-height:min(542px,max(220px,calc(var(--project-viewport-height,1080px) - 380px)));height:calc(636px + 4 * var(--project-image-height))}
+ #root .project-gallery__card{scroll-margin-top:300px;scroll-margin-bottom:32px}
+ #root .project-gallery__card .project-gallery__image{height:var(--project-image-height)}
  /* The Figma gallery extends 36px past the section; cover that edge as well. */
  #root .project-stage::before{content:'';position:absolute;left:0;right:-36px;top:0;height:280px;background:#f1efeb url('./assets/e9016.png') -115px 0/1920px 1075px;z-index:-1;pointer-events:none;transform:none}
  #root [data-node-id="919:892"]{width:723px}
@@ -32,9 +36,9 @@
  --raster-opacity:1;
  position:relative;width:100%;height:542px;overflow:hidden;transform:none;
 }
-#root .project-gallery__card:nth-child(3) .project-gallery__image{height:541px}
+#root .project-gallery__card:nth-child(3) .project-gallery__image{height:var(--project-image-height,541px)}
 #root .project-gallery__image :is(img,video){position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;transform:none;pointer-events:none}
-#root .project-gallery__color{opacity:0}
+#root .project-gallery__color{opacity:0;transition:opacity 220ms cubic-bezier(.22,1,.36,1)}
 /* Static, neutral raster shared by images and videos; no animated filters or extra layers. */
 #root .project-gallery__image::after{
  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;transform:none;
