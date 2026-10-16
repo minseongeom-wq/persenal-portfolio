@@ -1,4 +1,42 @@
 /* Figma component states. Page content and navigation retain their own behavior. */
+#root [data-name^="Skill Card /"]{isolation:isolate;overflow:hidden;outline-offset:4px}
+#root [data-name^="Skill Card /"]>div:not(.skill-artwork):not(:has([data-name="Card / Background"])){z-index:2}
+#root [data-name^="Skill Card /"]:has(.skill-artwork--design,.skill-artwork--workflow){--skill-reveal-time:391.304ms}
+#root [data-name^="Skill Card /"] [data-name="Card / Background"]{transition:background-color var(--skill-reveal-time,450ms) ease}
+#root [data-name^="Skill Card /"][data-skill-active=true] [data-name="Card / Background"]{background:#fff}
+#root [data-name^="Skill Card /"]:focus-visible{outline:2px solid #1a48ff}
+#root .skill-artwork{position:absolute;inset:0;width:500px;height:500px;transform:scaleX(-1);pointer-events:none;opacity:0;z-index:1;transition:opacity var(--skill-reveal-time,450ms) ease}
+#root .skill-artwork[data-motion=active],#root .skill-artwork[data-static=true]{opacity:1}
+#root .skill-artwork[data-static=true]{transition:none}
+#root .skill-artwork img{position:absolute;max-width:none;transform-origin:0 0}
+#root .skill-artwork span{position:absolute;transform:none}
+#root .skill-artwork__panel{left:389px;top:15px;width:81px;height:168px;background:#f2f2f2}
+#root .skill-artwork__outline{left:233px;top:96px;width:89px;height:85px;border:1px solid #0004;border-right:0}
+#root .skill-artwork__anchor{left:226px;top:174px;width:7px;height:7px;background:#454444}
+@media(max-width:600px){
+ #root [data-name^="Skill Card /"]{container-type:inline-size;transition:background-color var(--skill-reveal-time,450ms) ease}
+ #root [data-name^="Skill Card /"][data-skill-active=true]{background:#fff}
+ #root [data-name="Section / Skills"] .skill-artwork{position:absolute;inset:0;max-width:none;width:500px;height:500px;scale:calc((100cqw + 32px) / 500px);transform:none;transform-origin:0 0}
+ #root [data-name="Section / Skills"] .skill-artwork :is(img,span){position:absolute;max-width:none}
+}
+@media(prefers-reduced-motion:reduce){#root .skill-artwork,#root [data-name^="Skill Card /"],#root [data-name^="Skill Card /"] [data-name="Card / Background"]{transition:none}}
+/* Motion stays in the artwork's original 500px coordinate system. */
+#root .skill-artwork__path{position:absolute;inset:0;width:500px;height:500px;max-width:none;overflow:visible;transform:none}
+#root .skill-artwork__path path{transform:none}
+#root .skill-artwork__orbit{width:0;height:0;transform-origin:0 0}
+#root .skill-artwork:is([data-motion=active],[data-motion=leaving]) .skill-artwork__dot{
+ transform-origin:50% 50%;animation:skill-dot-reveal calc(240ms / var(--motion-rate)) ease-out var(--reveal-delay) both,skill-dark-wave calc(700ms / var(--motion-rate)) ease-in-out var(--wave-delay) both;
+}
+#root .skill-artwork--frontend:is([data-motion=active],[data-motion=leaving]) .skill-artwork__anchor{animation:skill-square-travel 2200ms ease-in-out infinite}
+#root .skill-artwork--workflow:is([data-motion=active],[data-motion=leaving]) path{stroke-dasharray:1;animation:skill-path-draw calc(760ms / var(--motion-rate)) cubic-bezier(.22,.61,.36,1) both}
+#root .skill-artwork--ai:is([data-motion=active],[data-motion=leaving]) .skill-artwork__orbit{animation:skill-orbit var(--orbit-duration) linear infinite;animation-direction:var(--orbit-direction)}
+#root .skill-artwork[data-motion=leaving] :is(img,span,path){animation-play-state:paused}
+@keyframes skill-dot-reveal{from{opacity:0;scale:.7}to{opacity:1;scale:1}}
+@keyframes skill-dark-wave{0%,100%{filter:brightness(1)}35%,60%{filter:brightness(0)}}
+@keyframes skill-square-travel{0%,100%{transform:translateX(0)}50%{transform:translateX(156px)}}
+@keyframes skill-path-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes skill-orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@media(max-width:600px){#root [data-name="Section / Skills"] .skill-artwork__path{position:absolute;width:500px;height:500px;inset:0;max-width:none}}
 #root [data-name^="Project Link /"]{background:transparent;color:#000;transition:background-color 220ms cubic-bezier(.22,1,.36,1),color 180ms ease}
 #root [data-name^="Project Link /"] [data-name="Project Link / Content"]{left:0;transition:left 220ms cubic-bezier(.22,1,.36,1)}
 #root [data-name^="Project Link /"] p{color:inherit;transition:color 180ms ease}

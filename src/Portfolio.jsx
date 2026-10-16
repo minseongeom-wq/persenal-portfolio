@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from './Navigation.jsx';
 import LoopVideo from './LoopVideo.jsx';
+import SkillArtwork from './SkillArtwork.jsx';
 import ProjectGallery from './ProjectGallery.jsx';
 function ShaderEffect({shaders,children,...props}){return <div {...props} data-shader-unavailable="true">{children}</div>}
 const assetPathPrefix = "./assets";
@@ -544,7 +545,8 @@ export default function PortfolioEomMinseong() {
                 </div>
               </div>
             </div>
-            <div className="d13 d165 d166 d167" data-node-id="924:2237" data-name="Skill Card / 01 Design">
+            <div className="d13 d165 d166 d167" data-node-id="924:2237" data-name="Skill Card / 01 Design" tabIndex={0}>
+              <SkillArtwork variant="design" />
               <div className="d13 d3 d56 d25 d37 d166 d59" data-node-id="924:2238">
                 <div className="d126 d61 d127">
                   <div className="d168 d7 d166" data-name="Card / Background" />
@@ -586,7 +588,8 @@ export default function PortfolioEomMinseong() {
                 </div>
               </div>
             </div>
-            <div className="d13 d165 d166 d180" data-node-id="924:2243" data-name="Skill Card / 03 Workflow">
+            <div className="d13 d165 d166 d180" data-node-id="924:2243" data-name="Skill Card / 03 Workflow" tabIndex={0}>
+              <SkillArtwork variant="workflow" />
               <div className="d13 d3 d56 d25 d37 d166 d59" data-node-id="924:2244">
                 <div className="d126 d61 d127">
                   <div className="d168 d7 d166" data-name="Card / Background" />
@@ -623,7 +626,8 @@ export default function PortfolioEomMinseong() {
                 </div>
               </div>
             </div>
-            <div className="d13 d186 d166 d167" data-node-id="924:2249" data-name="Skill Card / 02 Frontend">
+            <div className="d13 d186 d166 d167" data-node-id="924:2249" data-name="Skill Card / 02 Frontend" tabIndex={0}>
+              <SkillArtwork variant="frontend" />
               <div className="d13 d3 d56 d25 d37 d166 d59" data-node-id="924:2250">
                 <div className="d126 d61 d127">
                   <div className="d168 d7 d166" data-name="Card / Background" />
@@ -661,7 +665,8 @@ export default function PortfolioEomMinseong() {
                 </div>
               </div>
             </div>
-            <div className="d13 d186 d166 d180" data-node-id="924:2255" data-name="Skill Card / 04 AI Tools">
+            <div className="d13 d186 d166 d180" data-node-id="924:2255" data-name="Skill Card / 04 AI Tools" tabIndex={0}>
+              <SkillArtwork variant="ai" />
               <div className="d13 d3 d56 d25 d37 d166 d59" data-node-id="924:2256">
                 <div className="d126 d61 d127">
                   <div className="d168 d7 d166" data-name="Card / Background" />
