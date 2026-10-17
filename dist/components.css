@@ -73,3 +73,13 @@
 @media(max-width:600px){
  #root [data-name^="Playground Item"]>p{height:auto}
 }
+#root .contribution-stage,#root .contribution-pair{display:contents}
+@media(min-width:601px){
+ #root [data-name="Section / My Contribution"]{height:calc(var(--contribution-viewport,1080px) * 2.5);overflow:visible}
+ #root .contribution-stage{display:block;position:sticky;top:0;height:var(--contribution-viewport,1080px);width:100%;transform:none}
+ #root .contribution-pair{display:block;position:absolute;inset:0;width:100%;height:100%;transform:none}
+ #root .contribution-pair[hidden]{display:none}
+ #root .contribution-pair>[data-name^="Contribution Card /"]{top:calc((var(--contribution-viewport,1080px) - 674px) / 2)}
+ #root .contribution-pair>[data-name^="Contribution Card /"]:nth-child(2){top:calc((var(--contribution-viewport,1080px) - 674px) / 2 + 369px)}
+ #root [data-node-id="924:2269"]{top:calc((var(--contribution-viewport,1080px) - 674px) / 2);left:613px}
+}

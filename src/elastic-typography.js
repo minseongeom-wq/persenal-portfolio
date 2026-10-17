@@ -1,4 +1,5 @@
 import {vertexShader,fragmentShader} from './elastic-typography-shader.js';
+import {siteEntranceReady} from './site-entrance.js';
 const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
 const spring=(value=0)=>({value,velocity:0});
 const smooth=(t)=>{t=clamp(t,0,1);return t*t*(3-2*t);};
@@ -61,6 +62,7 @@ export function createElasticTypography(title){
  async function initialize(){
   if(disposed||initializing||gpu||!enabled.matches)return;
   initializing=true;
+  await siteEntranceReady;
   await document.fonts.ready;
   initializing=false;
   if(disposed||!enabled.matches||gpu)return;

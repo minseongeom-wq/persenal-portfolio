@@ -34,5 +34,11 @@ const server=createServer(async(req,res)=>{
     res.end(req.method==='HEAD'?undefined:body);
   }catch{res.writeHead(404);res.end('Not found');}
 });
-server.listen(port,'127.0.0.1',()=>console.log(`Local: http://localhost:${server.address().port}`));
-for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>server.close(()=>process.exit(0)));
+const ipv6Server=createServer(server.listeners('request')[0]);
+server.listen(port,'127.0.0.1',()=>console.log(`Local: http://127.0.0.1:${server.address().port}`));
+ipv6Server.on('error',error=>{
+ if(error.code==='EAFNOSUPPORT'||error.code==='EADDRNOTAVAIL'){console.log('IPv6 loopback unavailable; use the IPv4 Local URL.');return;}
+ console.error(error);process.exitCode=1;
+});
+ipv6Server.listen(port,'::1',()=>console.log(`Local: http://localhost:${ipv6Server.address().port}`));
+for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>{ipv6Server.close();server.close(()=>process.exit(0));});

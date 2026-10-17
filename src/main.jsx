@@ -9,6 +9,8 @@ import {initSmoothScroll} from './smooth-scroll.js';
 import {initScrollCurl} from './scroll-curl.js';
 import {initContactEntrance} from './contact-entrance.js';
 import {initContributionEntrance} from './contribution-entrance.js';
+import {initDevelopmentEntrance} from './development-entrance.js';
+import {initContributionPin} from './contribution-pin.js';
 function App(){useElasticTypography();return <Portfolio/>;}
 flushSync(()=>createRoot(document.getElementById('root')).render(<App/>));
 
@@ -17,7 +19,9 @@ requestAnimationFrame(()=>{
  initSmoothScroll();
  initScrollCurl();
  initContactEntrance();
+ initContributionPin();
  initContributionEntrance();
+ initDevelopmentEntrance();
  initScrollTitles();
  initComponentDesigns();
  const sections=[...document.querySelectorAll('[data-name^="Section /"]')];

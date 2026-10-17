@@ -1,4 +1,5 @@
 ﻿import {rasterize} from './elastic-typography.js';
+import {siteEntranceReady} from './site-entrance.js';
 const ease=t=>1-Math.pow(1-Math.max(0,Math.min(1,t)),3);
 /** A single shared entrance clock; idle/pointer/scroll effects take over afterwards. */
 export function initHeroEntrance(){
@@ -81,6 +82,7 @@ export function initHeroEntrance(){
   frame=requestAnimationFrame(animate);
  }
  async function initialize(){
+  await siteEntranceReady;
   await document.fonts.ready;
   if(disposed||finished)return;
   try{

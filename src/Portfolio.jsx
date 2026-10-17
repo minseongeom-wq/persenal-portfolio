@@ -277,6 +277,8 @@ export default function PortfolioEomMinseong() {
       <div className="d3 d56 d25 d7 d11" data-node-id="924:2261">
         <div className="d126 d61 d127">
           <div className="d288 d10 d7 d328" data-name="Section / My Contribution">
+            <div className="contribution-stage">
+            <div className="contribution-pair" data-contribution-pair="0">
             <div className="d13 d2 d3 d4 d5 d329 d10 d130" data-node-id="924:2263" data-name="Contribution Card / 01 Restructuring">
               <div className="d131 d7 d11 d132" data-node-id="I924:2263;924:2000" data-name="Contribution / Container">
                 <div className="d13 d2 d3 d133 d56 d37 d59" data-node-id="I924:2263;924:2179" data-name="Contribution / Content Row">
@@ -344,6 +346,8 @@ export default function PortfolioEomMinseong() {
                 </div>
               </div>
             </div>
+            </div>
+            <div className="contribution-pair" data-contribution-pair="1">
             <div className="d13 d2 d3 d4 d5 d329 d10 d146" data-node-id="924:2265" data-name="Contribution Card / 03 Visual Experience">
               <div className="d131 d7 d11 d132" data-node-id="I924:2265;924:2000" data-name="Contribution / Container">
                 <div className="d13 d2 d3 d133 d56 d37 d59 d147" data-node-id="I924:2265;924:2179" data-name="Contribution / Content Row">
@@ -412,6 +416,7 @@ export default function PortfolioEomMinseong() {
                 </div>
               </div>
             </div>
+            </div>
             <div className="d84 d18 d13 d85 d330 d150" data-node-id="924:2267" data-name="Contribution / Heading Lockup">
               <div className="d151 d13 d3 d154 d56 d25 d332 d156 d157" data-node-id="924:2269">
                 <div className="d126 d61 d127">
@@ -426,6 +431,7 @@ export default function PortfolioEomMinseong() {
             </div>
           </div>
         </div>
+      </div>
       </div>
       <div className="d3 d56 d25 d7 d11 d12" data-node-id="946:2404">
         <div className="d126 d61 d127 d12">
