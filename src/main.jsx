@@ -8,6 +8,7 @@ import {initComponentDesigns} from './component-designs.js';
 import {initSmoothScroll} from './smooth-scroll.js';
 import {initScrollCurl} from './scroll-curl.js';
 import {initContactEntrance} from './contact-entrance.js';
+import {initContributionEntrance} from './contribution-entrance.js';
 function App(){useElasticTypography();return <Portfolio/>;}
 flushSync(()=>createRoot(document.getElementById('root')).render(<App/>));
 
@@ -16,6 +17,7 @@ requestAnimationFrame(()=>{
  initSmoothScroll();
  initScrollCurl();
  initContactEntrance();
+ initContributionEntrance();
  initScrollTitles();
  initComponentDesigns();
  const sections=[...document.querySelectorAll('[data-name^="Section /"]')];
