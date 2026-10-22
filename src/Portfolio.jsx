@@ -141,7 +141,7 @@ export default function PortfolioEomMinseong() {
         </div>
       </div>
       <div className="d69 d10 d7 d11 d12" data-node-id="919:885" data-name="Section / About">
-        <div className="d13 d70 d37 d72 d73" data-node-id="919:886" data-name="About / Photo Placeholder" />
+        <div className="d13 d70 d37 d72 d73" data-node-id="919:886" data-name="About / Photo" role="img" aria-label="카메라를 들고 길가에 앉아 있는 엄민성" style={{ backgroundImage: `url("${assetPathPrefix}/about-me.png")`, backgroundSize: 'cover', backgroundPosition: 'center 65%', backgroundRepeat: 'no-repeat' }} />
         <div className="d18 d22 d13 d3 d4 d74 d25 d26 d317 d27 d76 d30 d77 d78 d32" data-node-id="932:2310">
           <p className="d79">익숙한 것에서 새로운 감각을 발견합니다.</p>
         </div>
