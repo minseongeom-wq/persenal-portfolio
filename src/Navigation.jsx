@@ -1,8 +1,8 @@
 import React, {useEffect,useRef,useState} from 'react';
 import {createPortal} from 'react-dom';
 
-const sectionLabels=['Intro','About','Work','Contribution','Development','Skill','Playground','Philosophy','Contact'];
-const sectionTargets=['home','about','work','contribution','development','skills','playground','philosophy','contact'];
+const sectionLabels=['Intro','About','Work','Team Project','Contribution','Development','Playground','Skill','Philosophy','Contact'];
+const sectionTargets=['home','about','work','team','contribution','development','playground','skills','philosophy','contact'];
 
 export default function Navigation(){
   const [open,setOpen]=useState(false);
@@ -62,7 +62,7 @@ export default function Navigation(){
       <a ref={labelRef} className="portfolio-navigation__primary portfolio-navigation__default" href={`#${sectionTargets[section]}`} tabIndex={!open&&labelVisible&&!overlapping?0:-1} aria-hidden={open||!labelVisible||overlapping}>{sectionLabels[section]}</a>
       <div id="portfolio-navigation-items" className="portfolio-navigation__items">
         {sectionTargets.map((target,index)=>{
-          const offset=((index-section+13)%9)-4;
+          const offset=((index-section+sectionTargets.length+4)%sectionTargets.length)-4;
           const nearby=Math.abs(offset)<=2;
           return <div key={target} className="portfolio-navigation__track" style={{'--menu-angle':`${offset*26}deg`}} data-nearby={nearby} data-selected={index===section}>
             <a className="portfolio-navigation__item" href={`#${target}`} tabIndex={open&&nearby?0:-1} aria-hidden={!open||!nearby} aria-current={index===section?'location':undefined}>{sectionLabels[index]}</a>

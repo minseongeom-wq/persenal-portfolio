@@ -1,0 +1,208 @@
+{
+  "copies": [
+    {
+      "name": "worldwideworld",
+      "files": 43,
+      "MB": 23.6,
+      "mismatch": []
+    },
+    {
+      "name": "lotus",
+      "files": 86,
+      "MB": 147.4,
+      "mismatch": []
+    },
+    {
+      "name": "men-i-trust",
+      "files": 104,
+      "MB": 318.7,
+      "mismatch": []
+    }
+  ],
+  "pages": [
+    {
+      "route": "/",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "title": "Eom minseong — Portfolio 2026",
+      "overflow": false,
+      "broken": [],
+      "videos": [
+        {
+          "src": "http://127.0.0.1:5173/assets/video-1.mp4",
+          "ready": 4
+        },
+        {
+          "src": "http://127.0.0.1:5173/assets/sequence-04.mp4",
+          "ready": 4
+        },
+        {
+          "src": "http://127.0.0.1:5173/assets/sequence-03.mp4",
+          "ready": 4
+        }
+      ],
+      "links": [
+        null,
+        "./projects/worldwideworld/index.html",
+        "./projects/lotus/index.html",
+        "./projects/men-i-trust/index.html"
+      ]
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "errors": [],
+      "failed": [],
+      "title": "Eom minseong — Portfolio 2026",
+      "overflow": false,
+      "broken": [],
+      "videos": [
+        {
+          "src": "http://127.0.0.1:5173/assets/video-1.mp4",
+          "ready": 4
+        },
+        {
+          "src": "http://127.0.0.1:5173/assets/sequence-04.mp4",
+          "ready": 4
+        },
+        {
+          "src": "http://127.0.0.1:5173/assets/sequence-03.mp4",
+          "ready": 4
+        }
+      ],
+      "links": [
+        null,
+        "./projects/worldwideworld/index.html",
+        "./projects/lotus/index.html",
+        "./projects/men-i-trust/index.html"
+      ]
+    },
+    {
+      "route": "/projects/worldwideworld/index.html",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "title": "WORLDWIDEWORLD — 넓은 세상을 위한 가게",
+      "overflow": false,
+      "broken": [],
+      "videos": [],
+      "links": []
+    },
+    {
+      "route": "/projects/worldwideworld/index.html",
+      "width": 390,
+      "errors": [],
+      "failed": [],
+      "title": "WORLDWIDEWORLD — 넓은 세상을 위한 가게",
+      "overflow": false,
+      "broken": [],
+      "videos": [],
+      "links": []
+    },
+    {
+      "route": "/projects/lotus/index.html",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "title": "LOTUS — For the Drivers",
+      "overflow": false,
+      "broken": [],
+      "videos": [
+        {
+          "src": "http://127.0.0.1:5173/projects/lotus/assets/LOTUS-EMIRA-Studio-Hero.mp4",
+          "ready": 4
+        },
+        {
+          "src": "http://127.0.0.1:5173/projects/lotus/assets/ELETRE-Sequence.mp4",
+          "ready": 4
+        },
+        {
+          "src": "http://127.0.0.1:5173/projects/lotus/assets/Introducing-Lotus-Theory-1.mp4",
+          "ready": 4
+        }
+      ],
+      "links": []
+    },
+    {
+      "route": "/projects/lotus/index.html",
+      "width": 390,
+      "errors": [],
+      "failed": [],
+      "title": "LOTUS — For the Drivers",
+      "overflow": false,
+      "broken": [],
+      "videos": [
+        {
+          "src": "http://127.0.0.1:5173/projects/lotus/assets/LOTUS-EMIRA-Studio-Hero.mp4",
+          "ready": 4
+        },
+        {
+          "src": "http://127.0.0.1:5173/projects/lotus/assets/ELETRE-Sequence.mp4",
+          "ready": 4
+        },
+        {
+          "src": "http://127.0.0.1:5173/projects/lotus/assets/Introducing-Lotus-Theory-1.mp4",
+          "ready": 4
+        }
+      ],
+      "links": []
+    },
+    {
+      "route": "/projects/men-i-trust/index.html",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "title": "Men I Trust — Music, Lives & Merch",
+      "overflow": false,
+      "broken": [],
+      "videos": [
+        {
+          "src": "",
+          "ready": 0
+        },
+        {
+          "src": "",
+          "ready": 0
+        },
+        {
+          "src": "",
+          "ready": 0
+        },
+        {
+          "src": "",
+          "ready": 0
+        }
+      ],
+      "links": []
+    },
+    {
+      "route": "/projects/men-i-trust/index.html",
+      "width": 390,
+      "errors": [],
+      "failed": [],
+      "title": "Men I Trust — Music, Lives & Merch",
+      "overflow": false,
+      "broken": [],
+      "videos": [
+        {
+          "src": "",
+          "ready": 0
+        },
+        {
+          "src": "",
+          "ready": 0
+        },
+        {
+          "src": "",
+          "ready": 0
+        },
+        {
+          "src": "",
+          "ready": 0
+        }
+      ],
+      "links": []
+    }
+  ]
+}

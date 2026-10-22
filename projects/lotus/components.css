@@ -1,0 +1,70 @@
+/* Figma 362:45 component states. The page's existing layout and content supply instances. */
+.figma-button{background:var(--accent);transition:background .25s,color .25s}
+.figma-button:is(:hover,:focus-visible){background:#fff}
+.figma-button.interactive:hover{filter:none}
+.menu-trigger{background:#fff;transition:background .25s}
+.menu-trigger:is(:hover,:focus-visible){background:var(--accent)}
+.figma-news>.design-186{transition:top .6s,left .6s,background .25s}
+.figma-news>.design-186:is(:hover,:focus-visible){background:#fff}
+.figma-feature .design-177:is(:hover,:focus-visible),.figma-feature .design-178:is(:hover,:focus-visible){background:#fff}
+
+.figma-metric{box-shadow:inset 0 0 0 1px transparent;transition:box-shadow .3s}
+.figma-metric .design-45{transition:color .3s}
+.figma-metric:is(:hover,:focus-visible){box-shadow:inset 0 0 0 1px #fff}
+.figma-metric:is(:hover,:focus-visible) .design-45{color:var(--accent)}
+
+.figma-feature{transition:border-color .45s}
+.figma-feature:is(:hover,:focus-visible){border-color:#fff}
+.figma-feature-media{overflow:hidden}
+.figma-feature-media>img{transition:width .6s,left .6s,height .6s,top .6s}
+.figma-feature-content{position:absolute;left:0;top:535px;width:803px;height:396px;background:var(--background);transition:top .6s,height .6s}
+.figma-feature-content .design-176{top:83px}
+.figma-feature-content .design-176 p{line-height:26.4px}
+.figma-feature-content .design-177{top:169px;transition:top .6s}
+.figma-feature-content .design-178{top:353px;transition:left .45s,top .6s,background .3s,color .3s,padding .3s}
+.figma-feature-content .design-179{top:340px;transition:opacity .3s}
+.figma-feature-content .design-180{top:181px;transition:top .6s}
+.figma-feature:is(:hover,:focus-visible) .figma-feature-media>img{width:168.29%;height:111.96%;left:-34.14%;top:.09%}
+.figma-feature:is(:hover,:focus-visible) .figma-feature-content{top:469px;height:462px}
+.figma-feature:is(:hover,:focus-visible) .design-176{top:81px}
+.figma-feature:is(:hover,:focus-visible) .design-177{top:167px}
+.figma-feature:is(:hover,:focus-visible) .design-178{top:420px;left:32px;height:30px;padding:10px 20px;border-radius:33px;background:var(--accent);color:var(--background)}
+.figma-feature:is(:hover,:focus-visible) .design-178 p{--copy-color:var(--background)!important}
+.figma-feature:is(:hover,:focus-visible) .design-178 p::after{content:' →'}
+.figma-feature:is(:hover,:focus-visible) .design-179{opacity:0}
+.figma-feature:is(:hover,:focus-visible) .design-180{top:179px}
+
+.figma-news .design-185{transition:right .6s,width .6s,height .6s}
+.figma-news-content{position:absolute;left:-1px;top:294px;width:394px;height:163px;background:var(--background);transition:top .6s,height .6s}
+.figma-news-content .design-183{top:85.5px;font-size:18px;transition:top .6s}
+.figma-news-content .design-183 p{line-height:1.05}
+.figma-news-content .design-184{top:32.5px;transition:top .6s}
+.figma-news>.design-186{transition:top .6s,left .6s}
+.figma-news:is(:hover,:focus-visible) .design-185{right:-66px;width:507px;height:342px}
+.figma-news:is(:hover,:focus-visible) .figma-news-content{top:204px;height:253px}
+.figma-news:is(:hover,:focus-visible) .design-183{top:123.5px;left:24px}
+.figma-news:is(:hover,:focus-visible) .design-184{top:70.5px;left:24px}
+.figma-news:is(:hover,:focus-visible)>.design-186{top:15px;left:277px}
+
+.figma-faq{border-radius:37px;transition:background .3s,border-color .3s,height .3s,top .3s}
+.figma-faq .design-196,.figma-faq .design-198{top:37px}
+.figma-faq.faq-open{background:var(--accent);border-color:var(--accent)!important}
+.figma-faq.faq-open :is(.design-196,.design-197,.faq-answer){color:var(--background)}
+.figma-faq.faq-open p{--copy-color:var(--background)!important}
+.figma-faq.faq-open .design-200{visibility:hidden}
+.figma-faq .design-197{font-size:14px}
+
+.figma-capability .design-66{font:14px/1.5 Inter,Arial,sans-serif}
+.figma-social-icon{position:absolute;left:0;top:0;width:25px;height:25px;opacity:1;transition:opacity .25s}
+.figma-social-active{opacity:0}
+.figma-social:is(:hover,:focus-visible) .figma-social-icon{opacity:0}
+.figma-social:is(:hover,:focus-visible) .figma-social-active{opacity:1}
+.figma-text-link::before{content:'>>';position:absolute;left:0;top:50%;translate:0 -50%;color:var(--accent);font:10px/1 Inter,Arial,sans-serif;letter-spacing:-.625px;opacity:0;transition:opacity .25s}
+.figma-text-link .design-212{color:#8b8b8c;transition:color .25s,translate .25s}
+.figma-text-link p{--copy-color:#8b8b8c!important}
+.figma-text-link:is(:hover,:focus-visible)::before{opacity:1}
+.figma-text-link:is(:hover,:focus-visible) .design-212{color:#fff;translate:23px 0}
+.figma-text-link:is(:hover,:focus-visible) p{--copy-color:#fff!important}
+
+@media(prefers-reduced-motion:reduce){.figma-feature *,.figma-news *{transition:none!important}}
+.figma-feature .design-177:is(:hover,:focus-visible),.figma-feature .design-178:is(:hover,:focus-visible),dialog .action:is(:hover,:focus-visible){background:#fff}

@@ -11,3 +11,6 @@ node_modules/
 /qa.mjs
 /typography-baseline.json
 /design-effects-baseline.json
+/artifacts/
+# Recreated from projects/ by build.mjs; avoid uploading duplicate project media.
+/dist/projects/

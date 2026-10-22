@@ -11,6 +11,7 @@ import {initContactEntrance} from './contact-entrance.js';
 import {initContributionEntrance} from './contribution-entrance.js';
 import {initDevelopmentEntrance} from './development-entrance.js';
 import {initContributionPin} from './contribution-pin.js';
+import {initPlaygroundPreview} from './playground-preview.js';
 function App(){useElasticTypography();return <Portfolio/>;}
 flushSync(()=>createRoot(document.getElementById('root')).render(<App/>));
 
@@ -25,7 +26,7 @@ requestAnimationFrame(()=>{
  initScrollTitles();
  initComponentDesigns();
  const sections=[...document.querySelectorAll('[data-name^="Section /"]')];
- const names=['home','about','work','contribution','development','skills','playground','philosophy','contact'];
+ const names=['home','about','work','team','contribution','development','playground','skills','philosophy','contact'];
  sections.forEach((s,i)=>s.id=names[i]);
  const go=id=>document.getElementById(id)?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
  // Section IDs are assigned after React mounts, so restore direct fragment links now.
@@ -56,6 +57,10 @@ requestAnimationFrame(()=>{
    else notify('프로젝트 미리보기를 준비 중입니다.');
   });
  });
- document.querySelectorAll('[data-name^="Playground Item"]').forEach(e=>activate(e,()=>{document.getElementById('detail-title').textContent=e.querySelector('p').textContent;document.getElementById('detail').showModal()}));
+ document.querySelectorAll('[data-name^="Playground Item"]').forEach(e=>{
+  if(['919:1340','919:1349'].includes(e.dataset.nodeId))return;
+  activate(e,()=>{document.getElementById('detail-title').textContent=e.querySelector('p').textContent;document.getElementById('detail').showModal()});
+ });
+ initPlaygroundPreview(activate);
 });
 

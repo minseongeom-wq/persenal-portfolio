@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="548" height="548" viewBox="0 0 548 548" role="img" aria-label="LOTUS technical scan graphic, fully editable separate vector layers">
+<title>LOTUS / technical scan — separated elements</title>
+<desc>Reconstructed editable SVG with orbit, marker, annotation, badge, monogram, wordmark, and yellow accent layers. No embedded bitmap.</desc>
+<g id="layer-coordinate-markers" inkscape:groupmode="layer" inkscape:label="02 • Technical crosshairs">
+<g fill="none" stroke="#e9e9e4" stroke-width="1.05" stroke-linecap="square">
+<path id="cross-top-left" d="M 120,130.5 H 135 M 128,123 V 138"/>
+<path id="cross-top-right" d="M 380,101.5 H 399 M 386,94 V 110"/>
+<path id="cross-bottom-left" d="M 135,424 H 155 M 145,413 V 436"/>
+<path id="cross-bottom-right" d="M 391,427 H 411 M 401,414 V 440"/>
+<path id="cross-right" d="M 452,315 H 466 M 459,306 V 326"/>
+</g>
+</g>
+</svg>

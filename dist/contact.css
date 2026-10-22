@@ -1,0 +1,20 @@
+/* Contact & Footer — Figma 919:967. */
+#root .contact-social{position:absolute;left:1618px;top:860px;width:72px;height:20px;font-family:'PP Neue Montreal',sans-serif;font-size:20px;font-weight:400;letter-spacing:-.6px;line-height:1}
+#root .contact-instagram{top:890px}
+#root .contact-social-label{position:absolute;right:18px;top:0;white-space:nowrap;text-align:right}
+#root .contact-social-label p{font:inherit;line-height:1;text-decoration:underline;text-underline-position:from-font}
+#root .contact-social a{color:inherit;text-decoration:inherit}
+#root .contact-social-arrow{position:absolute;left:56px;top:2px;width:16px;height:16px}
+#root .contact-social-arrow img{position:absolute;inset:0;width:16px;height:16px;transform:none}
+#root .contact-email{left:1687px;top:930px}
+#root .contact-copyright{position:absolute;right:0;top:1023px;font-family:'PP Neue Montreal',sans-serif;font-size:16px;font-weight:500;line-height:1;letter-spacing:-.48px;color:#808080;text-align:right}
+@media(max-width:600px){
+ #root .contact-social{left:auto;top:auto;width:100%;height:20px;margin:10px 0;text-align:right}
+ #root .contact-social-label{position:absolute;right:18px;top:0}
+ #root .contact-social-label p{font-size:20px;line-height:1}
+ #root .contact-social-arrow{position:absolute;left:auto;right:0;top:2px;width:16px!important;height:16px!important;margin:0;transform:none}
+ #root .contact-social-arrow img{position:absolute;width:16px;height:16px;transform:none}
+ #root .contact-email{left:auto;top:auto;margin-top:18px}
+ #root .contact-copyright{position:relative;top:auto;right:auto;margin-top:48px}
+ #root .contact-copyright p{font-size:16px;line-height:1}
+}

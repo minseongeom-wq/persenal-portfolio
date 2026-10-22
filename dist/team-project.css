@@ -1,0 +1,30 @@
+#root .team-project{position:relative;width:100%;height:1100px;padding:95px 0 0;flex-shrink:0;text-align:left}
+#root .team-project__heading{margin:0 0 60px;font-family:'PP Neue Montreal',sans-serif;font-size:120px;font-weight:500;line-height:1.08;letter-spacing:-4.8px;height:259px}
+#root .team-project__body{display:grid;grid-template-columns:886px minmax(0,1fr);gap:22px;align-items:start}
+#root .team-project__image{display:block;width:886px;height:497px;overflow:hidden}
+#root .team-project__image>img{width:100%;height:100%;object-fit:cover;transform:none}
+#root .team-project__image:is(:hover,:focus-visible) .project-gallery__color{opacity:1}
+#root .team-project__content{min-width:0;font-family:'Pretendard',sans-serif;font-size:14px;line-height:1.4;letter-spacing:-.42px}
+#root .team-project__label,#root .team-project__date,#root .team-project__links{font-family:'PP Neue Montreal Mono',monospace;font-size:16px;line-height:1;letter-spacing:-.48px;color:#808080}
+#root .team-project h3{font-family:'Pretendard',sans-serif;font-size:40px;font-weight:500;letter-spacing:-1.2px;line-height:1.2;margin:14px 0 10px}
+#root .team-project__description{margin-top:48px}
+#root .team-project h3.team-project__contribution{margin:70px 0 32px}
+#root .team-project__roles{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:26px;row-gap:6px;list-style:none;padding:0;margin:0;font-size:14px}
+#root .team-project__links{display:flex;gap:20px;margin-top:70px}
+#root .team-project__links a{display:inline-flex;align-items:center;gap:4px;color:inherit;text-decoration:none}
+#root .team-project__links img{transform:rotate(-90deg)}
+#root .team-project__links a:hover{text-decoration:underline;color:#000}
+@media(max-width:600px){
+ #root .team-project{height:auto;padding:64px 0}
+ #root .team-project__heading{font-size:64px;line-height:1;letter-spacing:-2.56px;height:auto;margin:0 0 32px}
+ #root .team-project__body{display:flex;flex-direction:column;gap:28px;width:100%}
+ #root .team-project__image{width:100%;height:auto;aspect-ratio:886/497}
+ #root .team-project__image>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+ #root .team-project__content{width:100%}
+ #root .team-project h3{font-size:28px;letter-spacing:-.84px}
+ #root .team-project__label,#root .team-project__date{font-size:12px;line-height:1.5}
+ #root .team-project__description{margin-top:24px;font-size:14px;line-height:1.6}
+ #root .team-project h3.team-project__contribution{margin:32px 0 20px}
+ #root .team-project__roles{display:flex;flex-direction:column;gap:8px;font-size:14px}
+ #root .team-project__links{margin-top:28px}
+}

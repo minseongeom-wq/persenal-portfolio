@@ -2,7 +2,8 @@ import React from 'react';
 import Navigation from './Navigation.jsx';
 import LoopVideo from './LoopVideo.jsx';
 import SkillArtwork from './SkillArtwork.jsx';
-import ProjectGallery from './ProjectGallery.jsx';
+import ProjectGallery,{projectCount} from './ProjectGallery.jsx';
+import TeamProject from './TeamProject.jsx';
 function ShaderEffect({shaders,children,...props}){return <div {...props} data-shader-unavailable="true">{children}</div>}
 const assetPathPrefix = "./assets";
 const imgIconArrowDownRight = `${assetPathPrefix}/46f35.svg`;
@@ -207,7 +208,7 @@ export default function PortfolioEomMinseong() {
           01
         </p>
         <p className="d22 d13 d89 d92 d322 d27 d90 d30 d94 d91 d32" data-node-id="919:894">
-          /05
+          /{String(projectCount).padStart(2,'0')}
         </p>
 
         <div className="d84 d18 d13 d104 d105 d325 d107 d108" data-node-id="919:897" data-name="Project Link / 01 Nintendo - Team / Active">
@@ -224,10 +225,10 @@ export default function PortfolioEomMinseong() {
             </div>
           </div>
         </div>
-        <div className="d84 d18 d13 d105 d325 d116 d108" data-node-id="919:898" data-name="Project Link / 02 WorldwideWorld / Inactive">
+        <div className="d84 d18 d13 d105 d325 d116 d108" data-node-id="919:898" data-name="Project Link / 02 Lotus Korea / Inactive">
           <div className="d13 d2 d3 d109 d5 d37 d111" data-node-id="I919:898;918:80" data-name="Project Link / Content">
             <p className="d22 d89 d35 d27 d7 d11 d112 d30 d114 d32" data-node-id="I919:898;827:21755">
-              02. WorldwideWorld
+              02. Lotus Korea
             </p>
             <div className="d3 d56 d25 d7 d11 d115" data-node-id="I919:898;827:21756">
               <div className="d60 d61">
@@ -238,10 +239,10 @@ export default function PortfolioEomMinseong() {
             </div>
           </div>
         </div>
-        <div className="d84 d18 d13 d105 d325 d117 d108" data-node-id="919:899" data-name="Project Link / 03 Lotus Korea / Inactive">
+        <div className="d84 d18 d13 d105 d325 d117 d108" data-node-id="919:899" data-name="Project Link / 03 WorldwideWorld / Inactive">
           <div className="d13 d2 d3 d109 d5 d37 d111" data-node-id="I919:899;918:80" data-name="Project Link / Content">
             <p className="d22 d89 d35 d27 d7 d11 d112 d30 d114 d32" data-node-id="I919:899;827:21755">
-              03. Lotus Korea
+              03. WorldwideWorld
             </p>
             <div className="d3 d56 d25 d7 d11 d115" data-node-id="I919:899;827:21756">
               <div className="d60 d61">
@@ -274,6 +275,7 @@ export default function PortfolioEomMinseong() {
         </div>
         <ProjectGallery />
       </div>
+      <TeamProject />
       <div className="d3 d56 d25 d7 d11" data-node-id="924:2261">
         <div className="d126 d61 d127">
           <div className="d288 d10 d7 d328" data-name="Section / My Contribution">
@@ -496,6 +498,184 @@ export default function PortfolioEomMinseong() {
           </div>
         </div>
       </div>
+      <div className="d192 d10 d7 d11 d12" data-node-id="919:1334" data-name="Section / Playground">
+        <img alt="" className="d13 d63 d64 d193 d102 d8" src={imgSectionPlayground} />
+        <div className="d84 d13 d14 d194 d195 d196" data-node-id="919:1336" data-name="Playground / Heading Lockup">
+          <ShaderEffect
+            className="d18 d13 d37 d197 d198"
+            data-node-id="919:1337"
+            shaders={[
+              { setup: setupCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417, render: renderCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417, params: { iorDispersion: 19, frost: 15, centerHandle: { x: 16, y: 188, radius: 8.15999984741211, angle: 45 }, amount: -4, patternType: 2, seamlessness: 77, pixelWrapMode: 3 }, manifest: manifestCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417 },
+              {
+                setup: setupCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598,
+                render: renderCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598,
+                params: {
+                  evolution: 6,
+                  chromeGradient: {
+                    stops: [
+                      { position: 0.14903846383094788, color: { r: 1, g: 1, b: 1, a: 1 } },
+                      { position: 0.4300000071525574, color: { r: 0.27799999713897705, g: 0.3019999861717224, b: 0.32899999618530273, a: 1 } },
+                      { position: 0.4300000071525574, color: { r: 0.9663461446762085, g: 0.02322947420179844, b: 0.02322947420179844, a: 1 } },
+                      { position: 0.550000011920929, color: { r: 0, g: 0, b: 0, a: 1 } },
+                      { position: 0.6009615659713745, color: { r: 0.7788461446762085, g: 0.24338941276073456, b: 0.04867788404226303, a: 1 } },
+                      { position: 0.7259615659713745, color: { r: 0.24699999392032623, g: 0.24699999392032623, b: 0.25099998712539673, a: 1 } },
+                      { position: 0.8413461446762085, color: { r: 1, g: 1, b: 1, a: 1 } },
+                    ],
+                  },
+                  blurStrength: 2.5,
+                  phase: -12,
+                  gradientOffset: 8,
+                  noiseScale: 49,
+                  chromaSepR: 47,
+                  heightIntensity: 144,
+                  roughness: 34,
+                  noiseAngle: -8,
+                  stretch: 163,
+                  gradientRepeats: 2,
+                },
+                manifest: manifestCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598,
+              },
+            ]}
+          >
+            <div className="d22 d3 d4 d199 d200 d25 d26 d27 d28 d7 d29 d30 d201 d12">
+              <p className="d35">Playground</p>
+            </div>
+          </ShaderEffect>
+          <ShaderEffect className="d18 d13 d202 d203 d198" data-node-id="919:1338" shaders={[{ setup: setupCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411, render: renderCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411, params: { centerPoint: { x: 99.07146453857422, y: 29.80060577392578 }, warpType: 1, amplitude: 0.4000000059604645, frequency: 0.3499999940395355 }, manifest: manifestCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411 }]}>
+            <div className="d22 d3 d4 d199 d200 d25 d26 d27 d7 d29 d30 d201 d12">
+              <p className="d35">Playground</p>
+            </div>
+          </ShaderEffect>
+        </div>
+        <div className="d22 d13 d204 d205 d27 d206 d207 d208 d32" data-node-id="919:1339" data-name="Playground / Project Grid">
+          <div className="d13 d209 d37 d59 d210" data-node-id="919:1340" data-name="Playground Item / Row 1 Column 1">
+            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1340;919:1086">
+              Zippy
+            </p>
+            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1340;919:1087">
+              Concept Soda Promo · 30s
+            </p>
+            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1340;919:1088">
+              Art Direction, Design
+            </p>
+            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1340;919:1089">
+              Oct. 2026
+            </p>
+          </div>
+          <div className="d13 d209 d224 d59 d210" data-node-id="919:1341" data-name="Playground Item / Row 1 Column 3">
+            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1341;919:1086">
+              Dots by GEEK PICTURES
+            </p>
+            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1341;919:1087">
+              Brand site
+            </p>
+            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1341;919:1088">
+              Art Direction, Design
+            </p>
+            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1341;919:1089">
+              May.2026
+            </p>
+          </div>
+          <div className="d13 d209 d225 d226 d210" data-node-id="919:1342" data-name="Playground Item / Row 2 Column 2">
+            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1342;919:1086">
+              Dots by GEEK PICTURES
+            </p>
+            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1342;919:1087">
+              Brand site
+            </p>
+            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1342;919:1088">
+              Art Direction, Design
+            </p>
+            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1342;919:1089">
+              May.2026
+            </p>
+          </div>
+          <div className="d13 d209 d37 d226 d210" data-node-id="919:1343" data-name="Playground Item / Row 2 Column 1">
+            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1343;919:1086">
+              Dots by GEEK PICTURES
+            </p>
+            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1343;919:1087">
+              Brand site
+            </p>
+            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1343;919:1088">
+              Art Direction, Design
+            </p>
+            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1343;919:1089">
+              May.2026
+            </p>
+          </div>
+          <div className="d13 d209 d224 d226 d210" data-node-id="919:1344" data-name="Playground Item / Row 2 Column 3">
+            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1344;919:1086">
+              Dots by GEEK PICTURES
+            </p>
+            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1344;919:1087">
+              Brand site
+            </p>
+            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1344;919:1088">
+              Art Direction, Design
+            </p>
+            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1344;919:1089">
+              May.2026
+            </p>
+          </div>
+          <div className="d13 d209 d225 d227 d210" data-node-id="919:1345" data-name="Playground Item / Row 3 Column 2">
+            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1345;919:1086">
+              Dots by GEEK PICTURES
+            </p>
+            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1345;919:1087">
+              Brand site
+            </p>
+            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1345;919:1088">
+              Art Direction, Design
+            </p>
+            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1345;919:1089">
+              May.2026
+            </p>
+          </div>
+          <div className="d13 d209 d37 d227 d210" data-node-id="919:1346" data-name="Playground Item / Row 3 Column 1">
+            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1346;919:1086">
+              Dots by GEEK PICTURES
+            </p>
+            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1346;919:1087">
+              Brand site
+            </p>
+            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1346;919:1088">
+              Art Direction, Design
+            </p>
+            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1346;919:1089">
+              May.2026
+            </p>
+          </div>
+          <div className="d13 d209 d224 d227 d210" data-node-id="919:1347" data-name="Playground Item / Row 3 Column 3">
+            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1347;919:1086">
+              Dots by GEEK PICTURES
+            </p>
+            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1347;919:1087">
+              Brand site
+            </p>
+            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1347;919:1088">
+              Art Direction, Design
+            </p>
+            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1347;919:1089">
+              May.2026
+            </p>
+          </div>
+          <div className="d13 d209 d225 d59 d210" data-node-id="919:1349" data-name="Playground Item / Row 1 Column 2">
+            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1349;919:1086">
+              Lotus Emeya — Beyond the Quiet
+            </p>
+            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1349;919:1087">
+              Concept Commercial · 35s
+            </p>
+            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1349;919:1088">
+              Art Direction, AI Video, Editing
+            </p>
+            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1349;919:1089">
+              Oct. 2026
+            </p>
+          </div>
+        </div>
+      </div>
       <div className="d3 d56 d25 d7 d11 d12" data-node-id="924:2232">
         <div className="d126 d61 d127 d12">
           <div className="d159 d10 d7 d12" data-name="Section / Skills">
@@ -712,184 +892,6 @@ export default function PortfolioEomMinseong() {
           </div>
         </div>
       </div>
-      <div className="d192 d10 d7 d11 d12" data-node-id="919:1334" data-name="Section / Playground">
-        <img alt="" className="d13 d63 d64 d193 d102 d8" src={imgSectionPlayground} />
-        <div className="d84 d13 d14 d194 d195 d196" data-node-id="919:1336" data-name="Playground / Heading Lockup">
-          <ShaderEffect
-            className="d18 d13 d37 d197 d198"
-            data-node-id="919:1337"
-            shaders={[
-              { setup: setupCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417, render: renderCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417, params: { iorDispersion: 19, frost: 15, centerHandle: { x: 16, y: 188, radius: 8.15999984741211, angle: 45 }, amount: -4, patternType: 2, seamlessness: 77, pixelWrapMode: 3 }, manifest: manifestCodeComponentId_8b149d5270f8d80ad8281db6fa72c4f467bb4ab2_417 },
-              {
-                setup: setupCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598,
-                render: renderCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598,
-                params: {
-                  evolution: 6,
-                  chromeGradient: {
-                    stops: [
-                      { position: 0.14903846383094788, color: { r: 1, g: 1, b: 1, a: 1 } },
-                      { position: 0.4300000071525574, color: { r: 0.27799999713897705, g: 0.3019999861717224, b: 0.32899999618530273, a: 1 } },
-                      { position: 0.4300000071525574, color: { r: 0.9663461446762085, g: 0.02322947420179844, b: 0.02322947420179844, a: 1 } },
-                      { position: 0.550000011920929, color: { r: 0, g: 0, b: 0, a: 1 } },
-                      { position: 0.6009615659713745, color: { r: 0.7788461446762085, g: 0.24338941276073456, b: 0.04867788404226303, a: 1 } },
-                      { position: 0.7259615659713745, color: { r: 0.24699999392032623, g: 0.24699999392032623, b: 0.25099998712539673, a: 1 } },
-                      { position: 0.8413461446762085, color: { r: 1, g: 1, b: 1, a: 1 } },
-                    ],
-                  },
-                  blurStrength: 2.5,
-                  phase: -12,
-                  gradientOffset: 8,
-                  noiseScale: 49,
-                  chromaSepR: 47,
-                  heightIntensity: 144,
-                  roughness: 34,
-                  noiseAngle: -8,
-                  stretch: 163,
-                  gradientRepeats: 2,
-                },
-                manifest: manifestCodeComponentId_ae26e86a8b9a3945cbfc8e3b6b43b7e3446e1fbc_598,
-              },
-            ]}
-          >
-            <div className="d22 d3 d4 d199 d200 d25 d26 d27 d28 d7 d29 d30 d201 d12">
-              <p className="d35">Playground</p>
-            </div>
-          </ShaderEffect>
-          <ShaderEffect className="d18 d13 d202 d203 d198" data-node-id="919:1338" shaders={[{ setup: setupCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411, render: renderCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411, params: { centerPoint: { x: 99.07146453857422, y: 29.80060577392578 }, warpType: 1, amplitude: 0.4000000059604645, frequency: 0.3499999940395355 }, manifest: manifestCodeComponentId_fdd6f30d1b1fbc1dfd5498281275c43a1fad247c_411 }]}>
-            <div className="d22 d3 d4 d199 d200 d25 d26 d27 d7 d29 d30 d201 d12">
-              <p className="d35">Playground</p>
-            </div>
-          </ShaderEffect>
-        </div>
-        <div className="d22 d13 d204 d205 d27 d206 d207 d208 d32" data-node-id="919:1339" data-name="Playground / Project Grid">
-          <div className="d13 d209 d37 d59 d210" data-node-id="919:1340" data-name="Playground Item / Row 1 Column 1">
-            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1340;919:1086">
-              Dots by GEEK PICTURES
-            </p>
-            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1340;919:1087">
-              Brand site
-            </p>
-            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1340;919:1088">
-              Art Direction, Design
-            </p>
-            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1340;919:1089">
-              May.2026
-            </p>
-          </div>
-          <div className="d13 d209 d224 d59 d210" data-node-id="919:1341" data-name="Playground Item / Row 1 Column 3">
-            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1341;919:1086">
-              Dots by GEEK PICTURES
-            </p>
-            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1341;919:1087">
-              Brand site
-            </p>
-            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1341;919:1088">
-              Art Direction, Design
-            </p>
-            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1341;919:1089">
-              May.2026
-            </p>
-          </div>
-          <div className="d13 d209 d225 d226 d210" data-node-id="919:1342" data-name="Playground Item / Row 2 Column 2">
-            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1342;919:1086">
-              Dots by GEEK PICTURES
-            </p>
-            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1342;919:1087">
-              Brand site
-            </p>
-            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1342;919:1088">
-              Art Direction, Design
-            </p>
-            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1342;919:1089">
-              May.2026
-            </p>
-          </div>
-          <div className="d13 d209 d37 d226 d210" data-node-id="919:1343" data-name="Playground Item / Row 2 Column 1">
-            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1343;919:1086">
-              Dots by GEEK PICTURES
-            </p>
-            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1343;919:1087">
-              Brand site
-            </p>
-            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1343;919:1088">
-              Art Direction, Design
-            </p>
-            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1343;919:1089">
-              May.2026
-            </p>
-          </div>
-          <div className="d13 d209 d224 d226 d210" data-node-id="919:1344" data-name="Playground Item / Row 2 Column 3">
-            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1344;919:1086">
-              Dots by GEEK PICTURES
-            </p>
-            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1344;919:1087">
-              Brand site
-            </p>
-            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1344;919:1088">
-              Art Direction, Design
-            </p>
-            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1344;919:1089">
-              May.2026
-            </p>
-          </div>
-          <div className="d13 d209 d225 d227 d210" data-node-id="919:1345" data-name="Playground Item / Row 3 Column 2">
-            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1345;919:1086">
-              Dots by GEEK PICTURES
-            </p>
-            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1345;919:1087">
-              Brand site
-            </p>
-            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1345;919:1088">
-              Art Direction, Design
-            </p>
-            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1345;919:1089">
-              May.2026
-            </p>
-          </div>
-          <div className="d13 d209 d37 d227 d210" data-node-id="919:1346" data-name="Playground Item / Row 3 Column 1">
-            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1346;919:1086">
-              Dots by GEEK PICTURES
-            </p>
-            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1346;919:1087">
-              Brand site
-            </p>
-            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1346;919:1088">
-              Art Direction, Design
-            </p>
-            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1346;919:1089">
-              May.2026
-            </p>
-          </div>
-          <div className="d13 d209 d224 d227 d210" data-node-id="919:1347" data-name="Playground Item / Row 3 Column 3">
-            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1347;919:1086">
-              Dots by GEEK PICTURES
-            </p>
-            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1347;919:1087">
-              Brand site
-            </p>
-            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1347;919:1088">
-              Art Direction, Design
-            </p>
-            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1347;919:1089">
-              May.2026
-            </p>
-          </div>
-          <div className="d13 d209 d225 d59 d210" data-node-id="919:1349" data-name="Playground Item / Row 1 Column 2">
-            <p className="d84 d211 d13 d212 d213 d89 d92 d214 d215 d30 d59 d216 d217" data-node-id="I919:1349;919:1086">
-              Dots by GEEK PICTURES
-            </p>
-            <p className="d84 d13 d45 d35 d218 d46 d47 d219 d49" data-node-id="I919:1349;919:1087">
-              Brand site
-            </p>
-            <p className="d84 d13 d45 d35 d220 d46 d47 d221 d49" data-node-id="I919:1349;919:1088">
-              Art Direction, Design
-            </p>
-            <p className="d84 d13 d45 d35 d222 d46 d47 d223 d49" data-node-id="I919:1349;919:1089">
-              May.2026
-            </p>
-          </div>
-        </div>
-      </div>
       <div className="d9 d7 d11 d12" data-node-id="919:962" data-name="Section / Design Philosophy">
         <div className="d18 d22 d13 d3 d4 d81 d25 d26 d37 d27 d228 d30 d311 d32" data-node-id="919:963">
           <p className="d230 d44">형태와 감각이</p>
@@ -962,12 +964,18 @@ export default function PortfolioEomMinseong() {
         <div className="d151 d18 d22 d13 d3 d4 d89 d25 d26 d347 d27 d242 d30 d153 d243 d244 d32" data-node-id="919:969">
           <p className="d238">Explore</p>
         </div>
-        <div className="d151 d18 d22 d13 d3 d4 d39 d246 d25 d26 d345 d41 d30 d153 d247 d43 d32" data-node-id="919:970">
-          <p className="d35">연락처</p>
+        <div className="contact-social" data-node-id="978:971" data-name="Footer Social / Github">
+          <div className="contact-social-label" data-node-id="919:970"><p><a href="https://github.com/minseongeom-wq" target="_blank" rel="noopener noreferrer">Github</a></p></div>
+          <IconArrowDownRight className="contact-social-arrow" />
         </div>
-        <div className="d151 d18 d22 d13 d3 d4 d39 d25 d26 d345 d27 d41 d30 d153 d248 d43 d32" data-node-id="919:971">
+        <div className="contact-social contact-instagram" data-node-id="1031:465" data-name="Footer Social / Instagram">
+          <div className="contact-social-label" data-node-id="1031:466"><p>Instagram</p></div>
+          <IconArrowDownRight className="contact-social-arrow" />
+        </div>
+        <div className="d151 d18 d22 d13 d3 d4 d39 d25 d26 d345 d27 d41 d30 d153 d248 d43 d32 contact-email" data-node-id="919:971">
           <p className="d35">minseongeom@gmail.com</p>
         </div>
+        <div className="contact-copyright" data-node-id="978:932"><p>@2026_Eom minseong</p></div>
         <div className="d13 d51 d348 d250 d251" data-node-id="919:972" data-name="Footer Link / Work">
           <div className="d18 d22 d13 d3 d4 d45 d25 d26 d37 d27 d46 d47 d55 d49 d32" data-node-id="919:973">
             <p className="d35">Work</p>

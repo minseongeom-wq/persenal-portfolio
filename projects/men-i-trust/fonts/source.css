@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Gothic A1';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=CSR44z5ZnPydRjlCCwlCwOUKSOGVvsQEMUmMDhYLcjeNt4rimJ-eT7ax21XegVb3zK3VF7dSlv6vaDBmLf1mJ6oBb0dymUc-fI96d5oGdtf0I7PeDyF3Egmh2Ml9cawLurK7_h7wsR7lvMUJilnCF9kcKCwu2Mi5_PTK4EoLKdtWEkeSddexQwfE9df5yVU86DIBPyBExaYyvF6EUZHxOjuhxiPP7IzULr48eWOlNM3wURM72K8DGjpdlhIbgMXvLpQm9eBYXS_Q4i8XrZuFAaOEUTlVhmJWGPbkLI7CodWlZ8D0X9C9MVXGbgy-ts8mig1-u4uGqjwopGTiJRf61MnIDxvd5zSv81fwYp7D7zdp1zLBprfQrR1ofBiGTuqUOl363cU0t7ztPyVbH34aZ8IrNDfaaNvi-dwKGoUOfFJimFZ32R0x2jRHqszTIxR7UR6SeWzfUHFjuZ6Mb25nYS-6jtQu_euzPtZ9aFUwrEHjIYl_NcgQPzhKHXHshMszmg&skey=b72f9ff56d0df0b2&v=v18) format('truetype');
+}
+@font-face {
+  font-family: 'Gothic A1';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=CSR94z5ZnPydRjlCCwl6bNXBSvNfnscBNkyPAxkGcTKKson_h4KdSrG02FjRjFXyy6jWasgvlfuobTNrIvBlIq0EbFpthEQ7e4p5epULddLzJrDjMBx0Fw6k28RyfK8Ovbe44wHtshviucYEhVTBEt4ZlvGSs6v7lraJoQhPaJASWAzbP5j4DUiJu4a0mQRruGhWZnocnPhq3wDmMvCTXlrKokmkhea7R9BTFA3UWb2BJmNBr9Z5YkMj6Vdiw4ejbdlqra0BBUmJhUl3yvrlccL1IUsk9RAra4iZU_C635LcJoa0HpP9YBaWP1_u5Jx52FMh4tXe82dw_j-Ff3Gdpa-4fmitlUfTgSiOE-OxnEgbqUKu19a05XglMFbLJYngFV363MU0rrztPiVbJn4aZsIrLTfaadvi9twKG4UPV1JimVZ0zB0x2zRHqczTIhR7Qh6SeGzfZXFjuJ6MbG5nYC-6l9Qu_OuyAdZ9aVUwvUHjIIl_NsgQPjhKPHHshQ&skey=1af563512a1075cb&v=v18) format('truetype');
+}
+@font-face {
+  font-family: 'Gothic A1';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=CSR44z5ZnPydRjlCCwlCtOMKSOGVvsQEMUmMDhYLcjeNt4rimJ-eT7ax21XegVb3zK3VF7dSlv6vaDBmLf1mJ6oBb0dymUc-fI96d5oGdtf0I7PeDyF3Egmh2Ml9cawLurK7_h7wsR7lvMUJilnCF9kcKCwu2Mi5_PTK4EoLKdtWEkeSddexQwfE9df5yVU86DIBPyBExaYyvF6EUZHxOjuhxiPP7IzULr48eWOlNM3wURM72K8DGjpdlhIbgMXvLpQm9eBYXS_Q4i8XrZuFAaOEUTlVhmJWGPbkLI7CodWlZ8D0X9C9MVXGbgy-ts8mig1-u4uGqjwopGTiJRf61MnIDxvd5zSv81fwYp7D7zdp1zLBprfQrR1ofBiGTuqUOl363cU0t7ztPyVbH34aZ8IrNDfaaNvi-dwKGoUOfFJimFZ32R0x2jRHqszTIxR7UR6SeWzfUHFjuZ6Mb25nYS-6jtQu_euzPtZ9aFUwrEHjIYl_NcgQPzhKHXHshMszmg&skey=7778aa6aaecbbf52&v=v18) format('truetype');
+}
+@font-face {
+  font-family: 'Gothic A1';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=CSR44z5ZnPydRjlCCwlC0OIKSOGVvsQEMUmMDhYLcjeNt4rimJ-eT7ax21XegVb3zK3VF7dSlv6vaDBmLf1mJ6oBb0dymUc-fI96d5oGdtf0I7PeDyF3Egmh2Ml9cawLurK7_h7wsR7lvMUJilnCF9kcKCwu2Mi5_PTK4EoLKdtWEkeSddexQwfE9df5yVU86DIBPyBExaYyvF6EUZHxOjuhxiPP7IzULr48eWOlNM3wURM72K8DGjpdlhIbgMXvLpQm9eBYXS_Q4i8XrZuFAaOEUTlVhmJWGPbkLI7CodWlZ8D0X9C9MVXGbgy-ts8mig1-u4uGqjwopGTiJRf61MnIDxvd5zSv81fwYp7D7zdp1zLBprfQrR1ofBiGTuqUOl363cU0t7ztPyVbH34aZ8IrNDfaaNvi-dwKGoUOfFJimFZ32R0x2jRHqszTIxR7UR6SeWzfUHFjuZ6Mb25nYS-6jtQu_euzPtZ9aFUwrEHjIYl_NcgQPzhKHXHshMszmg&skey=5147d2c0bc1a53be&v=v18) format('truetype');
+}
+@font-face {
+  font-family: 'Khula';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=OpNCnoEOns3V7FcJvODWpgtXfTnn7WH1HQtrcReKUXV4pg6n24vvanO2MmvnbjTHgEOt7dR9_J54uyqB0ifqAJZV6MZRSmuw2dDsi-lNa5_WOXnAjSCSXNT1SX21h1OaEW6YVX3eNqVoWu5qTadRW54QDWbcV72y_4-3eP-rVlaRlpUeofzzln9Y_TEazPrvOH7_4LrrRdKAGTigXXQoqRvDP6VOGJlyv0ryW-ITOd0JD2j5Bei_mNj4KR3FKwRLWX1wegW73ogR_RCzgZEakIAwugGetaYvZlCBc7OUWyrc4QBf8L1Y68HoOCI4DpR-0k0AOkpZSq-MpuvQFI2QRT_gwI0RSQvmiJZ1_ahrs5cLDo7gqdlSL-OaZKpV38O7ga_cWqXxruAkmzqO3_3Q8fFgG--q7Un0FInJIq7vEYTbC9IwXJO03YVKuq5S9BNY8lL0x5yeGetwhAcURuTSrvWKcf7iPGWud3HqpOQ2YGTNXg9f-9ccGdiA&skey=6d8fe26ae47fbcf9&v=v17) format('truetype');
+}

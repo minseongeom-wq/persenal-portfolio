@@ -53,11 +53,13 @@ try{
  const project=page.locator('[data-project-link="2"]');
  await project.focus();await page.keyboard.press('Enter');
  await page.waitForFunction(()=>document.querySelector('[data-node-id="919:893"]').textContent==='03');
- const playground=page.locator('[data-name^="Playground Item"]').first();
- await playground.focus();await page.keyboard.press('Space');
- assert.equal(await page.locator('#detail').isVisible(),true);
- await page.keyboard.press('Escape');
- assert.equal(await page.locator('#detail').isVisible(),false);
+ const previewItem=page.locator('[data-node-id="919:1340"]');
+ await previewItem.focus();
+ assert.equal(await page.locator('#playground-preview').isVisible(),true);
+ assert.equal(await previewItem.getAttribute('aria-pressed'),'true');
+ await page.locator('[data-node-id="919:1349"]').focus();
+ assert.equal(await previewItem.getAttribute('aria-pressed'),'false');
+ assert.equal(await page.locator('#playground-preview').isVisible(),true);
  await page.locator('.portfolio-navigation__logo').focus();
  await page.waitForFunction(()=>document.querySelector('.portfolio-navigation').dataset.open==='true');
  await page.keyboard.press('Escape');

@@ -1,11 +1,12 @@
 import React,{useEffect,useLayoutEffect,useRef} from 'react';
 
 const projects=[
- {name:'Nintendo - Team',caption:'001_Nintendo-Team',base:'4e748.png',hover:'4bc4d.png',node:'919:1423'},
- {name:'WorldwideWorld',caption:'002_WorldWideWorld',base:'fa561.png',hover:'a20c5.png',node:'919:1710'},
- {name:'Lotus Korea',caption:'003_Lotus Korea',base:'b46bb.png',hover:'c2c45.png',node:'943:2390'},
- {name:'Men I Trust',caption:'004_Men I Trust',base:'e9082.png',hover:'c3f3e.png',node:'943:2397'},
+ {name:'Nintendo - Team',href:'https://mbc-teamproject-red.vercel.app/',caption:'001_Nintendo-Team',base:'4e748.png',hover:'4bc4d.png',node:'919:1423'},
+ {name:'Lotus Korea',href:'./projects/lotus/index.html',caption:'002_Lotus Korea',base:'b46bb.png',hover:'c2c45.png',node:'943:2390'},
+ {name:'WorldwideWorld',href:'./projects/worldwideworld/index.html',caption:'003_WorldWideWorld',base:'fa561.png',hover:'a20c5.png',node:'919:1710'},
+ {name:'Men I Trust',href:'./projects/men-i-trust/index.html',caption:'004_Men I Trust',base:'e9082.png',hover:'c3f3e.png',node:'943:2397'},
 ];
+export const projectCount=projects.length;
 export default function ProjectGallery(){
  const ref=useRef(null);
  useLayoutEffect(()=>{
@@ -38,11 +39,11 @@ export default function ProjectGallery(){
   return()=>observer.disconnect();
  },[]);
  return <div ref={ref} className="project-gallery" data-node-id="919:895" data-name="Project Preview / Primary">
-  {projects.map((project,index)=><figure key={project.node} className="project-gallery__card" data-project-index={index} tabIndex={0} aria-label={`${project.name} 미리보기`}>
-   <div className="project-gallery__image" data-node-id={project.node}>
+  {projects.map((project,index)=><figure key={project.node} className="project-gallery__card" data-project-index={index} tabIndex={project.href?undefined:0} aria-label={`${project.name} 미리보기`}>
+   <a className="project-gallery__image" data-node-id={project.node} href={project.href} target={project.href?"_blank":undefined} rel={project.href?"noopener noreferrer":undefined} aria-label={project.href?`${project.name} 사이트 새 탭에서 열기`:undefined} style={{display:"block",color:"inherit",textDecoration:"none"}}>
     <img className="project-gallery__base" src={`./assets/${project.base}`} alt={`${project.name} 프로젝트`} loading={index?'lazy':'eager'} decoding="async" />
     <img className="project-gallery__color" src={`./assets/${project.hover}`} alt="" aria-hidden="true" loading={index?'lazy':'eager'} decoding="async" />
-   </div>
+   </a>
    <figcaption>{project.caption}</figcaption>
   </figure>)}
  </div>;

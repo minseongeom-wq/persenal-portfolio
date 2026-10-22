@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="548" height="548" viewBox="0 0 548 548" role="img" aria-label="LOTUS technical scan graphic, fully editable separate vector layers">
+<title>LOTUS / technical scan — separated elements</title>
+<desc>Reconstructed editable SVG with orbit, marker, annotation, badge, monogram, wordmark, and yellow accent layers. No embedded bitmap.</desc>
+<g id="layer-lotus-wordmark" inkscape:groupmode="layer" inkscape:label="06 • LOTUS wordmark — letter paths">
+<g fill="none" stroke="#f4f3ef" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path id="letter-L" d="M 167,281 V 320 H 187"/>
+<path id="letter-O" d="M 224,281.5 C 235.5,281.5 242.8,290 242.8,300.4 C 242.8,311.4 234.3,320.4 224,320.4 C 212.6,320.4 205.4,311.7 205.4,300.7 C 205.4,289.5 213.5,281.5 224,281.5 Z"/>
+<path id="letter-T" d="M 257.5,282.4 H 289.5 M 273.4,282.4 V 320.3"/>
+<path id="letter-U" d="M 308,281.9 V 301 C 308,314 314,320 323.5,320 C 333.4,320 339.5,313.4 339.5,301 V 281.9"/>
+<path id="letter-S" d="M 384,286.4 C 379,282 372,281.2 367,283.4 C 361,285.5 359.4,291 360.5,295 C 362,300 368,300.8 375,303 C 384,305.5 386.8,309 385.5,314 C 384.2,319.5 377.9,321 370.8,320 C 365.6,319.4 362.4,317.6 359.5,315.8"/>
+</g>
+</g>
+</svg>

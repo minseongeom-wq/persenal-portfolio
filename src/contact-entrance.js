@@ -18,7 +18,7 @@ export function initContactEntrance(){
    text.replaceWith(fragment);
   }
  }
- const arrows=[...section.querySelectorAll('[data-name="Icon / Link Arrow"]')];
+ const arrows=[...section.querySelectorAll('[data-name="Icon / Link Arrow"], [data-name="Icon / Arrow Down Right"]')];
  arrows.forEach(arrow=>arrow.style.visibility='hidden');
  const divider=section.querySelector('[data-name="Divider / Footer"]');
  const dividerOriginal=divider?.getAttribute('style');
@@ -70,7 +70,7 @@ export function initContactEntrance(){
   if(start===null)start=now;
   if(now-start>=dividerTime)revealDivider();
   while(cursor<schedule.length&&now-start>=schedule[cursor].time)schedule[cursor++].span.style.removeProperty('visibility');
-  for(const arrow of arrows){const paragraph=arrow.closest('[data-name^="Footer Link /"]')?.querySelector('p');if(paragraph&&[...paragraph.querySelectorAll('span')].every(span=>span.style.visibility!=='hidden'))arrow.style.removeProperty('visibility');}
+  for(const arrow of arrows){const paragraph=arrow.closest('[data-name^="Footer Link /"], [data-name^="Footer Social /"]')?.querySelector('p');if(paragraph&&[...paragraph.querySelectorAll('span')].every(span=>span.style.visibility!=='hidden'))arrow.style.removeProperty('visibility');}
   if(cursor===schedule.length){finish();return;}
   frame=requestAnimationFrame(animate);
  }
