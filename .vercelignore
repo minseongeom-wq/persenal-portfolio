@@ -15,3 +15,10 @@ node_modules/
 /references/
 # Recreated from projects/ by build.mjs; avoid uploading duplicate project media.
 /dist/projects/
+/projects/README.md
+/projects/lotus/assets/models/emira.glb
+/projects/lotus/assets/models/eletre.glb
+/projects/lotus/assets/models/emeya.glb
+/projects/men-i-trust/assets/videos/break-for-lovers-live-2025.mp4
+/dist/curl-test.html
+/dist/curl-test.js

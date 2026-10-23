@@ -144,8 +144,8 @@ function initializeProjectPhotos(){
   if(!photo)return;
   const original={src:photo.getAttribute('src'),alt:photo.alt};
   const photos=[original,
-    {src:'assets/project-yoo-hyunsun.png',alt:'유현선 R TRUNK 프로젝트 사진'},
-    {src:'assets/project-lee-jangwon.png',alt:'이장원 R TRUNK 프로젝트 사진'}
+    {src:'assets/project-yoo-hyunsun.webp',alt:'유현선 R TRUNK 프로젝트 사진'},
+    {src:'assets/project-lee-jangwon.webp',alt:'이장원 R TRUNK 프로젝트 사진'}
   ];
   const frame=document.createElement('span');
   frame.className='feature-photo project-photo-frame';

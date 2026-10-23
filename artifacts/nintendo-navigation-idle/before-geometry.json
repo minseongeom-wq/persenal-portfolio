@@ -1,0 +1,67 @@
+[
+  {
+    "class": "common-header common-header--white common-header--open",
+    "rect": {
+      "x": 0,
+      "y": -8,
+      "width": 1905,
+      "height": 75,
+      "top": -8,
+      "right": 1905,
+      "bottom": 67,
+      "left": 0
+    }
+  },
+  {
+    "class": "navigation",
+    "rect": {
+      "x": 620.5,
+      "y": 7,
+      "width": 664,
+      "height": 60,
+      "top": 7,
+      "right": 1284.5,
+      "bottom": 67,
+      "left": 620.5
+    }
+  },
+  {
+    "class": "dropdown__icon dropdown__icon--mario",
+    "rect": {
+      "x": 286.84375,
+      "y": 294.78125,
+      "width": 54.375,
+      "height": 61.421875,
+      "top": 294.78125,
+      "right": 341.21875,
+      "bottom": 356.203125,
+      "left": 286.84375
+    }
+  },
+  {
+    "class": "dropdown__icon dropdown__icon--zelda",
+    "rect": {
+      "x": 303.859375,
+      "y": 390.46875,
+      "width": 64.390625,
+      "height": 56.015625,
+      "top": 390.46875,
+      "right": 368.25,
+      "bottom": 446.484375,
+      "left": 303.859375
+    }
+  },
+  {
+    "class": "dropdown__icon dropdown__icon--splatoon",
+    "rect": {
+      "x": 370.15625,
+      "y": 479.78125,
+      "width": 75.6875,
+      "height": 63.375,
+      "top": 479.78125,
+      "right": 445.84375,
+      "bottom": 543.15625,
+      "left": 370.15625
+    }
+  }
+]

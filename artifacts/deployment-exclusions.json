@@ -1,0 +1,26 @@
+{
+  "portfolio": {
+    "beforeBytes": 372096607,
+    "removedBytes": 79914283,
+    "removed": [
+      "curl-test.html",
+      "curl-test.js",
+      "projects/lotus/assets/models/eletre.glb",
+      "projects/lotus/assets/models/emeya.glb",
+      "projects/lotus/assets/models/emira.glb",
+      "projects/men-i-trust/assets/videos/break-for-lovers-live-2025.mp4",
+      "projects/README.md"
+    ],
+    "keptFilesUnchanged": true
+  },
+  "nintendo": {
+    "removedBytes": 11128363,
+    "removed": [
+      "video/community/community-hero.mp4",
+      "home-transition/home-icon.png",
+      "home-transition/pixel-takeover.png"
+    ],
+    "allSourceAssetsPreserved": true,
+    "keptPublicFilesUnchanged": true
+  }
+}

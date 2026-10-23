@@ -76,7 +76,7 @@ buttonize(logo,'Men I Trust — home',()=>document.getElementById('home').scroll
 buttonize(addClass('848:1410','down-link'),'Explore live shows',()=>document.getElementById('lives').scrollIntoView());
 addClass('564:1134','tour-background');
 const tourVideo=addClass('573:1135','tour-video');
-tourVideo.innerHTML='<img class="media-fill" src="assets/tour-video-1.png" alt="Men I Trust live performance" loading="lazy" decoding="async">';
+tourVideo.innerHTML='<img class="media-fill" src="assets/tour-video-1.webp" alt="Men I Trust live performance" loading="lazy" decoding="async">';
 // Replace these preview images with original video files when supplied.
 const mediaSlots={hero:document.getElementById('home'),tour:tourVideo,tourBackground:node('564:1134')};
 window.setMenITrustVideo=(slot,src)=>{
@@ -177,7 +177,7 @@ const backgroundLayers=new Map([[initialBackground.getAttribute('src'),initialBa
 let backgroundRequest=0;
 async function selectMusic(card,index){
   const request=++backgroundRequest;
-  const source=index===0?'assets/478c7.png':card.querySelector('img[src$=".png"]')?.getAttribute('src');
+  const source=index===0?'assets/478c7.webp':card.querySelector('img:is([src$=".png"],[src$=".webp"])')?.getAttribute('src');
   if(!source)return;
   let layer=backgroundLayers.get(source);
   if(!layer){layer=initialBackground.cloneNode();layer.classList.remove('is-visible');layer.src=source;layer.alt='';musicBackground.append(layer);backgroundLayers.set(source,layer);}
@@ -187,7 +187,7 @@ async function selectMusic(card,index){
   cards.forEach(el=>el.setAttribute('aria-pressed',String(el===card)));
 }
 cards.forEach((card,index)=>{
-  track.append(card);card.classList.add('music-card');card.querySelectorAll('img[src$=".png"]').forEach(img=>img.alt='Men I Trust music video still');
+  track.append(card);card.classList.add('music-card');card.querySelectorAll('img:is([src$=".png"],[src$=".webp"])').forEach(img=>img.alt='Men I Trust music video still');
   const title=card.querySelector('.music-card__title').textContent.trim();
   buttonize(card,`Select Men I Trust — ${title}`,()=>selectMusic(card,index));
   card.setAttribute('aria-pressed',String(index===0));

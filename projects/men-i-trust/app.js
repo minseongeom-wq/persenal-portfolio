@@ -177,7 +177,7 @@ const backgroundLayers=new Map([[initialBackground.getAttribute('src'),initialBa
 let backgroundRequest=0;
 async function selectMusic(card,index){
   const request=++backgroundRequest;
-  const source=index===0?'assets/478c7.png':card.querySelector('img[src$=".png"]')?.getAttribute('src');
+  const source=index===0?'assets/478c7.png':card.querySelector('img:is([src$=".png"],[src$=".webp"])')?.getAttribute('src');
   if(!source)return;
   let layer=backgroundLayers.get(source);
   if(!layer){layer=initialBackground.cloneNode();layer.classList.remove('is-visible');layer.src=source;layer.alt='';musicBackground.append(layer);backgroundLayers.set(source,layer);}
@@ -187,7 +187,7 @@ async function selectMusic(card,index){
   cards.forEach(el=>el.setAttribute('aria-pressed',String(el===card)));
 }
 cards.forEach((card,index)=>{
-  track.append(card);card.classList.add('music-card');card.querySelectorAll('img[src$=".png"]').forEach(img=>img.alt='Men I Trust music video still');
+  track.append(card);card.classList.add('music-card');card.querySelectorAll('img:is([src$=".png"],[src$=".webp"])').forEach(img=>img.alt='Men I Trust music video still');
   const title=card.querySelector('.music-card__title').textContent.trim();
   buttonize(card,`Select Men I Trust — ${title}`,()=>selectMusic(card,index));
   card.setAttribute('aria-pressed',String(index===0));

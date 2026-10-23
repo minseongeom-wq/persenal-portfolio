@@ -188,9 +188,9 @@ window.MEN_I_TRUST_DESIGN = {
     ]
   ],
   "photos": [
-    "assets/5fdd2.png",
-    "assets/115f9.png",
-    "assets/e7b28.png",
-    "assets/bf0e9.png"
+    "assets/5fdd2.webp",
+    "assets/115f9.webp",
+    "assets/e7b28.webp",
+    "assets/bf0e9.webp"
   ]
 };
