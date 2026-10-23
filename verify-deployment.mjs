@@ -39,7 +39,7 @@ try{
   await page.goto(base);
   await page.evaluate(()=>document.fonts.ready);
   await page.waitForFunction(()=>document.getElementById('contact'));
-  for(const id of ['home','about','work','contribution','development','skills','playground','philosophy','contact']){
+  for(const id of ['home','about','work','team','behind-project','contribution','development','skills','playground','philosophy','contact']){
    await page.locator(`#${id}`).evaluate(element=>element.scrollIntoView({behavior:'instant'}));
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`Overflow: ${width}/${id}`);
   }
@@ -89,7 +89,7 @@ try{
  await fallback.close();
  assert.deepEqual(errors,[],'Browser errors');
  assert.deepEqual(failed,[],'Failed HTTP requests');
- console.log('Deployment checks passed: all static files, 7 viewport widths, 9 sections, direct fragment/reload, keyboard project selection, dialog, navigation, entrance, reduced motion, WebGL fallback, browser errors.');
+ console.log('Deployment checks passed: all static files, 7 viewport widths, 11 sections, direct fragment/reload, keyboard project selection, dialog, navigation, entrance, reduced motion, WebGL fallback, browser errors.');
 }finally{
  await browser?.close();
  if(server.exitCode===null){const closed=once(server,'exit');server.kill();await closed;}

@@ -1,0 +1,41 @@
+[
+  {
+    "file": "dist/assets/game-discovery-development.mp4",
+    "originalBackupHashVerified": true,
+    "faststart": true,
+    "before": {
+      "seconds": 6.78,
+      "description": "Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 1994x1080 [SAR 1:1 DAR 997:540], 10492 kb/s, 30 fps, 30 tbr, 30 tbn, 60 tbc (default)"
+    },
+    "after": {
+      "seconds": 6.8,
+      "description": "Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x694 [SAR 2891:2888 DAR 231280:125267], 606 kb/s, SAR 32765:32731 DAR 722849:391513, 30 fps, 30 tbr, 15360 tbn, 60 tbc (default)"
+    }
+  },
+  {
+    "file": "dist/assets/splatoon-development.mp4",
+    "originalBackupHashVerified": true,
+    "faststart": true,
+    "before": {
+      "seconds": 7.01,
+      "description": "Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 1994x1080 [SAR 1:1 DAR 997:540], 9347 kb/s, 30 fps, 30 tbr, 30 tbn, 60 tbc (default)"
+    },
+    "after": {
+      "seconds": 7.04,
+      "description": "Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x694 [SAR 2891:2888 DAR 231280:125267], 1535 kb/s, SAR 32765:32731 DAR 722849:391513, 30 fps, 30 tbr, 15360 tbn, 60 tbc (default)"
+    }
+  },
+  {
+    "file": "projects/men-i-trust/assets/videos/hero-edited.mp4",
+    "originalBackupHashVerified": true,
+    "faststart": true,
+    "before": {
+      "seconds": 198.35,
+      "description": "Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 1920x1080 [SAR 1:1 DAR 16:9], 9544 kb/s, 30 fps, 30 tbr, 30 tbn, 60 tbc (default)"
+    },
+    "after": {
+      "seconds": 198.37,
+      "description": "Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720 [SAR 1:1 DAR 16:9], 1108 kb/s, 30 fps, 30 tbr, 15360 tbn, 60 tbc (default)"
+    }
+  }
+]

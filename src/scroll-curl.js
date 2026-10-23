@@ -19,6 +19,15 @@ export function initScrollCurl(){
   return {element,filter,image,neutral,displacement,id,visible:false,width:0,key:null,ready:false,pending:null};
  });
  const byElement=new Map(entries.map(entry=>[entry.element,entry]));
+ const playingVideos=new Set();
+ const playbackChanged=event=>{
+  if(!(event.target instanceof HTMLVideoElement))return;
+  const video=event.target;
+  if(video.paused||video.ended)playingVideos.delete(video);else playingVideos.add(video);
+  const entry=byElement.get(video.closest('[data-name^="Section /"]'));
+  if(entry&&playingVideos.has(video))entry.element.style.removeProperty('filter');
+ };
+ document.addEventListener('play',playbackChanged,true);document.addEventListener('pause',playbackChanged,true);document.addEventListener('ended',playbackChanged,true);
  const dirty=new Set(),buildQueue=new Set();
  let frame=0,lastTime=0,lastY=scrollY,activity=0,layoutFrame=0,buildTimer=0,disposed=false;
  function clear(){cancelAnimationFrame(frame);frame=0;activity=0;lastTime=0;lastY=scrollY;entries.forEach(({element})=>element.style.removeProperty('filter'));}
@@ -90,7 +99,10 @@ export function initScrollCurl(){
   const tau=(target>activity?options.attackMs:options.releaseMs)/1000;
   activity+=(target-activity)*(1-Math.exp(-dt/tau));
   if(activity<options.settleThreshold&&target===0){clear();return;}
+  const playingSections=new Set([...playingVideos].map(video=>video.closest('[data-name^="Section /"]')));
   for(const entry of entries){
+   // Avoid re-filtering a live video frame through a section-sized displacement surface.
+   if(playingSections.has(entry.element)){entry.element.style.removeProperty('filter');continue;}
    if(!entry.visible||!entry.ready){if(entry.element.style.filter)entry.element.style.removeProperty('filter');continue;}
    entry.displacement.setAttribute('scale',String(entry.width*options.maxStrength*activity));
    if(!entry.element.style.filter)entry.element.style.filter=`url(#${entry.id})`;
@@ -107,5 +119,5 @@ export function initScrollCurl(){
  sources.forEach(source=>{source.addEventListener('load',sourceReady);source.addEventListener('loadedmetadata',sourceReady);});
  window.addEventListener('scroll',wake,{passive:true});window.addEventListener('resize',resize);
  document.addEventListener('visibilitychange',clear);reduced.addEventListener('change',clear);
- return()=>{disposed=true;clear();cancelAnimationFrame(layoutFrame);clearTimeout(buildTimer);dirty.clear();buildQueue.clear();observer.disconnect();sizes.disconnect();svg.remove();sources.forEach(source=>{source.removeEventListener('load',sourceReady);source.removeEventListener('loadedmetadata',sourceReady);});window.removeEventListener('scroll',wake);window.removeEventListener('resize',resize);document.removeEventListener('visibilitychange',clear);reduced.removeEventListener('change',clear);};
+ return()=>{disposed=true;clear();cancelAnimationFrame(layoutFrame);clearTimeout(buildTimer);dirty.clear();buildQueue.clear();observer.disconnect();sizes.disconnect();svg.remove();sources.forEach(source=>{source.removeEventListener('load',sourceReady);source.removeEventListener('loadedmetadata',sourceReady);});window.removeEventListener('scroll',wake);window.removeEventListener('resize',resize);document.removeEventListener('visibilitychange',clear);reduced.removeEventListener('change',clear);document.removeEventListener('play',playbackChanged,true);document.removeEventListener('pause',playbackChanged,true);document.removeEventListener('ended',playbackChanged,true);playingVideos.clear();};
 }

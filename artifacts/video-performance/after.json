@@ -1,0 +1,10 @@
+{
+  "frames": 283,
+  "p95FrameMs": 50,
+  "framesOver50ms": 14,
+  "maxPlaying": 1,
+  "meanPlaying": 1,
+  "videoSectionFilteredFrames": 0,
+  "taskMs": 4191,
+  "conditions": "Edge headless, 1440x900, 4x CPU throttling, 6-second programmatic scroll; one run, local HTTP"
+}

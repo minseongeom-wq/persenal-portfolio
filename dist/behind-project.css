@@ -1,0 +1,32 @@
+#root .behind-project{position:relative;width:100%;height:calc(var(--behind-stage-height,1100px) + var(--behind-travel,0px));flex-shrink:0;padding:0;margin-top:160px;margin-bottom:80px;text-align:left;overflow:visible}
+#root .behind-project__stage{position:sticky;top:0;width:100%;min-height:var(--behind-viewport,1100px);padding:clamp(24px,calc((var(--behind-viewport,1100px) - 755px) / 2),159px) 0 48px;transform:none}
+#root .behind-project__gallery{display:flex;gap:28px;width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:0;scroll-behavior:auto}
+#root .behind-project__gallery::-webkit-scrollbar{display:none;width:0;height:0}
+#root .behind-project__gallery:focus-visible{outline:2px solid #1a48ff;outline-offset:6px}
+#root .behind-project__figure{flex:0 0 782px;margin:0;scroll-snap-align:start}
+#root .behind-project__figure:nth-child(2){flex-basis:784px}
+#root .behind-project__filters{position:absolute;inset:0;width:0;height:0;overflow:hidden;pointer-events:none}
+#root .behind-project__image{width:100%;height:480px}
+#root .behind-project__figure img{display:block;width:100%;height:480px;object-fit:cover;transform:none;filter:url('#behind-project-blue') blur(1.3px);transition:filter 220ms cubic-bezier(.22,1,.36,1)}
+#root .behind-project__image:is(:hover,:focus-visible) img{filter:none}
+#root .behind-project__image:focus-visible{outline:2px solid #1a48ff;outline-offset:4px}
+#root .behind-project__figure figcaption{margin-top:10px;font-family:'PP Neue Montreal Mono',monospace;font-size:16px;font-weight:500;line-height:1;letter-spacing:-.48px;color:#808080}
+#root .behind-project__content{margin-top:73px;max-width:717px;font-family:'Pretendard',sans-serif;font-weight:500}
+#root .behind-project__label,#root .behind-project__date{font-family:'PP Neue Montreal Mono',monospace;font-size:16px;line-height:1;letter-spacing:-.48px;color:#808080}
+#root .behind-project h2{margin:10px 0;font-family:'Pretendard',sans-serif;font-size:40px;font-weight:500;line-height:1;letter-spacing:-1.2px}
+#root .behind-project__description{margin-top:34px;font-size:14px;line-height:1.4;letter-spacing:-.42px;word-break:keep-all;overflow-wrap:break-word}
+@media(max-width:600px){
+ #root>div{overflow:clip}
+ #root .behind-project{height:calc(var(--behind-stage-height,700px) + var(--behind-travel,0px));padding:0;margin-top:80px;margin-bottom:48px;overflow:visible}
+ #root .behind-project .behind-project__stage{position:sticky;top:0;width:100%;height:auto;min-height:var(--behind-viewport,700px);padding:48px 0 64px;transform:none}
+ #root .behind-project .behind-project__gallery{display:flex;width:100%;height:auto;gap:16px;overflow-x:auto;padding-bottom:0}
+ #root .behind-project .behind-project__figure{flex:0 0 90%;max-width:90%}
+ #root .behind-project .behind-project__image{width:100%;height:auto;aspect-ratio:782/480;overflow:hidden}
+ #root .behind-project .behind-project__figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+ #root .behind-project .behind-project__figure figcaption{font-size:12px;line-height:1.2}
+ #root .behind-project .behind-project__content{width:100%;margin-top:73px}
+ #root .behind-project .behind-project__label,#root .behind-project .behind-project__date{font-size:12px;line-height:1.5;letter-spacing:-.36px}
+ #root .behind-project h2{font-size:32px;letter-spacing:-.96px}
+ #root .behind-project .behind-project__description{margin-top:24px;font-size:14px;line-height:1.6}
+}
+@media(prefers-reduced-motion:reduce){#root .behind-project__figure img{transition:none}}

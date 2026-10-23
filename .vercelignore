@@ -12,5 +12,6 @@ node_modules/
 /typography-baseline.json
 /design-effects-baseline.json
 /artifacts/
+/references/
 # Recreated from projects/ by build.mjs; avoid uploading duplicate project media.
 /dist/projects/

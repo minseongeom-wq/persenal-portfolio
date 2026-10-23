@@ -223,9 +223,9 @@ reducedMotion.addEventListener('change',stopGalleryScroll);
 const customPreview=$('432:606');
 const customImage=customPreview.querySelector('img');
 const customModels=[
-  {name:'EMIRA',src:'assets/51fc0.png',model:'assets/models/emira.glb'},
-  {name:'ELETRE',src:'assets/f5571.png',model:'assets/models/eletre.glb'},
-  {name:'EMEYA',src:'assets/b632f.png',model:'assets/models/emeya.glb'}
+  {name:'EMIRA',src:'assets/51fc0.png',model:'assets/models/emira-draco.glb'},
+  {name:'ELETRE',src:'assets/f5571.png',model:'assets/models/eletre-draco.glb'},
+  {name:'EMEYA',src:'assets/b632f.png',model:'assets/models/emeya-draco.glb'}
 ];
 const customModelViewer=document.createElement('model-viewer');
 customModelViewer.className='custom-model-viewer';

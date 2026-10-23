@@ -188,7 +188,9 @@ async function selectMusic(card,index){
 }
 cards.forEach((card,index)=>{
   track.append(card);card.classList.add('music-card');card.querySelectorAll('img[src$=".png"]').forEach(img=>img.alt='Men I Trust music video still');
-  buttonize(card,`Select Men I Trust music ${index+1}`,()=>selectMusic(card,index));
+  const title=card.querySelector('.music-card__title').textContent.trim();
+  buttonize(card,`Select Men I Trust — ${title}`,()=>selectMusic(card,index));
+  card.setAttribute('aria-pressed',String(index===0));
 });
 
 new MutationObserver(()=>{

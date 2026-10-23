@@ -1,0 +1,56 @@
+[
+  {
+    "name": "emira",
+    "mode": "draco",
+    "originalBytes": 13572428,
+    "bytes": 4976172,
+    "savedPercent": 63.3,
+    "originalSha256": "dc7b12d7ba9ca88e5ddf016435a849504736af1cb6238652149179e71cc1994f",
+    "structureAndTexturesPreserved": true
+  },
+  {
+    "name": "emira",
+    "mode": "meshopt",
+    "originalBytes": 13572428,
+    "bytes": 10338876,
+    "savedPercent": 23.8,
+    "originalSha256": "dc7b12d7ba9ca88e5ddf016435a849504736af1cb6238652149179e71cc1994f",
+    "structureAndTexturesPreserved": true
+  },
+  {
+    "name": "eletre",
+    "mode": "draco",
+    "originalBytes": 34452384,
+    "bytes": 10763060,
+    "savedPercent": 68.8,
+    "originalSha256": "527c5b0bb83f94eb8978671832e25cf3a43f38df73c17602d0e812a6c4e954ee",
+    "structureAndTexturesPreserved": true
+  },
+  {
+    "name": "eletre",
+    "mode": "meshopt",
+    "originalBytes": 34452384,
+    "bytes": 23855328,
+    "savedPercent": 30.8,
+    "originalSha256": "527c5b0bb83f94eb8978671832e25cf3a43f38df73c17602d0e812a6c4e954ee",
+    "structureAndTexturesPreserved": true
+  },
+  {
+    "name": "emeya",
+    "mode": "draco",
+    "originalBytes": 6209060,
+    "bytes": 2721500,
+    "savedPercent": 56.2,
+    "originalSha256": "5bae09ad6fbb6d55b85becc8937454ddf5045e9fe97f66d3bfc87e6d5c760c93",
+    "structureAndTexturesPreserved": true
+  },
+  {
+    "name": "emeya",
+    "mode": "meshopt",
+    "originalBytes": 6209060,
+    "bytes": 5732136,
+    "savedPercent": 7.7,
+    "originalSha256": "5bae09ad6fbb6d55b85becc8937454ddf5045e9fe97f66d3bfc87e6d5c760c93",
+    "structureAndTexturesPreserved": true
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "file": "dist/assets/game-discovery-development.mp4",
+    "width": 1280,
+    "crf": 23,
+    "originalBytes": 8886441,
+    "bytes": 523274,
+    "savedPercent": 94.1,
+    "sha256": "feb7969854be53c478a2e8a2489c6a4149347f0e351e86b2dc4e5645a92edc86",
+    "backup": ".video-tools/performance-originals/feb7969854be53c478a2e8a2489c6a4149347f0e351e86b2dc4e5645a92edc86/game-discovery-development.mp4",
+    "output": ".video-tools/performance-candidates/game-discovery-development.mp4",
+    "encodeSeconds": 2
+  },
+  {
+    "file": "dist/assets/splatoon-development.mp4",
+    "width": 1280,
+    "crf": 23,
+    "originalBytes": 8190829,
+    "bytes": 1354345,
+    "savedPercent": 83.5,
+    "sha256": "2b74a03c2aca9a33ba1aeb16785982f540ed37995c85e7e1371f816d9fe0676b",
+    "backup": ".video-tools/performance-originals/2b74a03c2aca9a33ba1aeb16785982f540ed37995c85e7e1371f816d9fe0676b/splatoon-development.mp4",
+    "output": ".video-tools/performance-candidates/splatoon-development.mp4",
+    "encodeSeconds": 3
+  },
+  {
+    "file": "projects/men-i-trust/assets/videos/hero-edited.mp4",
+    "width": 1280,
+    "crf": 25,
+    "originalBytes": 241706950,
+    "bytes": 30094602,
+    "savedPercent": 87.5,
+    "sha256": "5a7b9a19de79ae3159a82732264ead5c2d162d4b439704d8e130f6b27314394c",
+    "backup": ".video-tools/performance-originals/5a7b9a19de79ae3159a82732264ead5c2d162d4b439704d8e130f6b27314394c/hero-edited.mp4",
+    "output": ".video-tools/performance-candidates/hero-edited.mp4",
+    "encodeSeconds": 107
+  }
+]

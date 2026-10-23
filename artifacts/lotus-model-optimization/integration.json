@@ -1,0 +1,47 @@
+{
+  "originalHashesVerified": true,
+  "decoderRequests": [
+    "http://127.0.0.1:5184/projects/lotus/vendor/draco/draco_wasm_wrapper.js",
+    "http://127.0.0.1:5184/projects/lotus/vendor/draco/draco_decoder.wasm",
+    "http://127.0.0.1:5184/projects/lotus/vendor/draco/draco_wasm_wrapper.js",
+    "http://127.0.0.1:5184/projects/lotus/vendor/draco/draco_decoder.wasm"
+  ],
+  "results": [
+    {
+      "width": 1440,
+      "name": "EMEYA",
+      "loaded": true,
+      "partCameraAndOption": true
+    },
+    {
+      "width": 1440,
+      "name": "EMIRA",
+      "loaded": true,
+      "partCameraAndOption": true
+    },
+    {
+      "width": 1440,
+      "name": "ELETRE",
+      "loaded": true,
+      "partCameraAndOption": true
+    },
+    {
+      "width": 390,
+      "name": "EMEYA",
+      "loaded": true,
+      "partCameraAndOption": true
+    },
+    {
+      "width": 390,
+      "name": "EMIRA",
+      "loaded": true,
+      "partCameraAndOption": true
+    },
+    {
+      "width": 390,
+      "name": "ELETRE",
+      "loaded": true,
+      "partCameraAndOption": true
+    }
+  ]
+}

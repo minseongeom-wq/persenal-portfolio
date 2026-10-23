@@ -12,4 +12,8 @@ latest-desktop.png
 latest-mobile.png
 elastic-*.png
 
+# Generated screenshots from local browser verification.
+/*.png
+/artifacts/**/*.png
+
 .vercel

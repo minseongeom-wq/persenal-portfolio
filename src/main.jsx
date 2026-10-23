@@ -10,6 +10,7 @@ import {initScrollCurl} from './scroll-curl.js';
 import {initContactEntrance} from './contact-entrance.js';
 import {initContributionEntrance} from './contribution-entrance.js';
 import {initDevelopmentEntrance} from './development-entrance.js';
+import {initDevelopmentScroll} from './development-scroll.js';
 import {initContributionPin} from './contribution-pin.js';
 import {initPlaygroundPreview} from './playground-preview.js';
 function App(){useElasticTypography();return <Portfolio/>;}
@@ -23,10 +24,11 @@ requestAnimationFrame(()=>{
  initContributionPin();
  initContributionEntrance();
  initDevelopmentEntrance();
+ initDevelopmentScroll();
  initScrollTitles();
  initComponentDesigns();
  const sections=[...document.querySelectorAll('[data-name^="Section /"]')];
- const names=['home','about','work','team','contribution','development','playground','skills','philosophy','contact'];
+ const names=['home','about','work','team','behind-project','contribution','development','playground','skills','philosophy','contact'];
  sections.forEach((s,i)=>s.id=names[i]);
  const go=id=>document.getElementById(id)?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
  // Section IDs are assigned after React mounts, so restore direct fragment links now.

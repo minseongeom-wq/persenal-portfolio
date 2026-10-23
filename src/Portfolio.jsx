@@ -4,6 +4,7 @@ import LoopVideo from './LoopVideo.jsx';
 import SkillArtwork from './SkillArtwork.jsx';
 import ProjectGallery,{projectCount} from './ProjectGallery.jsx';
 import TeamProject from './TeamProject.jsx';
+import BehindProject from './BehindProject.jsx';
 function ShaderEffect({shaders,children,...props}){return <div {...props} data-shader-unavailable="true">{children}</div>}
 const assetPathPrefix = "./assets";
 const imgIconArrowDownRight = `${assetPathPrefix}/46f35.svg`;
@@ -276,6 +277,7 @@ export default function PortfolioEomMinseong() {
         <ProjectGallery />
       </div>
       <TeamProject />
+      <BehindProject />
       <div className="d3 d56 d25 d7 d11" data-node-id="924:2261">
         <div className="d126 d61 d127">
           <div className="d288 d10 d7 d328" data-name="Section / My Contribution">
@@ -438,17 +440,22 @@ export default function PortfolioEomMinseong() {
       <div className="d3 d56 d25 d7 d11 d12" data-node-id="946:2404">
         <div className="d126 d61 d127 d12">
           <div className="d289 d10 d7 d12" data-name="Section / FRONT-END DEVELOPMENT">
+           <div className="development-stage">
             <div className="d13 d3 d290 d56 d25 d333 d292 d293" data-node-id="948:2442">
               <div className="d126 d61 d127">
                 <div className="d290 d7 d293">
-                  <img alt="" className="d13 d63 d64 d101 d102 d8" src={imgRectangle7} />
+                  <div className="development-media" data-development-pair="0"><img alt="기존 프로젝트 디자인 시안" className="d13 d63 d64 d101 d102 d8" src={imgRectangle7} /></div>
+                  <div className="development-media" data-development-pair="1" hidden><img alt="Nintendo Game Discovery 디자인 시안" className="d13 d63 d64 d101 d102 d8" src="./assets/game-discovery-design.png" /></div>
+                  <div className="development-media" data-development-pair="2" hidden><img alt="Nintendo Splatoon 3 디자인 시안" className="d13 d63 d64 d101 d102 d8" src="./assets/splatoon-design.png" /></div>
                 </div>
               </div>
             </div>
             <div className="d13 d3 d294 d56 d25 d37 d296 d293" data-node-id="948:2744">
               <div className="d126 d61 d127">
                 <div className="d294 d7 d293">
-                  <LoopVideo src="./assets/sequence-03.mp4" poster="./assets/frontend-before.png" label="프론트엔드 개발 비교 영상" variant="development" />
+                  <div className="development-media" data-development-pair="0"><LoopVideo src="./assets/sequence-03.mp4" poster="./assets/frontend-before.png" label="프론트엔드 개발 비교 영상" variant="development" /></div>
+                  <div className="development-media" data-development-pair="1" hidden><LoopVideo src="./assets/game-discovery-development.mp4" poster="./assets/game-discovery-poster.jpg" label="Nintendo Game Discovery 구현 영상" variant="development" /></div>
+                  <div className="development-media" data-development-pair="2" hidden><LoopVideo src="./assets/splatoon-development.mp4" poster="./assets/splatoon-poster.jpg" label="Nintendo Splatoon 3 구현 영상" variant="development" /></div>
                 </div>
               </div>
             </div>
@@ -495,6 +502,7 @@ export default function PortfolioEomMinseong() {
                 </div>
               </div>
             </div>
+           </div>
           </div>
         </div>
       </div>
