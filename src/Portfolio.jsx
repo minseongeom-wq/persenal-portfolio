@@ -105,9 +105,9 @@ export default function PortfolioEomMinseong() {
         <div className="d18 d22 d13 d3 d4 d45 d25 d26 d316 d27 d46 d47 d50 d49 d32" data-node-id="919:875">
           <p className="d35">[SCROLL TO EXPLORE]</p>
         </div>
-        <div className="d13 d51 d52 d53 d54" data-node-id="919:876" data-name="Social Link / Instagram">
+        <a className="d13 d51 d52 d53 d54" data-node-id="919:876" data-name="Social Link / Project" href="#work">
           <div className="d18 d22 d13 d3 d4 d45 d25 d26 d37 d27 d46 d47 d55 d49 d32" data-node-id="919:877">
-            <p className="d35">INSTAGRAM</p>
+            <p className="d35">Project</p>
           </div>
           <div className="d13 d3 d56 d25 d57 d58 d59" data-node-id="919:878">
             <div className="d60 d61">
@@ -116,10 +116,10 @@ export default function PortfolioEomMinseong() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="d13 d51 d65 d53 d66" data-node-id="919:879" data-name="Social Link / YouTube">
+        </a>
+        <a className="d13 d51 d65 d53 d66" data-node-id="919:879" data-name="Social Link / Github" href="https://github.com/minseongeom-wq" target="_blank" rel="noopener noreferrer">
           <div className="d18 d22 d13 d3 d4 d45 d25 d26 d37 d27 d46 d47 d55 d49 d32" data-node-id="919:880">
-            <p className="d35">Youtube</p>
+            <p className="d35">Github</p>
           </div>
           <div className="d13 d3 d56 d25 d67 d58 d59" data-node-id="919:881">
             <div className="d60 d61">
@@ -128,10 +128,10 @@ export default function PortfolioEomMinseong() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="d13 d51 d68 d53 d66" data-node-id="919:882" data-name="Contact Link / Email">
+        </a>
+        <a className="d13 d51 d68 d53 d66" data-node-id="919:882" data-name="Contact Link / Email" href="mailto:minseongeom@gmail.com">
           <div className="d18 d22 d13 d3 d4 d45 d25 d26 d37 d27 d46 d47 d55 d49 d32" data-node-id="919:883">
-            <p className="d35">E-mail</p>
+            <p className="d35">E - mail</p>
           </div>
           <div className="d13 d3 d56 d25 d67 d58 d59" data-node-id="919:884">
             <div className="d60 d61">
@@ -140,7 +140,7 @@ export default function PortfolioEomMinseong() {
               </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
       <div className="d69 d10 d7 d11 d12" data-node-id="919:885" data-name="Section / About">
         <div className="d13 d70 d37 d72 d73" data-node-id="919:886" data-name="About / Photo" role="img" aria-label="카메라를 들고 길가에 앉아 있는 엄민성" style={{ backgroundImage: `url("${assetPathPrefix}/about-me.png")`, backgroundSize: 'cover', backgroundPosition: 'center 65%', backgroundRepeat: 'no-repeat' }} />

@@ -40,11 +40,10 @@ requestAnimationFrame(()=>{
  document.querySelectorAll('[data-name*="Navigation Link"],[data-name="Footer Link / Work"]').forEach(e=>activate(e,()=>go('work')));
  document.querySelectorAll('[data-name="Footer Link / About"]').forEach(e=>activate(e,()=>go('about')));
  activate(document.querySelector('[data-node-id="919:875"]'),()=>go('about'));
- document.querySelectorAll('[data-name*="Email"]').forEach(e=>activate(e,()=>location.href='mailto:minseongeom@gmail.com'));
+ document.querySelectorAll('[data-name*="Email"]:not(a)').forEach(e=>activate(e,()=>location.href='mailto:minseongeom@gmail.com'));
  activate(document.querySelector('[data-node-id="919:971"]'),()=>location.href='mailto:minseongeom@gmail.com');
  const notice=document.getElementById('notice');let timer;
  function notify(text){notice.textContent=text;notice.hidden=false;clearTimeout(timer);timer=setTimeout(()=>notice.hidden=true,3500)}
- document.querySelectorAll('[data-name^="Social Link"]').forEach(e=>activate(e,()=>notify('소셜 프로필 주소를 아직 등록하지 않았습니다.')));
  const links=[...document.querySelectorAll('[data-name^="Project Link /"]')].filter(e=>/Project Link \/ \d/.test(e.dataset.name));
  links.forEach((link,index)=>{
   link.dataset.projectLink=String(index);

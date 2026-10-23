@@ -1,7 +1,7 @@
 #root .team-project{position:relative;width:100%;height:1100px;padding:95px 0 0;flex-shrink:0;text-align:left}
 #root .team-project__heading{margin:0 0 60px;font-family:'PP Neue Montreal',sans-serif;font-size:120px;font-weight:500;line-height:1.08;letter-spacing:-4.8px;height:259px}
-#root .team-project__body{display:grid;grid-template-columns:886px minmax(0,1fr);gap:22px;align-items:start}
-#root .team-project__image{display:block;width:886px;height:497px;overflow:hidden}
+#root .team-project__body{display:grid;grid-template-columns:886px minmax(0,1fr);gap:22px;align-items:stretch}
+#root .team-project__image{display:block;width:886px;height:auto;min-height:0;overflow:hidden}
 #root .team-project__image>img{width:100%;height:100%;object-fit:cover;transform:none}
 #root .team-project__image:is(:hover,:focus-visible) .project-gallery__color{opacity:1}
 #root .team-project__content{min-width:0;font-family:'Pretendard',sans-serif;font-size:14px;line-height:1.4;letter-spacing:-.42px}
@@ -10,14 +10,19 @@
 #root .team-project__description{margin-top:48px}
 #root .team-project h3.team-project__contribution{margin:70px 0 32px}
 #root .team-project__roles{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:26px;row-gap:6px;list-style:none;padding:0;margin:0;font-size:14px}
-#root .team-project__links{display:flex;gap:20px;margin-top:70px}
-#root .team-project__links a{display:inline-flex;align-items:center;gap:4px;color:inherit;text-decoration:none}
-#root .team-project__links img{transform:rotate(-90deg)}
-#root .team-project__links a:hover{text-decoration:underline;color:#000}
+#root .team-project__links{display:flex;gap:12px;margin-top:70px}
+#root .team-project__links a{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-width:174px;min-height:56px;padding:16px 20px;border:1px solid #262626;color:#262626;background:transparent;text-decoration:none;transition:background-color 180ms ease,color 180ms ease,border-color 180ms ease}
+#root .team-project__links a:first-child{background:#262626;color:#f1efeb}
+#root .team-project__links img{flex:none;transform:rotate(-90deg);transition:transform 180ms ease}
+#root .team-project__links a:first-child img{filter:invert(1)}
+#root .team-project__links a:hover{border-color:#1a48ff;color:#1a48ff}
+#root .team-project__links a:first-child:hover{background:#1a48ff;color:#fff}
+#root .team-project__links a:hover img{transform:translate(2px,-2px) rotate(-90deg)}
+#root .team-project__links a:focus-visible{outline:2px solid #1a48ff;outline-offset:5px}
 @media(max-width:600px){
  #root .team-project{height:auto;padding:64px 0}
  #root .team-project__heading{font-size:64px;line-height:1;letter-spacing:-2.56px;height:auto;margin:0 0 32px}
- #root .team-project__body{display:flex;flex-direction:column;gap:28px;width:100%}
+ #root .team-project__body{display:flex;flex-direction:column;align-items:stretch;gap:28px;width:100%}
  #root .team-project__image{width:100%;height:auto;aspect-ratio:886/497}
  #root .team-project__image>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
  #root .team-project__content{width:100%}
@@ -27,4 +32,6 @@
  #root .team-project h3.team-project__contribution{margin:32px 0 20px}
  #root .team-project__roles{display:flex;flex-direction:column;gap:8px;font-size:14px}
  #root .team-project__links{margin-top:28px}
+ #root .team-project__links a{flex:1;min-width:0;min-height:48px;padding:14px 16px;gap:12px;font-size:14px}
 }
+@media(prefers-reduced-motion:reduce){#root .team-project__links a,#root .team-project__links img{transition:none}}

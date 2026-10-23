@@ -203,3 +203,7 @@ body .portfolio-navigation button:focus-visible {
         display: none;
     }
 }
+
+#root a[data-name^='Social Link'],#root a[data-name='Contact Link / Email']{color:inherit;text-decoration:none}#root a[data-name^='Social Link']:hover p,#root a[data-name='Contact Link / Email']:hover p{text-decoration:underline;text-underline-offset:4px}#root a[data-name^='Social Link']:focus-visible,#root a[data-name='Contact Link / Email']:focus-visible{outline:2px solid #1a48ff;outline-offset:5px}
+
+#root a[data-name^='Social Link'],#root a[data-name='Contact Link / Email']{display:flex;align-items:center;gap:2px;width:max-content}#root a[data-name^='Social Link']>div,#root a[data-name='Contact Link / Email']>div{position:relative;left:auto;right:auto;top:auto;bottom:auto;flex:none;transform:none}#root a[data-name^='Social Link']>div:first-child,#root a[data-name='Contact Link / Email']>div:first-child{width:max-content}#root a[data-name^='Social Link']>div:last-child,#root a[data-name='Contact Link / Email']>div:last-child{width:16px;height:16px}

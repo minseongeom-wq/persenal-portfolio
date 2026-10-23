@@ -10,6 +10,9 @@ export function initDevelopmentScroll(){
  const measure=()=>{
   const scale=section.getBoundingClientRect().width/section.offsetWidth;
   section.style.setProperty('--development-viewport',`${innerHeight/scale}px`);
+  const top=stage.getBoundingClientRect().top;
+  const contentBottom=Math.max(...[...stage.children].map(child=>child.getBoundingClientRect().bottom-top))/scale;
+  section.style.setProperty('--development-content-height',`${Math.ceil(contentBottom+64)}px`);
   section.style.setProperty('--development-stage-height',`${stage.offsetHeight}px`);
  };
  const update=now=>{
@@ -40,6 +43,7 @@ export function initDevelopmentScroll(){
  const schedule=()=>{if(!frame){previousTime=performance.now();frame=requestAnimationFrame(update);}};
  const resize=()=>{measure();schedule();};
  const observer=new ResizeObserver(resize);observer.observe(stage);
+ for(const child of stage.children)observer.observe(child);
  window.addEventListener('scroll',schedule,{passive:true});
  window.addEventListener('resize',resize);reduced.addEventListener('change',schedule);
  resize();
